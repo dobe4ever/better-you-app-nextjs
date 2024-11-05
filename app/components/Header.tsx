@@ -58,7 +58,7 @@ export function Header({ username = 'Bruh!', avatarUrl = 'https://i.pravatar.cc/
         className="absolute left-0 right-0 top-[25%] z-10 text-center"
       >
         <h1 className="px-4 font-bold tracking-tight text-white">
-          <span className="inline-block text-4xl">READY TO CRASH SOME HABITS?</span>
+          <span className="inline-block text-2xl">READY TO CRASH SOME HABITS?</span>
         </h1>
       </motion.div>
 
