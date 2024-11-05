@@ -1,9 +1,10 @@
+// app/page.tsx 
 'use client'
 
 import * as React from 'react';
 import { useState, useEffect, useRef, ReactNode } from 'react';
 import { motion } from 'framer-motion';
-import { ChevronRight, Send, Smile, Meh, Frown, X, Menu, Bell, UserCircle, Bot } from 'lucide-react';
+import { Calendar, School, Activity, Brain, Target, Trophy, ChevronRight, Send, Smile, Meh, Frown, X, Menu, Bell, UserCircle, Bot } from 'lucide-react';
 
 interface WidgetProps {
   title: string;
@@ -27,7 +28,7 @@ const Widget = ({
 }: WidgetProps) => {
   return (
     <div
-      className={`bg-white rounded-md p-4 shadow-md ${
+      className={`border border-gray-100 bg-white rounded-md p-4 shadow-md ${
         onClick ? 'cursor-pointer' : ''
       } group ${className}`}
     >
@@ -98,18 +99,26 @@ export default function Component() {
     : 100;
 
   return (
-    <div className="w-full min-h-screen bg-gray-200 flex flex-col">
-      {/* White overlay for fading effect */}
+    // Main container
+    <div className="bg-white min-h-screen w-full">
+      
       <div
-        className="absolute inset-0 bg-gray-200 transition-opacity duration-300 ease-in-out -z-10"
+        className="absolute inset-0 bg-white transition-opacity duration-300 ease-in-out z-10"
         style={{ opacity: `${1 - fadePercentage / 100}` }}
       ></div>
+
+      {/* Content wrapper */}
+      <div
+        className={`relative z-20 transition-colors duration-300 ease-in-out ${
+          fadePercentage === 0 ? 'bg-white' : ''
+        }`}
+      >
 
       {/* HEADER */}
       <div className="w-full flex flex-col">
         <div
           ref={headerRef}
-          className="flex flex-col items-center justify-center transition-opacity duration-300"
+          className="flex flex-col items-center justify-center transition-opacity duration-300 bg-white"
           style={{ opacity: `${fadePercentage / 100}` }}
         >
           {/* TOPBAR */}
@@ -130,10 +139,10 @@ export default function Component() {
           <div className="w-full flex flex-col justify-center items-center bg-orange-400 overflow-hidden">
             <div className="flex flex-col items-center w-full">
               {/* Avatar */}
-              <img className="shadow-lg border-4 border-gray-100 w-[50%] aspect-[1/1] rounded-full z-10" src="https://i.pravatar.cc/128" alt="User avatar" />
+              <img className="shadow-md border-4 border-orange-300 w-[50%] aspect-[1/1] rounded-full z-10" src="https://i.pravatar.cc/128" alt="User avatar" />
 
               {/* Diamond */}
-              <div className="-mt-[25%] bg-gray-200 rotate-[45deg] w-full aspect-[1/1]"> </div>
+              <div className="-mt-[25%] bg-white rotate-[45deg] w-full aspect-[1/1]"> </div>
             
               {/* Text */}
               <div className="-mt-[73%] w-full font-bold text-center text-2xl px-4 z-10"> 
@@ -155,9 +164,10 @@ export default function Component() {
       </div>
 
       {/* STICKY TOP */}
-      <div className="sticky top-0 bg-gray-200 w-full py-2 flex flex-row justify-between overflow-hidden z-20">
+      <div className="sticky top-0 bg-white w-full py-2 flex flex-row justify-between overflow-hidden bg-white z-20">
+      
         {/* Left: */}
-        <div className="h-full px-4 w-1/4 flex flex-col items-center bg-gray-200 z-10">
+        <div className="h-full px-4 w-1/4 flex flex-col items-center bg-white z-10">
           <Bot size={20} className="text-orange-400 mb-1.5" />
           {/* Dot indicators */}
           <div className="flex gap-2">
@@ -168,7 +178,7 @@ export default function Component() {
                 className={`w-1.5 h-1.5 rounded-full transition-all duration-300 ${
                   activeSlide === index
                     ? 'bg-orange-400'
-                    : 'bg-white'
+                    : 'bg-gray-200'
                 }`}
               />
             ))}
@@ -216,7 +226,7 @@ export default function Component() {
       </div>
         
       {/* CONTENT */}
-      <div className="w-full flex flex-col space-y-4 mt-4 p-4 overflow-auto">
+      <div className="shadow-md border-t bg-white rounded-2xl w-full flex flex-col space-y-4 mt-4 p-4 overflow-auto">
         {/* Announcement widget*/}
         {showAnnouncement && (
           <Widget
@@ -284,50 +294,98 @@ export default function Component() {
           </div>
         </Widget>
 
-        {/* Quick Input widget*/}
-        <Widget title="Quick Input" onClick={() => {}}>
-          <div className="mb-4">
-            <p className="mb-2 text-sm text-gray-400">
-              How are you feeling today?
-            </p>
-            <div className="flex space-x-4">
-              {[
-                { icon: Smile, mood: 'happy', color: 'text-green-500' },
-                { icon: Meh, mood: 'neutral', color: 'text-yellow-500' },
-                { icon: Frown, mood: 'sad', color: 'text-red-500' },
-              ].map(({ icon: Icon, mood: m, color }) => (
-                <button
-                  key={m}
-                  onClick={() => setMood(m)}
-                  className={`p-2 rounded-full transition-all duration-200 ${
-                    mood === m ? `${color} bg-gray-100` : 'text-gray-400'
-                  }`}
-                >
-                  <Icon size={24} />
-                </button>
-              ))}
-            </div>
-          </div>
-          <div>
-            <p className="mb-2 text-sm text-gray-400">
-              Quick note or goal for today:
-            </p>
-            <div className="flex">
-              <input
-                type="text"
-                value={input}
-                onChange={(e) => setInput(e.target.value)}
-                className="px-2 py-2 text-sm border border-gray-300 rounded-l-full focus:outline-none focus:ring-2 focus:ring-orange-300"
-                placeholder="Type here..."
-              />
-              <button className="bg-orange-400 text-sm text-white px-2 py-2 rounded-r-full hover:bg-orange-600 transition-colors duration-200 flex items-center">
-                <Send size={14} className="mr-1" />
-                Send
-              </button>
-            </div>
-          </div>
-        </Widget>
+  {/* 2 by 2 Grid Widgets */}
+  <div className="grid grid-cols-2 gap-4">
+    {/* Calendar Widget */}
+    <Widget title="Calendar" onClick={() => {}}>
+      <div className="flex flex-col items-center mt-2">
+        <Calendar className="w-8 h-8 text-orange-400 mb-2" />
+        <span className="text-2xl font-bold">23</span>
+        <span className="text-sm text-gray-400">Dec 2024</span>
       </div>
+    </Widget>
+
+    {/* Analytics Widget */}
+    <Widget title="Analytics" onClick={() => {}}>
+      <div className="flex flex-col items-center mt-2">
+        <Activity className="w-8 h-8 text-orange-400 mb-2" />
+        <span className="text-2xl font-bold">98%</span>
+        <span className="text-sm text-gray-400">Tracking</span>
+      </div>
+    </Widget>
+
+    {/* AI Coach Widget */}
+    <Widget title="AI Coach" onClick={() => {}}>
+      <div className="flex flex-col items-center mt-2">
+        <Bot className="w-8 h-8 text-orange-400 mb-2" />
+        <span className="text-2xl font-bold">Checking</span>
+        <span className="text-sm text-gray-400">Habits</span>
+      </div>
+    </Widget>
+
+    {/* Achievements Widget */}
+    <Widget title="Achievements" onClick={() => {}}>
+      <div className="flex flex-col items-center mt-2">
+        <Trophy className="w-8 h-8 text-orange-400 mb-2" />
+        <span className="text-2xl font-bold">85</span>
+        <span className="text-sm text-gray-400">Points</span>
+      </div>
+    </Widget>
+  </div>
+
+  {/* Carousel Widget */}
+  <Widget title="Ads" className="overflow-hidden">
+    <div
+      className="flex transition-transform duration-300 ease-out w-full"
+      style={{ transform: `translateX(-${activeSlide * 100}%)` }}
+    >
+      {[
+        {
+          message: "Learn more about our new products",
+          source: "Exclusive offers for today",
+        },
+        {
+          message: "Boost your productivity with our AI tools",
+          source: "Upgrade to our premium plan",
+        },
+        {
+          message: "Join our community and connect with others",
+          source: "Find support and accountability",
+        },
+      ].map((item, index) => (
+        <div key={index} className="flex-shrink-0 w-full">
+          <blockquote className="border-l-4 pl-3 h-full border-orange-400 italic text-sm text-gray-400">
+            <p className="text-black font-bold">{item.message}</p>
+            <p className="text-gray-500">{item.source}</p>
+          </blockquote>
+        </div>
+      ))}
     </div>
+  </Widget>
+
+
+  {/* Life Score and Courses Widgets */}
+  <div className="grid grid-cols-2 gap-4">
+    {/* Life Score Widget */}
+    <Widget title="Life Score" onClick={() => {}}>
+      <div className="flex flex-col items-center mt-2">
+        <Activity className="w-8 h-8 text-orange-400 mb-2" />
+        <span className="text-2xl font-bold">98</span>
+        <span className="text-sm text-gray-400">Score</span>
+      </div>
+    </Widget>
+
+    {/* Courses Widget */}
+    <Widget title="Courses" onClick={() => {}}>
+      <div className="flex flex-col items-center mt-2">
+        <School className="w-8 h-8 text-orange-400 mb-2" />
+        <span className="text-2xl font-bold">12</span>
+        <span className="text-sm text-gray-400">Completed</span>
+      </div>
+    </Widget>
+        </div>
+        </div>
+      </div>
+   </div>
   );
 }
