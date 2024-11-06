@@ -11,7 +11,7 @@ import {
 export function AiTipsCarousel() {
   return (
     <div className="bg-white py-2 shadow-md">
-      <Carousel className="mx-auto max-w-md">
+      <Carousel className="mx-auto max-w-sm">
         <CarouselContent>
           {[1, 2, 3].map((_, index) => (
             <CarouselItem key={index}>
