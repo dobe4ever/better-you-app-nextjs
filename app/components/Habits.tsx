@@ -7,7 +7,7 @@ export function Habits() {
   return (
     <Card>
       <CardHeader className="flex flex-row items-center justify-between">
-        <CardTitle>Todays Habits</CardTitle>
+        <CardTitle>Today&apos;s Habits</CardTitle>
         <ChevronRight className="h-5 w-5 text-gray-400" />
       </CardHeader>
       <CardContent>
