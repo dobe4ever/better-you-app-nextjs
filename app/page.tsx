@@ -2,14 +2,14 @@
 'use client'
 
 import { useEffect, useRef } from 'react'
-import { Header } from './components/Header'
-import { AiTipsCarousel } from './components/AiTipsCarousel'
-import { Announcement } from './components/Announcement'
-import { Habits } from './components/Habits'
-import { Todos } from './components/Todos'
-import { QuickAccess } from './components/QuickAccess'
-import { AdsCarousel } from './components/AdsCarousel'
-import { LifeScoreAndCourses } from './components/LifeScoreAndCourses'
+import { Header } from '../components/Header'
+import { AiTipsCarousel } from '../components/AiTipsCarousel'
+import { Announcement } from '../components/Announcement'
+import { Habits } from '../components/Habits'
+import { Todos } from '../components/Todos'
+import { QuickAccess } from '../components/QuickAccess'
+import { AdsCarousel } from '../components/AdsCarousel'
+import { LifeScoreAndCourses } from '../components/LifeScoreAndCourses'
 
 export default function Dashboard() {
   const headerRef = useRef<HTMLDivElement>(null)
