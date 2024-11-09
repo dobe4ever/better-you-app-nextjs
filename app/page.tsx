@@ -50,8 +50,8 @@ export default function Dashboard() {
         <AiTipsCarousel />
       </div>
 
-      <main className="bg-white p-4 shadow-4xl">
-        <div className="space-y-4">
+      <main className="bg-white p-2">
+        <div className="space-y-2">
           <Announcement />
           <Habits />
           <Todos />
