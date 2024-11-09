@@ -16,9 +16,9 @@ export function AiTipsCarousel() {
           {[1, 2, 3].map((_, index) => (
             <CarouselItem key={index}>
               <Card className="bg-white">
-                <CardContent className="flex items-center gap-3 p-3">
+                <CardContent className="flex items-center gap-3 p-2">
                   <Bot className="h-6 w-6 text-orange-500" />
-                  <p className="text-sm">Remember to take regular breaks!</p>
+                  <p className="text-xs">Remember to take regular breaks!</p>
                 </CardContent>
               </Card>
             </CarouselItem>

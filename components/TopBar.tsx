@@ -26,28 +26,28 @@ export function TopBar({ username = 'Bruh!', avatarUrl = '/placeholder.svg' }: T
 
   return (
     <div className="bg-orange-400">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="flex h-16 items-center justify-between">
+      <div className="pb-10">
+        <div className="flex h-12 items-center justify-between">
           {/* Left side */}
           <div className="flex items-center">
             <Button variant="ghost" size="icon" className="mr-4 text-white hover:bg-orange-500">
-              <Menu className="h-6 w-6" />
+              <Menu className="h-8 w-8" />
               <span className="sr-only">Menu</span>
             </Button>
-            <h1 className="text-xl font-semibold text-white">Yo {username}</h1>
+            <h1 className="text- font-semibold text-white">Yo {username}</h1>
           </div>
 
           {/* Right side */}
-          <div className="flex items-center space-x-4">
+          <div className="flex items-center">
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <Button variant="ghost" size="icon" className="relative text-white hover:bg-orange-500">
-                  <Bell className="h-6 w-6" />
+                  <Bell className="h-8 w-8" />
                   {notificationCount > 0 && (
                     <motion.span
                       initial={{ scale: 0 }}
                       animate={{ scale: 1 }}
-                      className="absolute -right-1 -top-1 flex h-5 w-5 items-center justify-center rounded-full bg-red-500 text-xs font-bold text-white"
+                      className="absolute right-0 top-0 flex h-4 w-4 items-center justify-center rounded-full bg-red-500 text-xs font-bold text-white"
                     >
                       {notificationCount}
                     </motion.span>
@@ -68,7 +68,7 @@ export function TopBar({ username = 'Bruh!', avatarUrl = '/placeholder.svg' }: T
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <Button variant="ghost" size="icon" className="rounded-full text-white hover:bg-orange-500">
-                  <Avatar className="h-8 w-8">
+                  <Avatar className="h-5 w-5">
                     <AvatarImage src={avatarUrl} alt={username} />
                     <AvatarFallback>{initials}</AvatarFallback>
                   </Avatar>

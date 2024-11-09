@@ -30,7 +30,7 @@ export default function Dashboard() {
           carouselRef.current.style.top = 'auto'
           carouselRef.current.style.left = 'auto'
           carouselRef.current.style.right = 'auto'
-          carouselRef.current.style.zIndex = 'auto'
+          carouselRef.current.style.zIndex = '50'
         }
       }
     }
@@ -40,17 +40,17 @@ export default function Dashboard() {
   }, [])
 
   return (
-    <div className="min-h-screen overflow-hidden bg-">
+    <div className="min-h-screen overflow-hidden bg-gradient-to-br from-gray-200 via-gray-50 to-gray-300">
       
-      <div ref={headerRef} className="bg- pb-">
+      <div ref={headerRef} className="-mb- px-">
         <Header />
       </div>
 
-      <div ref={carouselRef} className="bg-gray-300 rounded-t-3xl py-2 px-16">
+      <div ref={carouselRef} className="bg-white rounded-t-3xl py-4 px-16">
         <AiTipsCarousel />
       </div>
 
-      <main className="bg-white p-4">
+      <main className="bg-white p-4 shadow-4xl">
         <div className="space-y-4">
           <Announcement />
           <Habits />
