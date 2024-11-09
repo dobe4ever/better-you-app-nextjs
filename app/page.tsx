@@ -40,14 +40,17 @@ export default function Dashboard() {
   }, [])
 
   return (
-    <div className="min-h-screen bg-gray-50 overflow-hidden">
-      <div ref={headerRef}>
+    <div className="min-h-screen overflow-hidden bg-">
+      
+      <div ref={headerRef} className="bg- pb-">
         <Header />
       </div>
-      <div ref={carouselRef}>
+
+      <div ref={carouselRef} className="bg-white rounded-t-3xl py-4 px-16">
         <AiTipsCarousel />
       </div>
-      <main className="p-4">
+
+      <main className="bg-white p-4">
         <div className="space-y-4">
           <Announcement />
           <Habits />
