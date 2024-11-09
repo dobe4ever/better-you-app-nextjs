@@ -40,25 +40,24 @@ export default function Dashboard() {
   }, [])
 
   return (
-    <div className="min-h-screen overflow-hidden bg-">
+    <div className="min-h-screen overflow-hidden">
       
-      <div ref={headerRef} className="-mb- px-">
+      <div ref={headerRef}>
         <Header />
       </div>
 
-      <div ref={carouselRef} className="bg-white rounded-t-3xl pb-4 px-16">
+      <div ref={carouselRef} className="bg-white py-2 px-14">
         <AiTipsCarousel />
       </div>
 
-      <main className="bg-white p-2">
-        <div className="space-y-2">
+      {/* Widgets wraper */}
+      <main className="flex flex-col overflow-hidden w-full bg- py-6 px-3 space-y-2">
           <Announcement />
           <Habits />
           <Todos />
           <QuickAccess />
           <AdsCarousel />
           <LifeScoreAndCourses />
-        </div>
       </main>
     </div>
   )

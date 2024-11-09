@@ -37,11 +37,11 @@ export function Header({ username = 'Bruh!', avatarUrl = 'https://i.pravatar.cc/
       <TopBar username={username} avatarUrl={avatarUrl} />
 
       {/* Background square with curve */}
-      <div className="relative w-full pb-[50%]">
+      <div className="relative w-full pb-[60%]">
         {/* Skewed orange overlay */}
         <div className="flex justify-center items-center">
-          <div className="absolute -top-10 left-0 h-[35%] w-1/2 bg-orange-400 -skew-y-12"></div>
-          <div className="absolute -top-10 right-0 h-[35%] w-1/2 bg-orange-400 skew-y-12"></div>
+          <div className="absolute -top-10 left-0 h-[50%] w-1/2 bg-orange-400 -skew-y-12"></div>
+          <div className="absolute -top-10 right-0 h-[50%] w-1/2 bg-orange-400 skew-y-12"></div>
         </div>
       </div>
 
@@ -52,10 +52,11 @@ export function Header({ username = 'Bruh!', avatarUrl = 'https://i.pravatar.cc/
 
             {/* Avatar */}
             <div className="w-full flex justify-center z-10">
-              <div className="rounded-full shadow border-4 border-orange-300 overflow-hidden">
+              <div className="rounded-full shadow-xl border-4 border-orange-300/25 overflow-hidden">
                 <img
                   src="https://i.pravatar.cc/128"
                   alt="Avatar"
+                  className="w-56 h-56 object-cover"
                 />
               </div>
             </div>
