@@ -13,7 +13,7 @@ export function Habits() {
       <div className="flex items-center justify-between">
 
         <div className="my-2">
-          <p className="text-gray-400">Completed</p>
+          <p className="text-sm text-gray-400">Completed</p>
           <p className="text-xl font-bold">8/10</p>
         </div>
 
