@@ -6,7 +6,7 @@ export function Todos() {
     <div className="bg-white rounded-md border p-4 shadow">
 
       <div className="flex items-center justify-between">
-        <p className="text-2xl font-bold">Today's Todo's</p>
+        <p className="text-xl font-bold">Today's Todo's</p>
         <ChevronRight className="h-5 w-5 text-orange-400" />
       </div>
 
