@@ -46,7 +46,7 @@ export default function Dashboard() {
         <Header />
       </div>
 
-      <div ref={carouselRef} className="bg-white rounded-t-3xl py-4 px-16">
+      <div ref={carouselRef} className="bg-gray-300 rounded-t-3xl py-2 px-16">
         <AiTipsCarousel />
       </div>
 

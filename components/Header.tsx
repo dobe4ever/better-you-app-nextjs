@@ -52,7 +52,7 @@ export function Header({ username = 'Bruh!', avatarUrl = 'https://i.pravatar.cc/
 
             {/* Avatar */}
             <div className="w-full flex justify-center z-10">
-              <div className="rounded-full shadow-xl border-4 border-orange-300 overflow-hidden">
+              <div className="rounded-full shadow border-4 border-orange-300 overflow-hidden">
                 <img
                   src="https://i.pravatar.cc/128"
                   alt="Avatar"
