@@ -1,7 +1,6 @@
 // app/page.tsx
 'use client'
-
-import { useEffect, useRef } from 'react'
+import { useState, useEffect } from 'react'
 import { Header } from '../components/Header'
 import { AiTipsCarousel } from '../components/AiTipsCarousel'
 import { Announcement } from '../components/Announcement'
@@ -11,54 +10,40 @@ import { QuickAccess } from '../components/QuickAccess'
 import { AdsCarousel } from '../components/AdsCarousel'
 import { LifeScoreAndCourses } from '../components/LifeScoreAndCourses'
 
-export default function Dashboard() {
-  const headerRef = useRef<HTMLDivElement>(null)
-  const carouselRef = useRef<HTMLDivElement>(null)
-
+export default function Component() {
+  const [scrollPosition, setScrollPosition] = useState(0);
+  
   useEffect(() => {
     const handleScroll = () => {
-      if (headerRef.current && carouselRef.current) {
-        const headerBottom = headerRef.current.getBoundingClientRect().bottom
-        if (headerBottom <= 0) {
-          carouselRef.current.style.position = 'fixed'
-          carouselRef.current.style.top = '0'
-          carouselRef.current.style.left = '0'
-          carouselRef.current.style.right = '0'
-          carouselRef.current.style.zIndex = '50'
-        } else {
-          carouselRef.current.style.position = 'relative'
-          carouselRef.current.style.top = 'auto'
-          carouselRef.current.style.left = 'auto'
-          carouselRef.current.style.right = 'auto'
-          carouselRef.current.style.zIndex = '50'
-        }
-      }
-    }
-
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
-
+      const position = window.scrollY;
+      setScrollPosition(position);
+    };
+    // Set initial scroll position
+    handleScroll();
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+    
   return (
-    <div className="min-h-screen overflow-hidden">
-      
-      <div ref={headerRef}>
-        <Header />
-      </div>
-
-      <div ref={carouselRef} className="bg-white py-2 px-14">
+    <div className="min-h-screen">
+      {/* Header */}
+      <Header />
+      {/* Sticky Top */}
+      <div className="sticky top-0 z-30 w-full">
         <AiTipsCarousel />
       </div>
-
-      {/* Widgets wraper */}
-      <main className="flex flex-col overflow-hidden w-full bg- py-6 px-3 space-y-2">
-          <Announcement />
-          <Habits />
-          <Todos />
-          <QuickAccess />
-          <AdsCarousel />
-          <LifeScoreAndCourses />
+      {/* Widgets wrapper */}
+      <main className="flex flex-col w-full bg- py-6 px-3 space-y-3">
+        <Announcement />
+        <Habits />
+        <Todos />
+        <QuickAccess />
+        <AdsCarousel />
+        <LifeScoreAndCourses />
       </main>
     </div>
   )
 }
+

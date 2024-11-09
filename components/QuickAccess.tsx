@@ -40,7 +40,7 @@ const Widget = ({
 export function QuickAccess() {
 
   return (
-    <div className="grid grid-cols-2 gap-2 mt-4">
+    <div className="grid grid-cols-2 gap-3 mt-4">
       {/* Calendar Widget */}
       <Widget title="Calendar" onClick={() => {}}>
         <div className="flex flex-col items-center mt-2">
