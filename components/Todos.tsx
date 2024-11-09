@@ -3,7 +3,7 @@ import { ChevronRight } from 'lucide-react'
 
 export function Todos() {
   return (
-    <div className="bg-white rounded-md border p-4 shadow">
+    <div className="bg-white rounded-md border p-4 shadow-md">
 
       <div className="flex items-center justify-between">
         <p className="text-xl font-bold">Today's Todo's</p>

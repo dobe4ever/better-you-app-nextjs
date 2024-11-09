@@ -69,7 +69,7 @@ export function Header({ username = 'Bruh!', avatarUrl = 'https://i.pravatar.cc/
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.3, duration: 0.5 }}
-        className="absolute left-0 right-0 bottom-10 text-center"
+        className="absolute left-0 right-0 bottom-0 text-center"
       >
         <h1 className="font-bold tracking-tight text-orange-400">
           <span className="inline-block text-xl">READY TO CRASH SOME HABITS?</span>
