@@ -3,7 +3,7 @@ import { ChevronRight } from 'lucide-react'
 
 export function Todos() {
   return (
-    <div className="bg-white rounded-md border p-4 shadow-md">
+    <div className="bg-white rounded-md border p-4">
 
       <div className="flex items-center justify-between">
         <p className="text-lg font-bold">Today's Todo's</p>
@@ -21,9 +21,9 @@ export function Todos() {
 
       </div>
       
-      <div className="w-full bg-gray-100 rounded-full h-2 overflow-hidden">
+      <div className="w-full bg-gray-100 rounded-full h-1.5 overflow-hidden">
         <div
-          className="h-full rounded-full bg-gradient-to-br from-orange-200 via-orange-300 to-orange-400"
+          className="h-full rounded-full bg-black"
           style={{ width: '29%', transition: 'width 1s ease-in-out' }} 
         />
       </div>

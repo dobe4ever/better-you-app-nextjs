@@ -6,7 +6,7 @@ import { AiTipsCarousel } from '../components/AiTipsCarousel'
 import { Announcement } from '../components/Announcement'
 import { Habits } from '../components/Habits'
 import { Todos } from '../components/Todos'
-import { QuickAccess } from '../components/QuickAccess'
+import { GridWidgets } from '../components/GridWidgets'
 import { AdsCarousel } from '../components/AdsCarousel'
 import { LifeScoreAndCourses } from '../components/LifeScoreAndCourses'
 
@@ -35,11 +35,11 @@ export default function Component() {
         <AiTipsCarousel />
       </div>
       {/* Widgets wrapper */}
-      <main className="flex flex-col w-full bg- py-4 px-3 space-y-3">
+      <main className="flex flex-col w-full bg- py-4 px-3 space-y-2">
         <Announcement />
         <Habits />
         <Todos />
-        <QuickAccess />
+        <GridWidgets />
         <AdsCarousel />
         <LifeScoreAndCourses />
       </main>

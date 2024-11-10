@@ -24,7 +24,7 @@ const Widget = ({
 }: WidgetProps) => {
   return (
     <div
-      className={`bg-white rounded-md p-4 border shadow-md ${
+      className={`bg-white rounded-md p-4 border ${
         onClick ? 'cursor-pointer' : ''
       } group ${className}`}
     >
@@ -63,7 +63,7 @@ export function Announcement() {
             </button>
           }
         >
-          <div className="my-2">
+          <div className="mt-4">
             <a
               href="https://vercel.com/dobe4evers-projects/vitejs-node-ts-tailwind-better-you"
               target="_blank"
