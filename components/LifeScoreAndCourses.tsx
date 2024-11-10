@@ -47,7 +47,7 @@ export function LifeScoreAndCourses() {
         <LoaderPinwheel size={32} />
 
         <div className="text-sm text-gray-600 mt-2">
-          Wheel tool. Masure & track your score in all areas
+        Measure your score across all life areas with our intuitive wheel assessment tool
         </div>
 
       </Widget>
@@ -59,7 +59,7 @@ export function LifeScoreAndCourses() {
         <GraduationCap size={32} />
 
         <div className="text-sm text-gray-600 mt-2">
-          Buy, track and review courses
+        Explore curated learning paths and track your educational journey in one place
         </div>
 
       </Widget>
