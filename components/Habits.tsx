@@ -6,7 +6,7 @@ export function Habits() {
     <div className="bg-white rounded-md border p-4 shadow-md">
 
       <div className="flex items-center justify-between">
-        <p className="text-xl font-bold">Today's Habits</p>
+        <p className="text-lg font-bold">Today's Habits</p>
         <ChevronRight className="h-5 w-5 text-orange-400" />
       </div>
 
@@ -14,10 +14,10 @@ export function Habits() {
 
         <div className="my-2">
           <p className="text-sm text-gray-400">Completed</p>
-          <p className="text-xl font-bold">8/10</p>
+          <p className="text-md font-bold">8/10</p>
         </div>
 
-        <p className="text-4xl font-bold">80%</p>
+        <p className="text-2xl font-bold">80%</p>
 
       </div>
       

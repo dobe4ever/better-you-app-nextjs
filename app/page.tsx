@@ -35,7 +35,7 @@ export default function Component() {
         <AiTipsCarousel />
       </div>
       {/* Widgets wrapper */}
-      <main className="flex flex-col w-full bg- py-6 px-3 space-y-3">
+      <main className="flex flex-col w-full bg- py-4 px-3 space-y-3">
         <Announcement />
         <Habits />
         <Todos />

@@ -33,17 +33,17 @@ export function AiTipsCarousel() {
   }, []);
 
   return (
-    <div className="bg-white rounded- m-2 p-2 border-y shadow- relative">
+    <div className="bg-white m-2 p-2 border-y shadow- relative">
       {/* Left Navigation */}
       <button 
         onClick={(e) => {
           e.stopPropagation();
           prevSlide();
         }}
-        className="absolute left-0 top-1/2 -translate-y-1/2 p-3 bg-white z-10"
+        className="absolute left-0 top-0 bottom-0 bg-white z-10"
         aria-label="Previous tip"
       >
-        <ChevronLeft size={20} className="text-orange-400" />
+        <ChevronLeft size={20} className="text-orange-400 m-1.5" />
       </button>
 
       {/* Right Navigation */}
@@ -52,10 +52,10 @@ export function AiTipsCarousel() {
           e.stopPropagation();
           nextSlide();
         }}
-        className="absolute right-0 top-1/2 -translate-y-1/2 p-3 bg-white z-10"
+        className="absolute right-0 top-0 bottom-0 bg-white z-10"
         aria-label="Next tip"
       >
-        <ChevronRight size={20} className="text-orange-400"/>
+        <ChevronRight size={20} className="text-orange-400 m-1.5"/>
       </button>
 
       {/* Carousel Content */}
@@ -66,12 +66,12 @@ export function AiTipsCarousel() {
         >
           {tips.map((tip, index) => (
             <div key={index} className="flex-shrink-0 w-full">
-              <div className="flex items-center gap-2 px-4">
+              <div className="flex items-center gap-2 px-0">
                 <div className="flex-shrink-0">
                   <Bot size={36} className="text-orange-400" />
                 </div>
                 <blockquote className="flex flex-col border-l-4 pl-2 border-orange-400 italic text-sm text-gray-400">
-                  <p className="text-xs text-black font-semibold">{tip.message}</p>
+                  <p className="text-md text-black font-semibold">{tip.message}</p>
                   <p className="text-xs text-gray-500">{tip.detail}</p>
                 </blockquote>
               </div>
