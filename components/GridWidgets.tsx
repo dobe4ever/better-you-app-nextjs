@@ -48,7 +48,7 @@ export function GridWidgets() {
         <Calendar size={32} />
 
         <div className="text-sm text-gray-600 mt-2">
-          Add, track and review your calendar
+        Schedule tasks, set reminders, and stay organized
         </div>
 
       </Widget>
@@ -87,7 +87,7 @@ export function GridWidgets() {
         <Bot size={32} />
 
         <div className="text-sm text-gray-600 mt-2">
-          Personalized, expert, one-on-one coaching
+        Get instant guidance and support from your 24/7 AI coach
         </div>
 
       </Widget>
@@ -100,7 +100,7 @@ export function GridWidgets() {
         <Trophy size={32} />
 
         <div className="text-sm text-gray-600 mt-2">
-          All achievements so far this month
+        Unlock rewards as you reach new milestones
         </div>
 
       </Widget>
