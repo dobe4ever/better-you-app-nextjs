@@ -24,7 +24,7 @@ const Widget = ({
 }: WidgetProps) => {
   return (
     <div
-      className={`bg-white rounded-md p-4 border ${
+      className={`bg-white rounded-md p-4 shadow ${
         onClick ? 'cursor-pointer' : ''
       } group ${className}`}
     >
@@ -43,9 +43,8 @@ export function Announcement() {
   if (!showAnnouncement) return null
 
   return (
-    <div>
-      {/* Widgets wraper */}
-      <div className="w-full">
+    <div className="bg-white rounded-md border p-">
+
       {/* Announcement widget*/}
       {showAnnouncement && (
         <Widget
@@ -76,6 +75,5 @@ export function Announcement() {
         </Widget>
       )}
       </div>
-    </div>
   )
 }

@@ -1,3 +1,69 @@
+// // components/Header.tsx
+// 'use client'
+
+// import { useEffect, useRef, useState } from 'react'
+// import { motion } from 'framer-motion'
+// import { TopBar } from './TopBar'
+
+// interface HeaderProps {
+//   username?: string
+//   avatarUrl?: string
+// }
+
+// export function Header({ username = 'Brotastic', avatarUrl = 'https://i.pravatar.cc/300' }: HeaderProps) {
+//   const [fadePercentage, setFadePercentage] = useState(0)
+//   const headerRef = useRef<HTMLDivElement>(null)
+
+//   useEffect(() => {
+//     const handleScroll = () => {
+//       if (headerRef.current) {
+//         const scrollPosition = window.scrollY
+//         const headerHeight = headerRef.current.offsetHeight
+//         const newFadePercentage = Math.max(0, Math.min(100, (scrollPosition / headerHeight) * 100))
+//         setFadePercentage(newFadePercentage)
+//       }
+//     }
+
+//     window.addEventListener('scroll', handleScroll)
+//     return () => window.removeEventListener('scroll', handleScroll)
+//   }, [])
+
+//   return (
+//     <div className="relative" >
+
+//         <TopBar />
+
+//         {/* Centered avatar container */}
+//         <div className="w-full">
+//           {/* Avatar */}
+//           <div className="w-full flex justify-center z-10">
+//             <div className="rounded-full shadow-lg border-4 border-orange-300/25 overflow-hidden">
+//               <img
+//                 src={avatarUrl}
+//                 alt="Avatar"
+//                 className="w-56 h-56 object-cover"
+//               />
+//             </div>
+//           </div>
+//         </div>
+
+//         {/* Main greeting text */}
+//         <motion.div
+//           initial={{ opacity: 0, y: 50 }}
+//           animate={{ opacity: 1, y: 10}}
+//           transition={{ delay: 0.1, duration: 0.2 }}
+//           className="text-center"
+//         >
+//           <h1 className="text-white">
+//             <span className="tracking-tighter font-bold text-2xl">READY TO CRASH SOME HABITS?</span>
+//           </h1>
+//         </motion.div>
+
+//     </div>
+//   )
+// }
+
+// components/Header.tsx
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
@@ -36,7 +102,7 @@ export function Header({ username = 'Bruh!', avatarUrl = 'https://i.pravatar.cc/
     >
       <TopBar username={username} avatarUrl={avatarUrl} />
 
-      {/* Background square with curve */}
+      {/* Background shape */}
       <div className="relative w-full pb-[60%]">
         {/* Skewed orange overlay */}
         <div className="flex justify-center items-center">
@@ -47,8 +113,6 @@ export function Header({ username = 'Bruh!', avatarUrl = 'https://i.pravatar.cc/
 
       {/* Centered avatar container */}
       <div className="absolute top-10 w-full">
-        <div className=""> 
-          <div className=" ">
 
             {/* Avatar */}
             <div className="w-full flex justify-center z-10">
@@ -61,21 +125,23 @@ export function Header({ username = 'Bruh!', avatarUrl = 'https://i.pravatar.cc/
               </div>
             </div>
 
-          </div>
-        </div>
-      </div>
+            {/* Main greeting text */}
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
 
-      {/* Main greeting text */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.3, duration: 0.5 }}
-        className="absolute left-0 right-0 -bottom-2 text-center"
-      >
-        <h1 className="text-orange-500">
-          <span className="tracking-tighter font-bold text-xl">READY TO CRASH SOME HABITS?</span>
-        </h1>
-      </motion.div>
+              // SHOW/HIDE TEXT:
+              // animate={{ opacity: 1, y: 10}} 
+              animate={{ opacity: 1, y: 50}}
+
+              transition={{ delay: 0.1, duration: 0.2 }}
+              className="text-center"
+            >
+              <h1 className="text-orange-400">
+                <span className="tracking-tighter font-bold text-2xl">READY TO CRASH SOME HABITS?</span>
+              </h1>
+            </motion.div>
+
+      </div>
     </header>
   )
 }

@@ -3,7 +3,7 @@ import { ChevronRight } from 'lucide-react'
 
 export function Habits() {
   return (
-    <div className="bg-white rounded-md border p-4">
+    <div className="bg-white rounded-md border shadow p-4">
 
       <div className="flex items-center justify-between">
         <p className="text-lg font-bold">Today's Habits</p>

@@ -23,7 +23,7 @@ const Widget = ({
 }: WidgetProps) => {
   return (
     <div
-      className={`bg-white rounded-md p-4 border ${
+      className={`bg-white rounded-md p-4 border shadow ${
         onClick ? 'cursor-pointer' : ''
       } group ${className}`}
     >
