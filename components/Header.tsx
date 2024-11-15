@@ -103,11 +103,11 @@ export function Header({ username = 'Bruh!', avatarUrl = 'https://i.pravatar.cc/
       <TopBar username={username} avatarUrl={avatarUrl} />
 
       {/* Background shape */}
-      <div className="relative w-full pb-[60%]">
+      <div className="relative w-full pb-[55%]">
         {/* Skewed orange overlay */}
         <div className="flex justify-center items-center">
-          <div className="absolute -top-10 left-0 h-[50%] w-1/2 bg-orange-400 -skew-y-12"></div>
-          <div className="absolute -top-10 right-0 h-[50%] w-1/2 bg-orange-400 skew-y-12"></div>
+          <div className="absolute -top-10 left-0 h-[60%] w-1/2 bg-orange-400 -skew-y-12"></div>
+          <div className="absolute -top-10 right-0 h-[60%] w-1/2 bg-orange-400 skew-y-12"></div>
         </div>
       </div>
 
@@ -131,7 +131,7 @@ export function Header({ username = 'Bruh!', avatarUrl = 'https://i.pravatar.cc/
 
               // SHOW/HIDE TEXT:
               // animate={{ opacity: 1, y: 10}} 
-              animate={{ opacity: 1, y: 50}}
+              animate={{ opacity: 1, y: 500}}
 
               transition={{ delay: 0.1, duration: 0.2 }}
               className="text-center"
