@@ -1,12 +1,13 @@
+// components/GridWidgets.tsx
 import { ReactNode } from 'react'
-import { Calendar, TrendingUp, Bot, Trophy, ChevronRight } from 'lucide-react';
+import { LoaderPinwheel, TrendingUp, Bot, Trophy, ChevronRight } from 'lucide-react'
 
 interface WidgetProps {
-  title: string;
-  children: ReactNode;
-  onClick?: () => void;
-  rightIcon?: ReactNode;
-  className?: string;
+  title: string
+  children: ReactNode
+  onClick?: () => void
+  rightIcon?: ReactNode
+  className?: string
 }
 
 const Widget = ({
@@ -33,24 +34,23 @@ const Widget = ({
       </div>
       {children}
     </div>
-  );
-};
+  )
+}
 
 export function GridWidgets() {
-
   return (
     <div className="grid grid-cols-2 gap-2 mt-0">
-      {/* Calendar Widget */}
+      
+      {/* Success Coach Widget */}
       <Widget 
-        title="Calendar" 
+        title="Success Coach" 
         className="flex flex-col gap-2"
       >
-        <Calendar size={32} />
+        <Bot size={32} />
 
         <div className="text-sm text-gray-600 mt-2">
-        Schedule tasks, set reminders, and stay organized
+        Get instant guidance and support from your 24/7 AI coach
         </div>
-
       </Widget>
 
       {/* Analytics Widget */}
@@ -79,17 +79,16 @@ export function GridWidgets() {
         </div>
       </Widget>
 
-      {/* AI Coach Widget */}
+      {/* Life score Widget */}
       <Widget 
-        title="AI Coach" 
+        title="Life Score" 
         className="flex flex-col gap-2"
       >
-        <Bot size={32} />
+        <LoaderPinwheel size={32} />
 
         <div className="text-sm text-gray-600 mt-2">
-        Get instant guidance and support from your 24/7 AI coach
+        Measure your score across all life areas with our intuitive wheel assessment tool
         </div>
-
       </Widget>
 
       {/* Achievements Widget */}
@@ -98,12 +97,10 @@ export function GridWidgets() {
         className="flex flex-col gap-2"
       >
         <Trophy size={32} />
-
         <div className="text-sm text-gray-600 mt-2">
         Unlock rewards as you reach new milestones
         </div>
-
       </Widget>
     </div>
-  );
+  )
 }

@@ -1,13 +1,16 @@
+
+// components/Announcement.tsx
+'use client'
+
 import { useState, ReactNode } from 'react'
 import { X, ChevronRight } from 'lucide-react'
 
-//import { Widget } from '../components/ui/Widget';
 interface WidgetProps {
-  title: string;
-  children: ReactNode;
-  onClick?: () => void;
-  rightIcon?: ReactNode;
-  className?: string;
+  title: string
+  children: ReactNode
+  onClick?: () => void
+  rightIcon?: ReactNode
+  className?: string
 }
 
 const Widget = ({
@@ -34,8 +37,8 @@ const Widget = ({
       </div>
       {children}
     </div>
-  );
-};
+  )
+}
 
 export function Announcement() {
   const [showAnnouncement, setShowAnnouncement] = useState(true)
@@ -44,8 +47,6 @@ export function Announcement() {
 
   return (
     <div className="bg-white rounded-md border p-">
-
-      {/* Announcement widget*/}
       {showAnnouncement && (
         <Widget
           className="relative overflow-hidden"
@@ -54,8 +55,8 @@ export function Announcement() {
             <button
               className="absolute top-4 right-4 text-orange-400"
               onClick={(e) => {
-                e.stopPropagation(); // Prevents triggering any parent onClick handlers
-                setShowAnnouncement(false);
+                e.stopPropagation()
+                setShowAnnouncement(false)
               }}
             >
               <X size={16} />
@@ -74,6 +75,6 @@ export function Announcement() {
           </div>
         </Widget>
       )}
-      </div>
+    </div>
   )
 }

@@ -1,12 +1,14 @@
+
+// components/ShopAndCourses.tsx
 import { ReactNode } from 'react'
-import { GraduationCap, LoaderPinwheel, ChevronRight } from 'lucide-react';
+import { GraduationCap, ChevronRight, Store } from 'lucide-react'
 
 interface WidgetProps {
-  title: string;
-  children: ReactNode;
-  onClick?: () => void;
-  rightIcon?: ReactNode;
-  className?: string;
+  title: string
+  children: ReactNode
+  onClick?: () => void
+  rightIcon?: ReactNode
+  className?: string
 }
 
 const Widget = ({
@@ -33,35 +35,29 @@ const Widget = ({
       </div>
       {children}
     </div>
-  );
-};
+  )
+}
 
-export function LifeScoreAndCourses() {
+export function ShopAndCourses() {
   return (
     <div className="grid grid-cols-2 gap-2 mt-0">
-      {/* Life Score Widget */}
       <Widget 
-        title="Life Score" 
+        title="Shop" 
         className="flex flex-col gap-2"
       >
-        <LoaderPinwheel size={32} />
-
+        <Store size={32} />
         <div className="text-sm text-gray-600 mt-2">
-        Measure your score across all life areas with our intuitive wheel assessment tool
+        Explore products and services all in one place
         </div>
-
       </Widget>
-      {/* Courses Widget */}
       <Widget 
         title="Courses" 
         className="flex flex-col gap-2"
       >
         <GraduationCap size={32} />
-
         <div className="text-sm text-gray-600 mt-2">
         Explore curated learning paths and track your educational journey in one place
         </div>
-
       </Widget>
     </div>
   )
