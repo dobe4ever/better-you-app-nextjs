@@ -10,7 +10,7 @@ export function GreetingSection() {
       className="text-center"
     >
       <h1 className="text-white">
-        <span className="tracking-tighter font-bold text-2xl">READY TO CRASH SOME HABITS?</span>
+        <span className="tracking-tighter font-bold text-lg">READY TO CRASH SOME HABITS?</span>
       </h1>
     </motion.div>
   )
