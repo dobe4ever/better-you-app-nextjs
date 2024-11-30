@@ -32,7 +32,7 @@ export default function HomePage() {
 
       <div ref={headerRef} className="">
         <HeaderContainer />
-        <div className="absolute inset-0 w-full h-[317px] bg-white" style={{ opacity: fadePercentage / 100 }} />
+        <div className="absolute inset-0 w-full h-[450px] bg-white" style={{ opacity: fadePercentage / 100 }} />
       </div>
 
       <div className="sticky top-0">
