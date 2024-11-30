@@ -6,7 +6,7 @@ export function AvatarSection({ avatarUrl = 'https://i.pravatar.cc/300' }) {
         <img
           src={avatarUrl}
           alt="Avatar"
-          className="w-56 h-56 object-cover"
+          className="w-52 h-52 object-cover"
         />
       </div>
     </div>
