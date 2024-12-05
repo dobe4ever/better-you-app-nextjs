@@ -1,4 +1,3 @@
-// components/layout/header-container/header-container.tsx
 import { TopBar } from './top-bar'
 import { AvatarSection } from './avatar-section'
 import { GreetingSection } from './greeting-section'
@@ -14,3 +13,4 @@ export function HeaderContainer() {
     </div>
   )
 }
+

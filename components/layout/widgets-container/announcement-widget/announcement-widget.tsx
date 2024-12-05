@@ -1,4 +1,3 @@
-// components/layout/widgets-container/announcement-widget/announcement-widget.tsx
 'use client'
 
 import { useState } from 'react'
@@ -39,3 +38,4 @@ export function AnnouncementWidget() {
     </Widget>
   )
 }
+

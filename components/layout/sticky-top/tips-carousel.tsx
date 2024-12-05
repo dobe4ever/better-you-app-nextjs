@@ -1,4 +1,3 @@
-// components/layout/header-container/tips-carousel.tsx
 'use client'
 
 import { useState, useEffect } from 'react'
@@ -36,32 +35,32 @@ export function TipsCarousel() {
   }, [])
 
   return (
-    <div className="rounded border-y border-black bg-white m-4 p-1.5 z-100">
-      <div className="flex items-center justify-between bg-white">
+    <div className="bg-white rounded-md p-4 border shadow m-4">
+      <div className="flex items-center justify-between">
         <button 
           onClick={(e) => {
             e.stopPropagation()
             prevSlide()
           }}
-          className="bg-white z-10"
+          className="text-gray-400 hover:text-gray-600 transition-colors"
           aria-label="Previous tip"
         >
-          <ChevronLeft size={20} className="text-black/75 m-1" />
+          <ChevronLeft size={24} />
         </button>
-        <div className="overflow-hidden px-2">
+        <div className="flex-1 overflow-hidden px-4">
           <div
             className="flex transition-transform duration-300 ease-out w-full"
             style={{ transform: `translateX(-${activeSlide * 100}%)` }}
           >
             {tips.map((tip, index) => (
               <div key={index} className="flex-shrink-0 w-full">
-                <div className="flex items-center gap-2 px-0">
+                <div className="flex items-center gap-4">
                   <div className="flex-shrink-0">
-                    <Bot size={36} className="text-black/75" />
+                    <Bot size={40} className="text-orange-500" />
                   </div>
-                  <blockquote className="flex flex-col border-l-2 pl-2 border-black/75 italic text-sm text-black/75">
-                    <p className="text-md text-black font-semibold">{tip.message}</p>
-                    <p className="text-xs text-gray-500">{tip.detail}</p>
+                  <blockquote className="flex flex-col">
+                    <p className="text-lg font-semibold text-gray-900">{tip.message}</p>
+                    <p className="text-sm text-gray-500">{tip.detail}</p>
                   </blockquote>
                 </div>
               </div>
@@ -73,12 +72,13 @@ export function TipsCarousel() {
             e.stopPropagation()
             nextSlide()
           }}
-          className="bg-white z-10"
+          className="text-gray-400 hover:text-gray-600 transition-colors"
           aria-label="Next tip"
         >
-          <ChevronRight size={20} className="text-black/75"/>
+          <ChevronRight size={24} />
         </button>
       </div>
     </div>
   )
 }
+

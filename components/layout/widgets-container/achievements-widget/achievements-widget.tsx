@@ -1,4 +1,3 @@
-// components/layout/widgets-container/achievements-widget/achievements-widget.tsx
 import { Trophy } from 'lucide-react'
 import { Widget } from '../../../common/widget'
 
@@ -12,3 +11,4 @@ export function AchievementsWidget() {
     </Widget>
   )
 }
+

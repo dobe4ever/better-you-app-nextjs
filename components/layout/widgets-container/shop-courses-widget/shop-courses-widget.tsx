@@ -1,4 +1,3 @@
-// components/layout/widgets-container/shop-courses-widget/shop-courses-widget.tsx
 import { Store, GraduationCap } from 'lucide-react'
 import { Widget } from '../../../common/widget'
 import { TwoColumnWidget } from '../../../common/two-column-widget'
@@ -33,3 +32,4 @@ export function ShopCoursesWidget() {
     />
   )
 }
+

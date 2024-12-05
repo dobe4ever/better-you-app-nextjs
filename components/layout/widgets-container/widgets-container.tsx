@@ -1,4 +1,3 @@
-// components/layout/widgets-container/widgets-container.tsx
 import { AnnouncementWidget } from './announcement-widget/announcement-widget'
 import { HabitsWidget } from './habits-widget/habits-widget'
 import { TodosWidget } from './todos-widget/todos-widget'
@@ -29,3 +28,4 @@ export function WidgetsContainer() {
     </div>
   )
 }
+

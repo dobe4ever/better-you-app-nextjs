@@ -1,4 +1,3 @@
-// components/common/two-column-widget.tsx
 import { ReactNode } from 'react'
 
 interface TwoColumnWidgetProps {
@@ -14,3 +13,4 @@ export function TwoColumnWidget({ leftWidget, rightWidget }: TwoColumnWidgetProp
     </div>
   )
 }
+

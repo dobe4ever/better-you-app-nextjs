@@ -1,4 +1,3 @@
-// components/common/widget.tsx
 import { ReactNode } from 'react'
 import { ChevronRight } from 'lucide-react'
 
@@ -31,3 +30,4 @@ export function Widget({
     </div>
   )
 }
+

@@ -1,4 +1,3 @@
-// app/page.tsx
 'use client'
 
 import { useState, useRef, useEffect } from 'react'
@@ -26,21 +25,27 @@ export default function HomePage() {
   }, [])
 
   return (
-    <div className="min-h-screen min-w-screen bg-gradient-to-b from-black/0 via-black/25 to-black/100">
+    <div className="min-h-screen min-w-screen bg-gradient-to-b from-black/0 via-black/25 to-black/100 relative">
       
-      <FloatingChatButton />
+      <FloatingChatButton className="z-50" />
 
-      <div ref={headerRef} className="">
+      <div ref={headerRef} className="relative z-10">
         <HeaderContainer />
-        <div className="absolute top-0 w-full h-[60%] bg-white" style={{ opacity: fadePercentage / 100 }} />
+        <div 
+          className="absolute top-0 w-full h-[450px] bg-white pointer-events-none" 
+          style={{ opacity: fadePercentage / 100, zIndex: 20 }} 
+        />
       </div>
 
-      <div className="sticky top-0">
+      <div className="sticky top-0 z-50">
         <TipsCarousel />
       </div>
 
-      <WidgetsContainer />
+      <div className="relative z-30">
+        <WidgetsContainer />
+      </div>
     
     </div>
   )
 }
+

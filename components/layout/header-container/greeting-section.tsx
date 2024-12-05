@@ -1,4 +1,3 @@
-// components/layout/header-container/greeting-section.tsx
 import { motion } from 'framer-motion'
 
 export function GreetingSection() {
@@ -15,3 +14,4 @@ export function GreetingSection() {
     </motion.div>
   )
 }
+

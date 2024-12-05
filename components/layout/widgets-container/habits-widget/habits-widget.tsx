@@ -1,4 +1,3 @@
-// components/layout/widgets-container/habits-widget/habits-widget.tsx
 import { ChevronRight } from 'lucide-react'
 import { Widget } from '../../../common/widget'
 
@@ -22,3 +21,4 @@ export function HabitsWidget() {
     </Widget>
   )
 }
+

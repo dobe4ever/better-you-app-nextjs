@@ -1,8 +1,7 @@
-// components/layout/header-container/top-bar.tsx
 'use client'
 
 import { useState } from 'react'
-import { Menu, LogOut, Settings, Bell, UserPen } from 'lucide-react'
+import { Menu, LogOut, Settings, Bell, PenIcon as UserPen } from 'lucide-react'
 import { motion } from 'framer-motion'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { Button } from '@/components/ui/button'
@@ -94,3 +93,4 @@ export function TopBar({ username = 'Brotastic', avatarUrl = 'https://i.pravatar
     </div>
   )
 }
+

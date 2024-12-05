@@ -1,4 +1,3 @@
-// components/layout/widgets-container/life-score-widget/life-score-widget.tsx
 import { LoaderPinwheel } from 'lucide-react'
 import { Widget } from '../../../common/widget'
 
@@ -12,3 +11,4 @@ export function LifeScoreWidget() {
     </Widget>
   )
 }
+
