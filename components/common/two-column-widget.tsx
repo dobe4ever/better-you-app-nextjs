@@ -7,7 +7,7 @@ interface TwoColumnWidgetProps {
 
 export function TwoColumnWidget({ leftWidget, rightWidget }: TwoColumnWidgetProps) {
   return (
-    <div className="grid grid-cols-2 gap-4">
+    <div className="grid grid-cols-2 gap-2">
       <div>{leftWidget}</div>
       <div>{rightWidget}</div>
     </div>

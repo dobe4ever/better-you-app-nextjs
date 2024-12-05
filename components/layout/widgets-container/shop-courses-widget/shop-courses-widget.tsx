@@ -18,7 +18,7 @@ function CoursesWidget() {
     <Widget title="Courses" className="flex flex-col gap-2">
       <GraduationCap size={32} />
       <div className="text-sm text-gray-600 mt-2">
-        Explore curated learning paths and track your educational journey in one place
+        Curated learning paths to track your educational journey
       </div>
     </Widget>
   )
