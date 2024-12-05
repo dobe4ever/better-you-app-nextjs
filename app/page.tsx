@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useRef, useEffect } from 'react'
-import { FloatingChatButton } from '../components/layout/floating-button/floating-chat-button'
+import FloatButton from '../components/layout/floating-button/floating-chat-button'
 import { HeaderContainer } from '../components/layout/header-container/header-container'
 import { TipsCarousel } from '../components/layout/sticky-top/tips-carousel'
 import { WidgetsContainer } from '../components/layout/widgets-container/widgets-container'
@@ -29,7 +29,7 @@ export default function HomePage() {
     // <div className="bg-gradient-to-r from-orange-400 via-orange-300 to-orange-500 min-h-screen w-full">
     <div className="min-h-screen min-w-screen bg-white relative">
 
-      <FloatingChatButton className="z-50" />
+      <FloatButton  />
 
       <div ref={headerRef} className="relative z-10">
         <HeaderContainer />
