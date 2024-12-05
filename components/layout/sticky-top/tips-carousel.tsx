@@ -108,9 +108,9 @@ export function TipsCarousel() {
   const currentTip = tips[1]
 
   return (
-    <div className="bg-white w-full flex justify-center p-4 m-4">
+    <div className="bg-white p-4 m-4">
 
-      <div className="flex">
+      <div className="flex items-center">
 
         <div className="flex-shrink-0 mr-4 border-r-4 border-orange-500 pr-4 h-12">
           <Bot size={40} className="text-orange-500" />
