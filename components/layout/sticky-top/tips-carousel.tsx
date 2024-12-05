@@ -112,13 +112,13 @@ export function TipsCarousel() {
 
       <div className="flex items-center">
 
-        <div className="flex-shrink-0 mr-4 border-r-4 border-orange-500 pr-4 h-12">
-          <Bot size={40} className="text-orange-500" />
+        <div className="flex-shrink-0 mr-4 pr-4 h-12">
+        <Bot size={55} className="text-orange-400 pr-2" />
         </div>
 
-        <blockquote className="flex flex-col">
-          <p className="text-lg font-semibold text-gray-900">{currentTip.message}</p>
-          <p className="text-sm text-gray-500">{currentTip.detail}</p>
+        <blockquote className="flex flex-col italic text-sm text-gray-400 border-l-4 border-orange-400 pl-2">
+          <p className="text-sm text-gray-700 font-medium">{currentTip.message}</p>
+          <p className="text-xs text-gray-500 mt-1">{currentTip.detail}</p>
         </blockquote>
 
       </div>
@@ -126,3 +126,9 @@ export function TipsCarousel() {
     </div>
   )
 }
+
+
+// <blockquote className="flex flex-col">
+//           <p className="text-lg font-semibold text-gray-900">{currentTip.message}</p>
+//           <p className="text-sm text-gray-500">{currentTip.detail}</p>
+//         </blockquote>
