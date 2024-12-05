@@ -6,7 +6,7 @@ export function AchievementsWidget() {
     <Widget title="Achievements" className="flex flex-col gap-2">
       <Trophy size={32} />
       <div className="text-sm text-gray-600 mt-2">
-        Unlock rewards as you reach new milestones
+        Unlock rewards as you reach new Achievement milestones
       </div>
     </Widget>
   )
