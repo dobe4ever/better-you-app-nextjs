@@ -1,6 +1,6 @@
 // components/layout/floating-button/chat-bot.tsx
 import React, { useState, useRef, useEffect } from 'react';
-import { Bot, Send, Paperclip, Mic } from 'lucide-react';
+import { Bot, Send, Paperclip, Mic, ArrowDown } from 'lucide-react';
 
 interface Message {
   sender: 'bot' | 'user';
@@ -13,8 +13,10 @@ const Chatbot: React.FC = () => {
   ]);
   const [input, setInput] = useState<string>('');
   const [isFocused, setIsFocused] = useState<boolean>(false);
+  const [showScrollButton, setShowScrollButton] = useState(false);
   const textareaRef = useRef<HTMLTextAreaElement>(null);
   const messagesEndRef = useRef<HTMLDivElement>(null);
+  const messagesContainerRef = useRef<HTMLDivElement>(null);
 
   const scrollToBottom = (): void => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -23,6 +25,19 @@ const Chatbot: React.FC = () => {
   useEffect(() => {
     scrollToBottom();
   }, [messages]);
+
+  useEffect(() => {
+    const container = messagesContainerRef.current;
+    if (container) {
+      const handleScroll = () => {
+        const isNearBottom = container.scrollHeight - container.scrollTop - container.clientHeight < 100;
+        setShowScrollButton(!isNearBottom);
+      };
+
+      container.addEventListener('scroll', handleScroll);
+      return () => container.removeEventListener('scroll', handleScroll);
+    }
+  }, []);
 
   useEffect(() => {
     if (textareaRef.current) {
@@ -53,7 +68,7 @@ const Chatbot: React.FC = () => {
 
   return (
     <div className="h-full flex flex-col">
-      <div className="flex-1 overflow-y-auto px-4 scrollbar-hide pt-16">
+      <div ref={messagesContainerRef} className="flex-1 overflow-y-auto px-4 scrollbar-hide pt-16">
         <div className="pb-[120px]">
           {messages.map((message, index) => (
             <div 
@@ -77,6 +92,15 @@ const Chatbot: React.FC = () => {
           <div ref={messagesEndRef} />
         </div>
       </div>
+
+      {showScrollButton && (
+        <button
+          onClick={scrollToBottom}
+          className="fixed bottom-[100px] left-1/2 -translate-x-1/2 bg-white shadow-md rounded-full p-2 z-50"
+        >
+          <ArrowDown size={24} className="text-gray-500" />
+        </button>
+      )}
 
       <div className="fixed bottom-0 left-0 right-0 p-4 bg-white">
         <div className="relative rounded-xl overflow-hidden bg-gray-200">
