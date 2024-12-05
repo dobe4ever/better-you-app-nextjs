@@ -29,7 +29,7 @@ export default function HomePage() {
     // <div className="bg-gradient-to-r from-orange-400 via-orange-300 to-orange-500 min-h-screen w-full">
     <div className="min-h-screen min-w-screen bg-white relative">
 
-      <FloatButton  />
+      <FloatButton />
 
       <div ref={headerRef} className="relative z-10">
         <HeaderContainer />
@@ -39,11 +39,11 @@ export default function HomePage() {
         />
       </div>
 
-      <div className="sticky top-0 z-50">
+      <div className="sticky top-0 z-30">
         <TipsCarousel />
       </div>
 
-      <div className="relative z-30">
+      <div className="relative z-20">
         <WidgetsContainer />
       </div>
     

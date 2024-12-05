@@ -23,10 +23,10 @@ const Chatbot = () => {
         {messages.map((message, index) => (
           <div key={index} className={`flex ${message.sender === 'user' ? 'justify-end' : 'justify-start'} mb-4`}>
             <div className={`flex items-end ${message.sender === 'user' ? 'flex-row-reverse' : 'flex-row'}`}>
-              <div className={`w-8 h-8 rounded-full flex items-center justify-center ${message.sender === 'user' ? 'bg-orange-main ml-2' : 'bg-gray-300 mr-2'}`}>
+              <div className={`w-8 h-8 rounded-full flex items-center justify-center ${message.sender === 'user' ? 'bg-orange-400 ml-2' : 'bg-gray-300 mr-2'}`}>
                 {message.sender === 'user' ? <User size={20} color="white" /> : <Bot size={20} color="white" />}
               </div>
-              <div className={`max-w-xs px-4 py-2 rounded-lg ${message.sender === 'user' ? 'bg-orange-main text-white' : 'bg-white'}`}>
+              <div className={`max-w-xs px-4 py-2 rounded-lg ${message.sender === 'user' ? 'bg-orange-400 text-white' : 'bg-white'}`}>
                 {message.text}
               </div>
             </div>
@@ -34,7 +34,7 @@ const Chatbot = () => {
         ))}
       </div>
       <div className="bg-white p-4">
-        <div className="flex items-center border rounded-lg overflow-hidden">
+        <div className="flex items-center border rounded-full overflow-hidden">
           <input
             type="text"
             value={input}
@@ -48,7 +48,7 @@ const Chatbot = () => {
           <button className="p-2 text-gray-500 hover:text-gray-700">
             <Mic size={20} />
           </button>
-          <button onClick={sendMessage} className="bg-orange-main text-white p-2 hover:bg-orange-main">
+          <button onClick={sendMessage} className="bg-orange-400 text-white p-3 pr-4 hover:bg-orange-400">
             <Send size={20} />
           </button>
         </div>
