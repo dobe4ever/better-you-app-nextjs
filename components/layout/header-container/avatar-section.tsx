@@ -1,3 +1,4 @@
+// components/layout/header-container/avatar-section.tsx
 export function AvatarSection({ avatarUrl = 'https://i.pravatar.cc/300' }) {
   return (
     <div className="w-full flex justify-center z-10">
@@ -5,10 +6,9 @@ export function AvatarSection({ avatarUrl = 'https://i.pravatar.cc/300' }) {
         <img
           src={avatarUrl}
           alt="Avatar"
-          className="w-48 h-48 object-cover"
+          className="w-56 h-56 object-cover"
         />
       </div>
     </div>
   )
 }
-

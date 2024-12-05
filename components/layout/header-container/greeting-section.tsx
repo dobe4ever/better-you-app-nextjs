@@ -8,7 +8,7 @@ export function GreetingSection() {
       transition={{ delay: 0.1, duration: 0.2 }}
       className="text-center"
     >
-      <h1 className="text-white">
+      <h1 className="text-orange-500">
         <span className="tracking-tighter font-bold text-lg">READY TO CRASH SOME HABITS?</span>
       </h1>
     </motion.div>

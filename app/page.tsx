@@ -25,8 +25,9 @@ export default function HomePage() {
   }, [])
 
   return (
-    <div className="min-h-screen min-w-screen bg-gradient-to-b from-black/0 via-black/25 to-black/100 relative">
-      
+    // <div className="min-h-screen min-w-screen bg-gradient-to-b from-black/0 via-black/25 to-black/100 relative">
+    <div className="min-h-screen min-w-screen bg-white relative">
+
       <FloatingChatButton className="z-50" />
 
       <div ref={headerRef} className="relative z-10">
