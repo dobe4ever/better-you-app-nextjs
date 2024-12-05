@@ -12,7 +12,7 @@ import { TwoColumnWidget } from '../../common/two-column-widget'
 export function WidgetsContainer() {
   return (
     // <div className="bg-gray-200 rounded-t-2xl mt-4 p-4 space-y-4 flex-grow">
-    <div className="flex flex-col overflow-hidden w-full bg-white pt-6 px-3 space-y-2 rounded-t-xl">
+    <div className="flex flex-col overflow-hidden w-full bg-white pt- p-2 space-y-2 rounded-t-xl">
       <AnnouncementWidget />
       <HabitsWidget />
       <TodosWidget />

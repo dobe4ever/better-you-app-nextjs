@@ -108,7 +108,7 @@ export function TipsCarousel() {
   const currentTip = tips[1]
 
   return (
-    <div className="bg-white p-2 m-2 border-orange-300 border-b rounded-">
+    <div className="bg-white p-2 m-2 border-orange-300 border-b p-4">
 
       <div className="flex items-center">
 
