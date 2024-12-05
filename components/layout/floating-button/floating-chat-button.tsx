@@ -22,14 +22,14 @@ const FloatButton: React.FC<FloatButtonProps> = () => {
       </button>
 
       {isChatOpen && (
-        <div className="fixed inset-0 bg-white z-50 flex flex-col">
-          <div className="flex justify-between items-center p-4 text-orange-400">
+        <div className="fixed inset-0 bg-white z-50 flex flex-col h-screen">
+          <div className="fixed top-0 left-0 right-0 flex justify-between items-center p-4 bg-white text-orange-400">
             <h2 className="text-xl text-black font-bold">AI Coach</h2>
             <button onClick={toggleChat}>
               <X size={24} />
             </button>
           </div>
-          <div className="flex-1 p-4">
+          <div className="flex-1 mt-16 mb-24">
             <Chatbot />
           </div>
         </div>

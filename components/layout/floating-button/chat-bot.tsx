@@ -1,6 +1,6 @@
 // components/layout/floating-button/chat-bot.tsx
 import React, { useState, useRef, useEffect } from 'react';
-import { Bot, Send, Paperclip, Mic, User } from 'lucide-react';
+import { Bot, Send, Paperclip, Mic } from 'lucide-react';
 
 interface Message {
   sender: 'bot' | 'user';
@@ -24,11 +24,10 @@ const Chatbot: React.FC = () => {
     scrollToBottom();
   }, [messages]);
 
-  // Auto-resize textarea
   useEffect(() => {
     if (textareaRef.current) {
       textareaRef.current.style.height = 'auto';
-      textareaRef.current.style.height = `${Math.min(textareaRef.current.scrollHeight, 200)}px`; // Max height of 200px
+      textareaRef.current.style.height = `${Math.min(textareaRef.current.scrollHeight, 200)}px`;
     }
   }, [input]);
 
@@ -53,38 +52,31 @@ const Chatbot: React.FC = () => {
   };
 
   return (
-    <div className="fixed top-16 right-0 left-0 bottom-0 bg-white z-50 flex flex-col">
+    <div className="h-full flex flex-col">
       <div className="flex-1 overflow-y-auto px-4">
         {messages.map((message, index) => (
           <div 
             key={index} 
             className={`flex ${message.sender === 'user' ? 'justify-end' : 'justify-start'} mb-4`}
           >
-            <div className={`flex items-end max-w-[80%] ${
-              message.sender === 'user' ? 'flex-row-reverse' : 'flex-row'
+            {message.sender === 'bot' && (
+              <div className="flex-shrink-0 rounded-full p-2 shadow-md bg-orange-400 mr-2">
+                <Bot size={20} color="white" />
+              </div>
+            )}
+            <div className={`${
+              message.sender === 'user' ? 
+              'bg-gray-200 rounded-lg px-4 py-2 max-w-[80%] break-words' : 
+              'max-w-[80%] break-words'
             }`}>
-              <div className={`flex-shrink-0 rounded-full p-2 shadow-md ${
-                message.sender === 'user' ? 'bg-gray-200 ml-2' : 'bg-orange-400 mr-2'
-              }`}>
-                {message.sender === 'user' ? 
-                  <User size={20} color="white" /> : 
-                  <Bot size={20} color="white" />
-                }
-              </div>
-              <div className={`px-4 py-2 rounded-lg break-words ${
-                message.sender === 'user' ? 
-                'bg-orange-400 text-white' : 
-                'bg-gray-100'
-              }`}>
-                {message.text}
-              </div>
+              {message.text}
             </div>
           </div>
         ))}
         <div ref={messagesEndRef} />
       </div>
 
-      <div className="p-4">
+      <div className="fixed bottom-0 left-0 right-0 p-4 bg-white">
         <div className="relative border rounded-xl overflow-hidden bg-gray-200">
           <div className="relative">
             {!isFocused && !input && (
