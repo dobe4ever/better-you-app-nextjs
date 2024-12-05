@@ -18,7 +18,7 @@ export function Widget({
 }: WidgetProps) {
   return (
     <div
-      className={`bg-white rounded-md p-4 border shadow ${
+      className={`bg-white rounded-md p-4 border shadow-md ${
         onClick ? 'cursor-pointer' : ''
       } group ${className}`}
     >
