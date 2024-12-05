@@ -1,53 +1,36 @@
-// import { Bot } from 'lucide-react'
-// import { Button } from '../../ui/button'
-
-// export function FloatingChatButton({ className = '' }) {
-//   return (
-//     <Button
-//       className={`fixed bottom-4 right-4 rounded-full p-3 bg-orange-500 ${className}`}
-//       onClick={() => console.log('Open chat')}
-//     >
-//       <Bot className="h-6 w-6 text-white" />
-//     </Button>
-//   )
-// }
-
-
-
+// components/layout/floating-button/floating-chat-button.tsx
 import React, { useState } from 'react';
 import Chatbot from './chat-bot';
 import { Bot, X } from 'lucide-react';
 
-const FloatButton = () => {
-  const [isChatOpen, setIsChatOpen] = useState(false);
+interface FloatButtonProps {}
 
-  const toggleChat = () => {
+const FloatButton: React.FC<FloatButtonProps> = () => {
+  const [isChatOpen, setIsChatOpen] = useState<boolean>(false);
+
+  const toggleChat = (): void => {
     setIsChatOpen(!isChatOpen);
   };
 
   return (
     <>
-      {/* Floating Button */}
       <button
         onClick={toggleChat}
         className="z-50 fixed bottom-4 right-4 border-2 border-white bg-orange-400 text-white rounded-full p-3 shadow-md"
       >
-        {/* <Bot size={24} /> */}
-        <Bot size={40} />
+        <Bot size={32} />
       </button>
 
-      {/* Full-screen Chat Interface */}
       {isChatOpen && (
-        <div className="fixed top-0 right-0 left-0 bottom-0 bg-white z-50 flex flex-col">
+        <div className="fixed inset-0 bg-white z-50 flex flex-col">
           <div className="flex justify-between items-center p-4 text-orange-400">
             <h2 className="text-xl text-black font-bold">AI Coach</h2>
             <button onClick={toggleChat}>
               <X size={24} />
             </button>
           </div>
-          <div className="flex-grow p-4">
-            {/* Add your chat interface components here */}
-            < Chatbot />
+          <div className="flex-1 p-4">
+            <Chatbot />
           </div>
         </div>
       )}

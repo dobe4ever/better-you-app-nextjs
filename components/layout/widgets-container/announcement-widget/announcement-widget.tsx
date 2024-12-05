@@ -28,12 +28,12 @@ export function AnnouncementWidget() {
   <p className="text-sm text-gray-400">
     Better you everyday | Vercel project overview
   </p>
-  <div className="mt-2">
+  <div className="mt-4">
     <a
       href="https://vercel.com/dobe4evers-projects/vitejs-node-ts-tailwind-better-you"
       target="_blank"
       rel="noopener noreferrer"
-      className="bg-orange-400 text-sm text-white px-4 py-2 rounded-full hover:bg-orange-600 transition-colors duration-200"
+      className="border border-orange-400 text-sm text-orange-400 px-4 py-2 rounded-full"
     >
       Go to Project
     </a>
