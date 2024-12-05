@@ -33,7 +33,7 @@ const Chatbot = () => {
           </div>
         ))}
       </div>
-      <div className="bg-white p-">
+      <div className="absolute bottom-10 right-4 left-4">
         <div className="flex items-center border rounded-full overflow-hidden">
           <input
             type="text"
@@ -42,15 +42,17 @@ const Chatbot = () => {
             className="flex-grow px-4 py-2 focus:outline-none"
             placeholder="Type your message..."
           />
-          <button className="p-2 text-gray-500 hover:text-gray-700">
-            <Paperclip size={20} />
-          </button>
-          <button className="p-2 text-gray-500 hover:text-gray-700">
-            <Mic size={20} />
-          </button>
-          <button onClick={sendMessage} className="bg-orange-400 text-white p-3 pr-4 hover:bg-orange-400">
-            <Send size={20} />
-          </button>
+          <div className="absolute bottom- right-0 px- py-">
+            <button className="p-2 text-gray-500 hover:text-gray-700">
+              <Paperclip size={20} />
+            </button>
+            <button className="p-2 text-gray-500 hover:text-gray-700">
+              <Mic size={20} />
+            </button>
+            <button onClick={sendMessage} className="bg-orange-400 text-white p-2 pr-3 rounded-r-full hover:bg-orange-400">
+              <Send size={20} />
+            </button>
+          </div>
         </div>
       </div>
     </div>
