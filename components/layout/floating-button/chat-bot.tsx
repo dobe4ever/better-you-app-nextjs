@@ -53,7 +53,7 @@ const Chatbot: React.FC = () => {
   };
 
   return (
-    <div className="flex flex-col h-[calc(100vh-120px)]">
+    <div className="fixed top-16 right-0 left-0 bottom-0 bg-white z-50 flex flex-col">
       <div className="flex-1 overflow-y-auto px-4">
         {messages.map((message, index) => (
           <div 
