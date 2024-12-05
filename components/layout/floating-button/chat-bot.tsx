@@ -66,6 +66,16 @@ const Chatbot: React.FC = () => {
     }
   };
 
+  const handleFocus = () => {
+    setIsFocused(true);
+    setTimeout(() => {
+      if (messagesContainerRef.current) {
+        const container = messagesContainerRef.current;
+        container.scrollTop = container.scrollHeight;
+      }
+    }, 100);
+  };
+
   return (
     <div className="h-full flex flex-col">
       <div ref={messagesContainerRef} className="flex-1 overflow-y-auto px-4 scrollbar-hide pt-16">
@@ -115,7 +125,7 @@ const Chatbot: React.FC = () => {
               value={input}
               onChange={(e) => setInput(e.target.value)}
               onKeyPress={handleKeyPress}
-              onFocus={() => setIsFocused(true)}
+              onFocus={handleFocus}
               onBlur={() => setIsFocused(false)}
               className="w-full px-4 pt-2 pb-10 max-h-[200px] min-h-[80px] focus:outline-none resize-none bg-gray-200 overflow-hidden scrollbar-hide"
               rows={1}
