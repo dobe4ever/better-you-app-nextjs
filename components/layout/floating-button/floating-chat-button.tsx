@@ -29,7 +29,7 @@ const FloatButton: React.FC<FloatButtonProps> = () => {
               <X size={24} />
             </button>
           </div>
-          <div className="flex-1 mt-16 mb-24">
+          <div className="flex-1 overflow-hidden">
             <Chatbot />
           </div>
         </div>

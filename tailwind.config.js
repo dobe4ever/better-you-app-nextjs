@@ -256,10 +256,11 @@ module.exports = {
           fontFamily: 'Poppins, sans-serif',
         },
       };
-
+      
       // Add the new utility classes to Tailwind, making them responsive and hoverable
       addUtilities(newUtilities, ['responsive', 'hover']);
     },
+    require('tailwind-scrollbar-hide')
   ], // Closing the plugins array
   // Add this line to include custom classes
 }; // Closing the module.exports object
