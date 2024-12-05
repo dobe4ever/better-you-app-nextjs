@@ -12,6 +12,7 @@ const Chatbot: React.FC = () => {
     { sender: 'bot', text: "Hello! I'm your AI habit coach. How can I assist you today?" },
   ]);
   const [input, setInput] = useState<string>('');
+  const [isFocused, setIsFocused] = useState<boolean>(false);
   const textareaRef = useRef<HTMLTextAreaElement>(null);
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
@@ -27,7 +28,7 @@ const Chatbot: React.FC = () => {
   useEffect(() => {
     if (textareaRef.current) {
       textareaRef.current.style.height = 'auto';
-      textareaRef.current.style.height = `${textareaRef.current.scrollHeight}px`;
+      textareaRef.current.style.height = `${Math.min(textareaRef.current.scrollHeight, 200)}px`; // Max height of 200px
     }
   }, [input]);
 
@@ -83,22 +84,24 @@ const Chatbot: React.FC = () => {
         <div ref={messagesEndRef} />
       </div>
 
-      <div className="p-4 border-t">
-        <div className="relative border rounded-lg overflow-hidden bg-white">
+      <div className="p-4">
+        <div className="relative border rounded-xl overflow-hidden bg-gray-200">
           <div className="relative">
+            {!isFocused && !input && (
+              <span className="absolute left-4 top-2 text-gray-400 text-sm pointer-events-none">
+                Type your message...
+              </span>
+            )}
             <textarea
               ref={textareaRef}
               value={input}
               onChange={(e) => setInput(e.target.value)}
               onKeyPress={handleKeyPress}
-              className="w-full px-4 pt-6 pb-10 max-h-32 min-h-[80px] focus:outline-none resize-none"
+              onFocus={() => setIsFocused(true)}
+              onBlur={() => setIsFocused(false)}
+              className="w-full px-4 pt-2 pb-10 max-h-[200px] min-h-[80px] focus:outline-none resize-none bg-gray-200 overflow-hidden"
               rows={1}
             />
-            <span className={`absolute left-4 top-2 text-gray-400 text-sm transition-all duration-200 ${
-              input ? 'opacity-100' : 'opacity-100'
-            }`}>
-              Type your message...
-            </span>
           </div>
           <div className="absolute bottom-2 left-2 right-2 flex justify-between items-center">
             <button className="p-2 text-gray-500 hover:text-gray-700">
@@ -107,7 +110,7 @@ const Chatbot: React.FC = () => {
             {input.trim() ? (
               <button 
                 onClick={sendMessage} 
-                className="bg-orange-400 text-white p-2 rounded-full hover:bg-orange-500"
+                className="bg-orange-400 text-white p-2 rounded-full"
               >
                 <Send size={20} />
               </button>
