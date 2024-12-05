@@ -23,7 +23,7 @@ export function Widget({
       } group ${className}`}
     >
       <div className="flex justify-between items-center mb-2">
-        <h2 className="text-sm font-semibold">{title}</h2>
+        <h2 className="text-lg font-semibold">{title}</h2>
         {rightIcon}
       </div>
       {children}

@@ -108,17 +108,17 @@ export function TipsCarousel() {
   const currentTip = tips[1]
 
   return (
-    <div className="bg-white p-4 m-4">
+    <div className="bg-white p-2 m-2 border-orange-400 border-b rounded-">
 
       <div className="flex items-center">
 
-        <div className="flex-shrink-0 mr-4 pr-4 h-12">
+        <div className="flex-shrink-0 mr- pr- h-12">
         <Bot size={55} className="text-orange-400 pr-2" />
         </div>
 
-        <blockquote className="flex flex-col italic text-sm text-gray-400 border-l-4 border-orange-400 pl-2">
-          <p className="text-sm text-gray-700 font-medium">{currentTip.message}</p>
-          <p className="text-xs text-gray-500 mt-1">{currentTip.detail}</p>
+        <blockquote className="flex flex-col italic text-sm text-gray-400 border-l-4 border-orange-400 pl-4">
+          <p className="text-lg text-gray-700 font-semibold">{currentTip.message}</p>
+          <p className="text-sm text-gray-500 mt-1">{currentTip.detail}</p>
         </blockquote>
 
       </div>
