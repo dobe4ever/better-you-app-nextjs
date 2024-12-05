@@ -38,8 +38,8 @@ const FloatButton = () => {
 
       {/* Full-screen Chat Interface */}
       {isChatOpen && (
-        <div className="fixed inset-0 bg-white z-50 flex flex-col">
-          <div className="flex justify-between items-center p-4 bg- text-orange-400">
+        <div className="fixed top-0 right-0 left-0 bottom-0 bg-white z-50 flex flex-col">
+          <div className="flex justify-between items-center p-4 text-orange-400">
             <h2 className="text-xl text-black font-bold">AI Coach</h2>
             <button onClick={toggleChat}>
               <X size={24} />
