@@ -19,11 +19,11 @@ const Chatbot = () => {
 
   return (
     <div className="flex flex-col h-full">
-      <div className="flex-grow overflow-y-auto p-4">
+      <div className="flex-grow overflow-y-auto text-md">
         {messages.map((message, index) => (
           <div key={index} className={`flex ${message.sender === 'user' ? 'justify-end' : 'justify-start'} mb-4`}>
             <div className={`flex items-end ${message.sender === 'user' ? 'flex-row-reverse' : 'flex-row'}`}>
-              <div className={`w-8 h-8 rounded-full flex items-center justify-center ${message.sender === 'user' ? 'bg-orange-400 ml-2' : 'bg-orange-400 mr-2'}`}>
+              <div className={`bg-orange-400 text-white rounded-full p-2 shadow-md ${message.sender === 'user' ? 'bg-gray-200 ml-2' : 'bg-orange-400 mr-2'}`}>
                 {message.sender === 'user' ? <User size={20} color="white" /> : <Bot size={20} color="white" />}
               </div>
               <div className={`max-w-xs px-4 py-2 rounded-lg ${message.sender === 'user' ? 'bg-orange-400 text-white' : 'bg-white'}`}>
