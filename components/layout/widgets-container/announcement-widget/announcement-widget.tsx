@@ -38,7 +38,6 @@ export function AnnouncementWidget() {
       Go to Project
     </a>
     </div>
-    <div className="absolute -bottom-6 -right-6 w-24 h-24 bg-gray-100 rounded-full opacity-50 group-hover:scale-150 transition-transform duration-500 ease-out" />
   </Widget>
   )
 }
