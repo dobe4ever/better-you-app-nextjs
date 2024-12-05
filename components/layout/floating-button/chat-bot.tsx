@@ -23,7 +23,7 @@ const Chatbot = () => {
         {messages.map((message, index) => (
           <div key={index} className={`flex ${message.sender === 'user' ? 'justify-end' : 'justify-start'} mb-4`}>
             <div className={`flex items-end ${message.sender === 'user' ? 'flex-row-reverse' : 'flex-row'}`}>
-              <div className={`w-8 h-8 rounded-full flex items-center justify-center ${message.sender === 'user' ? 'bg-orange-400 ml-2' : 'bg-gray-300 mr-2'}`}>
+              <div className={`w-8 h-8 rounded-full flex items-center justify-center ${message.sender === 'user' ? 'bg-orange-400 ml-2' : 'bg-orange-400 mr-2'}`}>
                 {message.sender === 'user' ? <User size={20} color="white" /> : <Bot size={20} color="white" />}
               </div>
               <div className={`max-w-xs px-4 py-2 rounded-lg ${message.sender === 'user' ? 'bg-orange-400 text-white' : 'bg-white'}`}>
@@ -33,7 +33,7 @@ const Chatbot = () => {
           </div>
         ))}
       </div>
-      <div className="bg-white p-4">
+      <div className="bg-white p-">
         <div className="flex items-center border rounded-full overflow-hidden">
           <input
             type="text"
