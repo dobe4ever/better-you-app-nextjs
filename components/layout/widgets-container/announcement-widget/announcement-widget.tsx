@@ -15,7 +15,7 @@ export function AnnouncementWidget() {
     title="Better You Everyday"
     rightIcon={
       <button 
-        className="absolute top-4 right-4 text-orange-400 hover:text-orange-600"
+        className="absolute top-4 right-4 text-orange-400"
         onClick={(e) => {
           e.stopPropagation();  // Prevents triggering any parent onClick handlers
           setShowAnnouncement(false);

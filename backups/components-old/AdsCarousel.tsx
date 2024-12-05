@@ -16,7 +16,7 @@ const Widget = ({
   rightIcon = (
     <ChevronRight
       size={16}
-      className="text-orange-400 group-hover:transform group-hover:translate-x-1 transition-transform"
+      className="text-orange-400"
     />
   ),
   className = '',
