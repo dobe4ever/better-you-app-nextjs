@@ -79,7 +79,7 @@ const Chatbot: React.FC = () => {
 
   return (
     <div className="h-full flex flex-col">
-      <div ref={messagesContainerRef} className="flex-1 overflow-y-auto px-4 scrollbar-hide pt-16">
+      <div ref={messagesContainerRef} className="flex-1 overflow-y-auto px-4 pt-16">
         <div className="pb-[120px]">
           {messages.map((message, index) => (
             <div 
@@ -128,7 +128,7 @@ const Chatbot: React.FC = () => {
               onKeyPress={handleKeyPress}
               onFocus={handleFocus}
               onBlur={() => setIsFocused(false)}
-              className="w-full px-4 pt-2 pb-10 max-h-[200px] min-h-[80px] focus:outline-none resize-none bg-gray-200 overflow-hidden scrollbar-hide"
+              className="w-full px-4 pt-2 pb-10 max-h-[200px] min-h-[80px] focus:outline-none resize-none bg-gray-200 overflow-hidden"
               rows={1}
             />
           </div>

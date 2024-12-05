@@ -3,6 +3,17 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Hide scrollbars everywhere by default */
+* {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;     /* Firefox */
+}
+
+/* Hide webkit scrollbars */
+*::-webkit-scrollbar {
+  display: none;
+}
+
 
 body {
     -webkit-font-smoothing: antialiased;
