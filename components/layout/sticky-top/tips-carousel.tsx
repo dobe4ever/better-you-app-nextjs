@@ -126,9 +126,3 @@ export function TipsCarousel() {
     </div>
   )
 }
-
-
-// <blockquote className="flex flex-col">
-//           <p className="text-lg font-semibold text-gray-900">{currentTip.message}</p>
-//           <p className="text-sm text-gray-500">{currentTip.detail}</p>
-//         </blockquote>
