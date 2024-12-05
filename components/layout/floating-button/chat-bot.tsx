@@ -50,6 +50,7 @@ const Chatbot: React.FC = () => {
     if (input.trim()) {
       setMessages([...messages, { sender: 'user', text: input.trim() }]);
       setInput('');
+      textareaRef.current?.blur();
       setTimeout(() => {
         setMessages(msgs => [...msgs, { 
           sender: 'bot', 
@@ -69,10 +70,10 @@ const Chatbot: React.FC = () => {
   const handleFocus = () => {
     setIsFocused(true);
     setTimeout(() => {
-      if (messagesContainerRef.current) {
-        const container = messagesContainerRef.current;
-        container.scrollTop = container.scrollHeight;
-      }
+      messagesContainerRef.current?.scrollTo({
+        top: messagesContainerRef.current.scrollHeight,
+        behavior: 'smooth'
+      });
     }, 100);
   };
 
