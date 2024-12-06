@@ -7,9 +7,9 @@ export function AnalyticsWidget() {
       <div className="space-y-2">
         <div>
           <TrendingUp size={32} />
-          <div className="text-xs text-gray-500 mb-3">Trending Up</div>
+          <div className="text-sm text-gray-500 mb-3">Trending Up</div>
         </div>
-        <div className="space-y-1 text-xs">
+        <div className="space-y-1 text-sm">
           <div className="flex justify-between items-center">
             <span className="text-gray-600">Last 7 Days</span>
             <span className="text-orange-500 font-bold">80%</span>
