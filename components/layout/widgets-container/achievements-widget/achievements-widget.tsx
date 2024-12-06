@@ -5,7 +5,7 @@ export function AchievementsWidget() {
   return (
     <Widget title="Badges" className="flex flex-col gap-2">
       <Trophy size={32} />
-      <div className="text-sm text-gray-600 mt-5">
+      <div className="text-sm text-gray-600 mt-4">
       Earn rewards by reaching milestones
       </div>
     </Widget>
