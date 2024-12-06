@@ -1,6 +1,6 @@
 import { Store, GraduationCap } from 'lucide-react'
 import { Widget } from '../../../common/widget'
-import { TwoColumnWidget } from '../../../common/two-column-widget'
+import { TwoColumnWidget } from '../../../common/two-column-widget.tsx'
 
 function ShopWidget() {
   return (
