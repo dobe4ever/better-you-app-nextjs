@@ -12,7 +12,7 @@ export function AnnouncementWidget() {
   return (
     <Widget 
     className="relative overflow-hidden"
-    title="Premium Upgrade"
+    title="Better You Everyday"
     rightIcon={
       <button 
         className="absolute top-4 right-4 text-orange-400"
@@ -26,7 +26,7 @@ export function AnnouncementWidget() {
     }
   >
   <p className="text-sm text-gray-400">
-    50% off premium features, limited time
+    Better you everyday | Vercel project overview
   </p>
   <div className="mt-4">
     <a
@@ -35,7 +35,7 @@ export function AnnouncementWidget() {
       rel="noopener noreferrer"
       className="border border-orange-400 text-sm text-orange-400 px-4 py-2 rounded-full"
     >
-      Claim Offer
+      Go to Project
     </a>
     </div>
   </Widget>
