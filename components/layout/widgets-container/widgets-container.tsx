@@ -8,7 +8,7 @@ import { LifeScoreWidget } from './life-score-widget/life-score-widget'
 import { BadgesWidget } from './badges-widget/badges-widget'
 import { AdsCarouselWidget } from './ads-widget/ads-carousel-widget'
 import { ShopCoursesWidget } from './shop-courses-widget/shop-courses-widget'
-import { TwoColumnWidget } from '../../common/two-column-widget.tsx'
+import { TwoColumnWidget } from '../../common/two-column-widget'
 
 export function WidgetsContainer() {
   return (
