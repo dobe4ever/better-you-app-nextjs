@@ -1,3 +1,4 @@
+// components/layout/header-container/top-bar.tsx
 'use client'
 
 import { useState } from 'react'
