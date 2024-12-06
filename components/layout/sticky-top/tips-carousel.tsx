@@ -95,7 +95,7 @@ export function TipsCarousel() {
       detail: "3 days streak! Keep it up!",
     },
     {
-      message: "Great progress!",
+      message: "Great progress on your goals",
       detail: "You've completed 80% of your weekly targets",
     },
     {
@@ -117,7 +117,7 @@ export function TipsCarousel() {
         </div>
 
         <blockquote className="flex flex-col italic text-sm text-gray-400 border-l-4 border-orange-400 pl-4">
-          <p className="text-lg text-gray-700 font-semibold">{currentTip.message}</p>
+          <p className="text-md text-gray-700 font-semibold">{currentTip.message}</p>
           <p className="text-sm text-gray-500 mt-1">{currentTip.detail}</p>
         </blockquote>
 
