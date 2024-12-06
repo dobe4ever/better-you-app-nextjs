@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 
-export function GreetingSection() {
+export function HeaderDate() {
   return (
     <motion.div
       initial={{ opacity: 0, y: 50 }}

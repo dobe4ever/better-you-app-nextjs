@@ -1,6 +1,6 @@
 import { TopBar } from './top-bar'
 import { AvatarSection } from './avatar-section'
-import { GreetingSection } from './greeting-section'
+import { HeaderDate } from './header-date'
 import { ShapesBackground } from './shapes-background'
 
 export function HeaderContainer() {
@@ -8,7 +8,7 @@ export function HeaderContainer() {
     <div className="">
       <TopBar />
       <AvatarSection />
-      <GreetingSection />
+      <HeaderDate />
       <ShapesBackground />
     </div>
   )
