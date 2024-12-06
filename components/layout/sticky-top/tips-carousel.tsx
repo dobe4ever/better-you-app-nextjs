@@ -95,7 +95,7 @@ export function TipsCarousel() {
       detail: "3 days streak! Keep it up!",
     },
     {
-      message: "Great progress on your goals",
+      message: "Great progress!",
       detail: "You've completed 80% of your weekly targets",
     },
     {
