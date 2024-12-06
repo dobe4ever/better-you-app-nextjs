@@ -22,6 +22,8 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "components/common/two-column-widget.tsx"],
+  // "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "components/common/two-column-widget.tsx", "components/layout/header-container/top-bar.tsx.back"],
+  "include": ["next-env.d.ts", "**/*.ts",  ".next/types/**/*.ts", "components/common/two-column-widget.tsx", "components/layout/header-container/top-bar.tsx.back"],
+
   "exclude": ["node_modules"]
 }

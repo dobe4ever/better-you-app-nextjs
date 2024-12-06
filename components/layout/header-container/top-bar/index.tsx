@@ -1,8 +1,8 @@
-// components/layout/header-container/top-bar.tsx
+// components/layout/header-container/top-bar/index.tsx
 'use client'
 
 import { useState } from 'react'
-import { Menu, LogOut, Settings, Bell, PenIcon as UserPen } from 'lucide-react'
+import { Menu, LogOut, Settings, Bell, PenIcon as UserPen, Search } from 'lucide-react'
 import { motion } from 'framer-motion'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { Button } from '@/components/ui/button'
@@ -14,33 +14,30 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
+import { Logo } from './components/logo'
+import { TopBarProps } from './types'
 
-export function TopBar({ username = 'Brotastic', avatarUrl = 'https://i.pravatar.cc/300' }) {
+export function TopBar({ username = 'Brotastic', avatarUrl = 'https://i.pravatar.cc/300' }: TopBarProps) {
   const [notificationCount, setNotificationCount] = useState(3)
   const initials = username.slice(0, 2).toUpperCase()
 
   return (
     <div className="relative p-2 z-10">
       <div className="flex justify-between">
-        <div className="flex items-center gap-4">
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <Button variant="ghost" size="icon" className="relative text-white">
-                <Menu />
-              </Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent align="end" className="w-full">
-              <DropdownMenuItem>Menu Item 1</DropdownMenuItem>
-              <DropdownMenuItem>Menu Item 2</DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
-          <h1 className="text-xl font-semibold text-white">Logo</h1>
+        <div className="flex items-center gap-1">
+          <Button variant="ghost" size="icon" className="relative text-white">
+            <Menu size={24} />
+          </Button>
+          <Logo />
         </div>
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-1">
+          <Button variant="ghost" size="icon" className="relative text-white">
+            <Search size={24} />
+          </Button>
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button variant="ghost" size="icon" className="relative text-white">
-                <Bell />
+                <Bell size={24} />
                 {notificationCount > 0 && (
                   <motion.span
                     initial={{ scale: 0 }}
@@ -52,7 +49,7 @@ export function TopBar({ username = 'Brotastic', avatarUrl = 'https://i.pravatar
                 )}
               </Button>
             </DropdownMenuTrigger>
-            <DropdownMenuContent align="end" className="w-full">
+            <DropdownMenuContent align="end" className="w-56">
               <DropdownMenuLabel>Notifications</DropdownMenuLabel>
               <DropdownMenuSeparator />
               <DropdownMenuItem onClick={() => setNotificationCount(prev => Math.max(0, prev - 1))}>
@@ -63,15 +60,14 @@ export function TopBar({ username = 'Brotastic', avatarUrl = 'https://i.pravatar
           </DropdownMenu>
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
-              <Button variant="ghost" size="icon" className="rounded-full text-white">
+              <Button variant="ghost" size="icon" className="relative text-white">
                 <Avatar className="border-2 border-white h-8 w-8">
                   <AvatarImage src={avatarUrl} alt={username} />
                   <AvatarFallback>{initials}</AvatarFallback>
                 </Avatar>
-                <span className="sr-only">User menu</span>
               </Button>
             </DropdownMenuTrigger>
-            <DropdownMenuContent align="end" className="w-full p-2">
+            <DropdownMenuContent align="end" className="w-56 p-2">
               <DropdownMenuItem className="text-sm text-gray-400 p-2">email@gmail.com</DropdownMenuItem>
               <DropdownMenuItem className="flex flex-row">
                 <Avatar className="border-2 border-orange-500 h-8 w-8">
@@ -94,4 +90,3 @@ export function TopBar({ username = 'Brotastic', avatarUrl = 'https://i.pravatar
     </div>
   )
 }
-
