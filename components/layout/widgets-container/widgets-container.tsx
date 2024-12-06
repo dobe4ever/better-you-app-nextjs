@@ -4,7 +4,7 @@ import { TodosWidget } from './todos-widget/todos-widget'
 import { SuccessCoachWidget } from './success-coach-widget/success-coach-widget'
 import { AnalyticsWidget } from './analytics-widget/analytics-widget'
 import { LifeScoreWidget } from './life-score-widget/life-score-widget'
-import { AchievementsWidget } from './achievements-widget/achievements-widget'
+import { BadgesWidget } from './badges-widget/badges-widget'
 import { AdsCarouselWidget } from './ads-widget/ads-carousel-widget'
 import { ShopCoursesWidget } from './shop-courses-widget/shop-courses-widget'
 import { TwoColumnWidget } from '../../common/two-column-widget'
@@ -22,7 +22,7 @@ export function WidgetsContainer() {
       />
       <TwoColumnWidget
         leftWidget={<LifeScoreWidget />}
-        rightWidget={<AchievementsWidget />}
+        rightWidget={<BadgesWidget />}
       />
       <AdsCarouselWidget />
       <ShopCoursesWidget />
