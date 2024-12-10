@@ -23,12 +23,12 @@ export function TipsCarousel() {
   const currentTip = tips[1]
 
   return (
-    <div className="bg-white p-2 m-2 border-orange-300 border-b p-4">
+    <div className="bg-white p-4 m-2 border-orange-300 border-b">
 
       <div className="flex items-center">
 
         <div className="flex-shrink-0 mr- pr- h-12">
-        <Bot size={55} className="text-orange-400 pr-2" />
+        <Bot size={46} className="text-orange-400 pr-2" />
         </div>
 
         <blockquote className="flex flex-col italic text-sm text-gray-400 border-l-4 border-orange-400 pl-4">
