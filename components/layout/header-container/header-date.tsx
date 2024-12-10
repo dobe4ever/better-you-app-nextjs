@@ -1,3 +1,4 @@
+// components/layout/header-container/header-date.tsx
 import { motion } from 'framer-motion'
 
 export function HeaderDate() {

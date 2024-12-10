@@ -12,6 +12,7 @@ import {
 
 export function HamburgerBtn() {
   return (
+    <div className="[&_svg]:size-5">
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <Button variant="ghost" size="icon" className="relative text-white">
@@ -23,6 +24,7 @@ export function HamburgerBtn() {
         <DropdownMenuItem>Menu Item 2</DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
+    </div>
   )
 }
 

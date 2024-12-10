@@ -1,3 +1,4 @@
+// components/layout/widgets-container/ads-widget/ads-carousel-widget.tsx
 import { Widget } from '../../../common/widget'
 
 export function AdsCarouselWidget() {

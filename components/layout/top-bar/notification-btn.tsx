@@ -18,6 +18,7 @@ export function NotificationBtn() {
   const [notificationCount, setNotificationCount] = useState(3)
 
   return (
+    <div className="[&_svg]:size-5">
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <Button variant="ghost" size="icon" className="relative text-white">
@@ -42,6 +43,7 @@ export function NotificationBtn() {
         <DropdownMenuItem>View all notifications</DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
+    </div>
   )
 }
 

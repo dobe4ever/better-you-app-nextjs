@@ -1,5 +1,5 @@
-// components/layout/top-bar/top-bar.tsx
-import { HamburgerBtn } from './hamburger-btn'
+// components/layout/top-bar/top-bar-inside.tsx
+import { ChevronLeft } from 'lucide-react'
 import { Logo } from './logo'
 // import { SearchBtn } from './search-btn'
 import { NotificationBtn } from './notification-btn'
@@ -10,12 +10,12 @@ interface TopBarProps {
   avatarUrl: string
 }
 
-export function TopBar({ username, avatarUrl }: TopBarProps) {
+export function TopBarInside({ username, avatarUrl }: TopBarProps) {
   return (
     <div className="relative p-2 z-10">
       <div className="flex justify-between items-center">
         <div className="flex items-center gap-4">
-          <HamburgerBtn />
+          <ChevronLeft />
           <Logo />
         </div>
         <div className="flex items-center gap-4">

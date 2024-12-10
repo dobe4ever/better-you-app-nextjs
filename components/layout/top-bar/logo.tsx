@@ -1,5 +1,4 @@
 // components/layout/top-bar/logo.tsx
-// components/layout/header-container/top-bar/components/logo.tsx
 import Image from 'next/image'
 import React from 'react'
 

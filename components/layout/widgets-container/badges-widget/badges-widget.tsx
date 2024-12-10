@@ -1,3 +1,4 @@
+// components/layout/widgets-container/badges-widget/badges-widget.tsx
 import { Trophy } from 'lucide-react'
 import { Widget } from '../../../common/widget'
 

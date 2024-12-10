@@ -23,7 +23,7 @@
 // }
 
 
-
+// components/layout/widgets-container/habits-widget/habits-widget.tsx
 import { Widget } from '../../../common/widget'
 
 export function HabitsWidget() {

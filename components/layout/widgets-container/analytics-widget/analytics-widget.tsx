@@ -1,3 +1,4 @@
+// components/layout/widgets-container/analytics-widget/analytics-widget.tsx
 import { TrendingUp } from 'lucide-react'
 import { Widget } from '../../../common/widget'
 

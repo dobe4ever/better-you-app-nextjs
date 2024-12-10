@@ -1,3 +1,4 @@
+// components/layout/widgets-container/success-coach-widget/success-coach-widget.tsx
 import { Bot } from 'lucide-react'
 import { Widget } from '../../../common/widget'
 
