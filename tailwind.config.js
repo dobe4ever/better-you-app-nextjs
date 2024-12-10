@@ -82,6 +82,12 @@ module.exports = {
   ],
   theme: {
     extend: {
+    screens: {
+        sm: '640px',
+        md: '768px',
+        lg: '1024px',
+        xl: '1280px',
+		  },
       animation: {
         'spin-slow': 'spin 20s linear infinite',
         'fade-in': 'fadeIn 0.5s ease-out',
