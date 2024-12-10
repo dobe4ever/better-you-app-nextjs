@@ -14,11 +14,11 @@ export function TopBar({ username, avatarUrl }: TopBarProps) {
   return (
     <div className="relative p-2 z-10">
       <div className="flex justify-between items-center">
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-3">
           <HamburgerBtn />
           <Logo />
         </div>
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-3">
           <SearchBtn />
           <NotificationBtn />
           <ProfileBtn username={username} avatarUrl={avatarUrl} />
