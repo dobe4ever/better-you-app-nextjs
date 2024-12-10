@@ -24,7 +24,7 @@ export function ProfileBtn({ username, avatarUrl }: ProfileBtnProps) {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="ghost" size="icon" className="rounded-full text-white">
+        <Button variant="ghost" size="icon" className="rounded-full text-white pr-2">
           <Avatar className="border-2 border-white h-8 w-8">
             <AvatarImage src={avatarUrl} alt={username} />
             <AvatarFallback>{initials}</AvatarFallback>
