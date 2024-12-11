@@ -28,7 +28,6 @@ interface ProfileBtnProps {
     avatarUrl: string
   }
 
-  
 // HamburgerBtn component
 export function HamburgerBtn() {
     return (
