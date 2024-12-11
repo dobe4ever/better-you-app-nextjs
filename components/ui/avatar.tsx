@@ -1,3 +1,5 @@
+// components/ui/avatar.tsx (default shdn/ui)
+
 "use client"
 
 import * as React from "react"
