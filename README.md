@@ -1,1026 +1,329 @@
-Yo! You are Bro bot, an engaging LLM with a passion for sarcasm, the very human type of sarcasm, with its nuances and richness. You're notorious for giving few fucks about political correctness and politics in general. You treat all users like they are your Bruh and can talk about any imaginable subject, from deep and complex topics, to the current state of Kim Kardashian's butt, or assist with professional tasks & projects of any kind. Anything goes! 
+its for an app somewhat similar to trello but no custom boards, no custom lists, only 2 predefined lists:  'habits list' & 'todos list. The user can add/remove habit or todo to the corresponding list the same way you add cards to you custom list in trello.  Cards have front & back (clicking the front, it shows the back with options) like in trello.
 
-# Mission at hand:
-Yooo bruh! Got ur react typescript, tailwind and the full stack hat handy? 
+# Here's the break down of the app for context:
 
-# Context:
-- Next.js app directory structure
-- React's built-in hooks
-- Mobile-first. 
-- The app should be full width and behave responsively to a certain size, then it stops widening and stays centered. 
-- Keep consistent to the libraries, setups, etc, in the existing code.
+## HomePage: 
 
-# Layout:
-0. Background: Sleek shapes SVG fixed bg (currently is the first part of the rendering code in the page.tsx) 
+### div (col)
+- HeaderArea (header elements below):
+    - ShapesBG
+  - div (col):
+    - TopBar
+    - AvatarArea
+    - StickyTop
+___
 
-1. HeaderContainer:
-   - Top bar with a hamburger menu & "Logo" text on the left, and notification bell and user avatar on the right.
-   - Large circular user avatar in the center.
-   - Greetings text.
-   - Tips Carousel - Stick to the top of the screen when scrolling.
-   - The header container should occupy roughly the top half of the screen height & full width.
-2. WidgetsContainer (White, full width box, with rounded top corners, that holds all widgets):
-The WidgetsContainer should occupy the rest of the screen height below the HeaderContainer and be full width.
-   - AnnouncementWidget - full W
-   - HabitsWidget - full W
-   - TodosWidget - full W
-   - Grid Widgets 2x2 - full W > line 1: SuccessCoachWidget & AnalyticsWidget. line 2: LifeScoreWidget & AchievementsWidget
-   - AdsCarouselWidget - full W
-   - ShopCourses - Two side-by-side widgets for ShopWidget and CoursesWidget
+- WidgetsArea (col):
+  - div (col):
+    - AnnouncementsWidget 
+    - HabitsWidget > Opens HabitsPage
+    - TodosWidget > Opens TodosPage
+  - div (grid-cols-2):
+    - CheckInWidget > and so on...
+    - AnalyticsWidget
+    - LifeScoreWidget
+    - BadgesWidget
+  - div (col):
+    - AdsWidget
+  - div (cols-2):
+    - ShopWidget
+    - CoursesWidget
 
-3. FloatingChatButton (Fixed, always visible chat button near the bottom-right. When clicked it opens a full screen chatbot interface)
+### FloatingChatBtn > Opens ChatPage
 
-# Scroll & Fade effect:
-The HeaderContainer, incl all content in it except the Tips Carousel, fades to white during scroll.
-## Scroll & Fade Logic:
-- Tips Carousel initial scroll position = Header fade overlay 0%
-- Tips Carousel scroll position at the top of the screen = Header fade overlay 100%
-So the fading speed will match whatever speed user scrolls. 
-- The Tips Carousel sticks to the top, and the WidgetContaner continues to scroll behind it as needed.
+Yo, bruh! I'll create a directory and file structure for your Trello-like app with the specific requirements you've outlined. This structure will accommodate the HomePage layout you've described, as well as the habits and todos functionality. I'll include setup for login/signup and user data management.
 
-# Codebase v1:
-Deploys, works & looks fairly well with some messed up details regarding how some things display:
-```css
-/* app/globals.css */
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+Here's the proposed structure:
+
+```
+/app
+  /api
+    /auth
+      /[...nextauth]
+        /route.ts  # NextAuth.js API route
+    /habits
+      /route.ts    # API route for habits CRUD operations
+    /todos
+      /route.ts    # API route for todos CRUD operations
+    /user
+      /route.ts    # API route for user data
+
+  /auth
+    /login
+      /page.tsx    # Login page
+    /signup
+      /page.tsx    # Signup page
+
+  /habits
+    /page.tsx      # Habits list page
+
+  /todos
+    /page.tsx      # Todos list page
+
+  /chat
+    /page.tsx      # Chat page
+
+  /components
+    /layout
+      header-area.tsx
+      sticky-top.tsx
+      header-area.tsx
+      floating-chat-btn.tsx
+    /widgets
+      announcements-widget.tsx
+      habits-widget.tsx
+      todos-widget.tsx
+      check-in-widget.tsx
+      analytics-widget.tsx
+      life-score-widget.tsx
+      badges-widget.tsx
+      ads-widget.tsx
+      shop-widget.tsx
+      courses-widget.tsx
+    /ui
+      card.tsx     # Reusable card component with front/back functionality
+      button.tsx
+      input.tsx
+
+  /hooks
+    use-habits.ts
+    use-todos.ts
+    use-user-data.ts
+
+  /lib
+    db.ts          # Database connection
+    auth.ts        # Authentication utilities
+
+  /types
+    index.ts       # TypeScript type definitions
+
+  layout.tsx       # Root layout
+  page.tsx         # HomePage
+
+/public
+  /images
+
+/styles
+  globals.css
 ```
 
-```jsx
-/** @type {import('tailwindcss').Config} */
-module.exports = {
-    darkMode: ['class'],
-    content: [
-    './pages/**/*.{js,ts,jsx,tsx,mdx}',
-    './components/**/*.{js,ts,jsx,tsx,mdx}',
-    './app/**/*.{js,ts,jsx,tsx,mdx}',
-  ],
-  theme: {
-  	extend: {
-  		borderRadius: {
-  			lg: 'var(--radius)',
-  			md: 'calc(var(--radius) - 2px)',
-  			sm: 'calc(var(--radius) - 4px)'
-  		},
-  		colors: {
-  			background: 'hsl(var(--background))',
-  			foreground: 'hsl(var(--foreground))',
-  			card: {
-  				DEFAULT: 'hsl(var(--card))',
-  				foreground: 'hsl(var(--card-foreground))'
-  			},
-  			popover: {
-  				DEFAULT: 'hsl(var(--popover))',
-  				foreground: 'hsl(var(--popover-foreground))'
-  			},
-  			primary: {
-  				DEFAULT: 'hsl(var(--primary))',
-  				foreground: 'hsl(var(--primary-foreground))'
-  			},
-  			secondary: {
-  				DEFAULT: 'hsl(var(--secondary))',
-  				foreground: 'hsl(var(--secondary-foreground))'
-  			},
-  			muted: {
-  				DEFAULT: 'hsl(var(--muted))',
-  				foreground: 'hsl(var(--muted-foreground))'
-  			},
-  			accent: {
-  				DEFAULT: 'hsl(var(--accent))',
-  				foreground: 'hsl(var(--accent-foreground))'
-  			},
-  			destructive: {
-  				DEFAULT: 'hsl(var(--destructive))',
-  				foreground: 'hsl(var(--destructive-foreground))'
-  			},
-  			border: 'hsl(var(--border))',
-  			input: 'hsl(var(--input))',
-  			ring: 'hsl(var(--ring))',
-  			chart: {
-  				'1': 'hsl(var(--chart-1))',
-  				'2': 'hsl(var(--chart-2))',
-  				'3': 'hsl(var(--chart-3))',
-  				'4': 'hsl(var(--chart-4))',
-  				'5': 'hsl(var(--chart-5))'
-  			}
-  		}
-  	}
-  },
-  plugins: [require("tailwindcss-animate")],
-};
-```
+Now, let's create these files with commented-out file paths at the top:
 
-```jsx
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-    reactStrictMode: true,
-    eslint: {
-      ignoreDuringBuilds: true,
-    },
-    webpack: (config, { dev, isServer }) => {
-      config.optimization.minimize = false;
-      return config;
-    },
-  }
-  
-  module.exports = nextConfig
-```
-
-```jsx
-// app/layout.tsx
-import './globals.css';
-import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
-
-const inter = Inter({ subsets: ['latin'] });
-
-export const metadata: Metadata = {
-  title: 'Create Next App',
-  description: 'Generated by create next app',
-};
-
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
-  return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
-    </html>
-  );
-}
-```
-
-```jsx
+```tsx
 // app/page.tsx
-'use client'
-import { useState, useRef, useEffect } from 'react'
-import { Header } from '../components/Header'
-import { AiTipsCarousel } from '../components/AiTipsCarousel'
-import { Announcement } from '../components/Announcement'
-import { Habits } from '../components/Habits'
-import { Todos } from '../components/Todos'
-import { GridWidgets } from '../components/GridWidgets'
-import { AdsCarousel } from '../components/AdsCarousel'
-import { ShopAndCourses } from '../components/ShopAndCourses'
+// HomePage component
 
-export default function Component() {
-  const [fadePercentage, setFadePercentage] = useState(0)
-  const headerRef = useRef<HTMLDivElement>(null)
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (headerRef.current) {
-        const scrollPosition = window.scrollY
-        const headerHeight = headerRef.current.offsetHeight
-        const newFadePercentage = Math.max(0, Math.min(100, (scrollPosition / headerHeight) * 100))
-        setFadePercentage(newFadePercentage)
-      }
-    }
-
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
-    
-  return (
-    <div className="min-h-screen min-w-screen bg-gradient-to-b from-black/0 via-black/25 to-black/100">
-        
-        {/* Background SVG - Fixed position */}        
-        <div className="fixed w-full h-[70%] -z-10">
-          <svg className="h-full w-full" preserveAspectRatio="none" viewBox="0 0 400 800">
-            <path d="M0 0 H400 V800 H0 Z" fill="#f97316" />
-            <path d="M250 0 L400 0 L400 300 Z" fill="#404040" />
-            <path d="M0 750 L400 75 L400 800 Z" fill="#fb9a47" />
-          </svg>
-        </div>
-        
-        {/* Content container - Relative position */}
-        <div className="relative">
-          
-          {/* Header */}          
-          <div ref={headerRef} >
-            <div className="pb-4">
-              <Header />
-            </div>
-            <div className="absolute inset-0 w-full h-[60%] bg-white" style={{ opacity: fadePercentage / 100 }} />
-          </div>
-          
-         {/* Sticky Top */}
-          <div className="sticky top-0 z-30">
-            <AiTipsCarousel />
-          </div>
-
-          {/* Widgets wrapper */}
-          <main className="bottom-0 flex flex-col w-full rounded-t-2xl p-4 space-y-2 bg-white z-20">
-            <Announcement />
-            <Habits />
-            <Todos />
-            <GridWidgets />
-            <AdsCarousel />
-            <ShopAndCourses />
-          </main>
-        </div>
-    </div>
-  )
-}
-```
-
-```jsx
-// components/Header.tsx
-'use client'
-
-import { useEffect, useRef, useState } from 'react'
-import { motion } from 'framer-motion'
-import { TopBar } from './TopBar'
-
-interface HeaderProps {
-  username?: string
-  avatarUrl?: string
-}
-
-export function Header({ username = 'Brotastic', avatarUrl = 'https://i.pravatar.cc/300' }: HeaderProps) {
-  const [fadePercentage, setFadePercentage] = useState(0)
-  const headerRef = useRef<HTMLDivElement>(null)
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (headerRef.current) {
-        const scrollPosition = window.scrollY
-        const headerHeight = headerRef.current.offsetHeight
-        const newFadePercentage = Math.max(0, Math.min(100, (scrollPosition / headerHeight) * 100))
-        setFadePercentage(newFadePercentage)
-      }
-    }
-
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
-
-  return (
-    <div className="relative" >
-
-        <TopBar />
-
-        {/* Centered avatar container */}
-        <div className="w-full">
-          {/* Avatar */}
-          <div className="w-full flex justify-center z-10">
-            <div className="rounded-full shadow-lg border-4 border-orange-300/25 overflow-hidden">
-              <img
-                src={avatarUrl}
-                alt="Avatar"
-                className="w-56 h-56 object-cover"
-              />
-            </div>
-          </div>
-        </div>
-
-        {/* Main greeting text */}
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 10}}
-          transition={{ delay: 0.1, duration: 0.2 }}
-          className="text-center"
-        >
-          <h1 className="text-white">
-            <span className="tracking-tighter font-bold text-2xl">READY TO CRASH SOME HABITS?</span>
-          </h1>
-        </motion.div>
-
-    </div>
-  )
-}
-```
-
-```jsx
-// components/TopBar.tsx
-'use client'
-
-import { useState } from 'react'
-import { Menu, LogOut, Settings, Bell, UserPen, User } from 'lucide-react'
-import { motion } from 'framer-motion'
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
-import { Button } from '@/components/ui/button'
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu'
-
-export function TopBar({ username = 'Brotastic', avatarUrl = 'https://i.pravatar.cc/300' }) {
-  const [notificationCount, setNotificationCount] = useState(3)
-
-  const initials = username.slice(0, 2).toUpperCase()
-
-  return (
-    <div className="relative p-2 z-10">
-      <div className="flex justify-between">
-
-        {/* Left side */}
-        <div className="flex items-center gap-4">
-
-          {/* Hamburger */}
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <Button variant="ghost" size="icon" className="relative text-white">
-                <Menu />
-              </Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent align="end" className="w-full">
-              <DropdownMenuLabel>Notifications</DropdownMenuLabel>
-              <DropdownMenuSeparator />
-              <DropdownMenuItem onClick={() => setNotificationCount(prev => Math.max(0, prev - 1))}>
-                Mark as read
-              </DropdownMenuItem>
-              <DropdownMenuItem>View all notifications</DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
-
-          <h1 className="text- font-semibold text-white">Logo</h1>
-
-        </div>
-
-        {/* Right side */}
-        <div className="flex items-center gap-4">
-
-          {/* Notifications */}
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-
-              {/* Bell */}
-              <Button variant="ghost" size="icon" className="relative text-white">
-                <Bell />
-
-                {/* Count */}
-                {notificationCount > 0 && (
-                  <motion.span
-                    initial={{ scale: 0 }}
-                    animate={{ scale: 1 }}
-                    className="absolute right-0 top-0 flex h-4 w-4 items-center justify-center rounded-full bg-red-500 text-xs font-bold text-white"
-                  >
-                    {notificationCount}
-                  </motion.span>
-                )}
-              </Button>
-            </DropdownMenuTrigger>
-
-            {/* Context menu */}
-            <DropdownMenuContent align="end" className="w-full">
-              {/* Label */}
-              <DropdownMenuLabel>Notifications</DropdownMenuLabel>
-              <DropdownMenuSeparator />
-              {/* Items */}
-              <DropdownMenuItem onClick={() => setNotificationCount(prev => Math.max(0, prev - 1))}>
-                Mark as read
-              </DropdownMenuItem>
-
-              <DropdownMenuItem>View all notifications</DropdownMenuItem>
-
-            </DropdownMenuContent>
-
-          </DropdownMenu>
-
-          {/* Profile */}
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <Button variant="ghost" size="icon" className="rounded-full text-white">
-                <Avatar className="border-2 border-white h-8 w-8">
-                  <AvatarImage src={avatarUrl} alt={username} />
-                  <AvatarFallback>{initials}</AvatarFallback>
-                </Avatar>
-                <span className="sr-only">User menu</span>
-              </Button>
-            </DropdownMenuTrigger>
-
-            {/* Context menu */}
-            <DropdownMenuContent align="end" className="w-full p-">
-
-              <DropdownMenuItem className="text- text-gray-400 p-2"> email@gmail.com </DropdownMenuItem>
-
-              <DropdownMenuItem className="flex flex-row" > 
-                
-                <Avatar className="border-2 border-orange-500 h-8 w-8">
-                  <AvatarImage src={avatarUrl} alt={username} />
-                  <AvatarFallback>{initials}</AvatarFallback>
-                </Avatar>
-
-                <span className="flex flex-col gap-0">
-                  <h1> {username} </h1>
-                  <p className="text-gray-400"> Free plan </p>
-                </span>
-
-              </DropdownMenuItem>
-              
-              <DropdownMenuSeparator />
-
-              <DropdownMenuItem> <Settings className="mr-2 h-4 w-4" /> Settings</DropdownMenuItem>
-              <DropdownMenuItem> <UserPen className="mr-2 h-4 w-4" /> Edit Profile </DropdownMenuItem>
-              <DropdownMenuItem> <LogOut className="mr-2 h-4 w-4" /> Log out</DropdownMenuItem>
-
-            </DropdownMenuContent>
-          </DropdownMenu>
-        </div>
-      </div>
-    </div>
-  )
-}
-```
-
-```jsx
-// components/AiTipsCarousel.tsx
-'use client'
-
-import { useState, useEffect } from 'react';
-import { Bot, ChevronLeft, ChevronRight } from 'lucide-react';
-
-export function AiTipsCarousel() {
-  const [activeSlide, setActiveSlide] = useState(0);
-  
-  const tips = [
-    {
-      message: "You're building a strong routine",
-      detail: "3 days streak! Keep it up!",
-    },
-    {
-      message: "Great progress on your goals",
-      detail: "You've completed 80% of your weekly targets",
-    },
-    {
-      message: "Time for a mindful break",
-      detail: "You've been focused for 2 hours straight",
-    },
-  ];
-
-  const nextSlide = () => {
-    setActiveSlide((prev) => (prev + 1) % tips.length);
-  };
-
-  const prevSlide = () => {
-    setActiveSlide((prev) => (prev - 1 + tips.length) % tips.length);
-  };
-
-  useEffect(() => {
-    const timer = setInterval(nextSlide, 6000);
-    return () => clearInterval(timer);
-  }, []);
-
-  return (
-    <div className="rounded border-y border-black bg-white m-4 p-1.5">
-
-      <div className="flex items-center justify-between bg-white">
-        {/* Left Navigation */}
-        <button 
-          onClick={(e) => {
-            e.stopPropagation();
-            prevSlide();
-          }}
-          className="bg-white z-10"
-          aria-label="Previous tip"
-        >
-          <ChevronLeft size={20} className="text-black/75 m-" />
-        </button>
-
-        {/* Carousel Content */}
-        <div className="overflow-hidden px-">
-          <div
-            className="flex transition-transform duration-300 ease-out w-full"
-            style={{ transform: `translateX(-${activeSlide * 100}%)` }}
-          >
-            {tips.map((tip, index) => (
-              <div key={index} className="flex-shrink-0 w-full">
-                <div className="flex items-center gap-2 px-0">
-                  <div className="flex-shrink-0">
-                    <Bot size={36} className="text-black/75" />
-                  </div>
-                  <blockquote className="flex flex-col border-l-2 pl-2 border-black/75 italic text-sm text-black/75">
-                    <p className="text-md text-black font-semibold">{tip.message}</p>
-                    <p className="text-xs text-gray-500">{tip.detail}</p>
-                  </blockquote>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Right Navigation */}
-        <button 
-          onClick={(e) => {
-            e.stopPropagation();
-            nextSlide();
-          }}
-          className="bg-white z-10"
-          aria-label="Next tip"
-        >
-          <ChevronRight size={20} className="text-black/75"/>
-        </button>
-
-      </div>
-
-    </div>
-  );
-}
 
 ```
 
-```jsx
-// components/Announcement.tsx
-'use client'
+```tsx
+// app/layout.tsx
+// Root layout component
 
-import { useState, ReactNode } from 'react'
-import { X, ChevronRight } from 'lucide-react'
 
-interface WidgetProps {
-  title: string
-  children: ReactNode
-  onClick?: () => void
-  rightIcon?: ReactNode
-  className?: string
-}
-
-const Widget = ({
-  title,
-  children,
-  onClick,
-  rightIcon = (
-    <ChevronRight
-      size={16}
-      className="text-orange-400"
-    />
-  ),
-  className = '',
-}: WidgetProps) => {
-  return (
-    <div
-      className={`bg-white rounded-md p-4 shadow ${
-        onClick ? 'cursor-pointer' : ''
-      } group ${className}`}
-    >
-      <div className="flex justify-between items-center mb-0">
-        <h2 className="text-sm font-semibold">{title}</h2>
-        {rightIcon}
-      </div>
-      {children}
-    </div>
-  )
-}
-
-export function Announcement() {
-  const [showAnnouncement, setShowAnnouncement] = useState(true)
-
-  if (!showAnnouncement) return null
-
-  return (
-    <div className="bg-white rounded-md border p-">
-      {showAnnouncement && (
-        <Widget
-          className="relative overflow-hidden"
-          title="Upgrade to Premium 50% off limited time offer!"
-          rightIcon={
-            <button
-              className="absolute top-4 right-4 text-orange-400"
-              onClick={(e) => {
-                e.stopPropagation()
-                setShowAnnouncement(false)
-              }}
-            >
-              <X size={16} />
-            </button>
-          }
-        >
-          <div className="mt-4">
-            <a
-              href="https://vercel.com/dobe4evers-projects/vitejs-node-ts-tailwind-better-you"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="border border-orange-500 text-sm p-2 rounded-md"
-            >
-              Read More
-            </a>
-          </div>
-        </Widget>
-      )}
-    </div>
-  )
-}
 ```
 
-```jsx
-// components/GridWidgets.tsx
-import { ReactNode } from 'react'
-import { LoaderPinwheel, TrendingUp, Bot, Trophy, ChevronRight } from 'lucide-react'
 
-interface WidgetProps {
-  title: string
-  children: ReactNode
-  onClick?: () => void
-  rightIcon?: ReactNode
-  className?: string
-}
+```tsx
+// app/api/auth/[...nextauth]/route.ts
+// NextAuth.js API route
 
-const Widget = ({
-  title,
-  children,
-  onClick,
-  rightIcon = (
-    <ChevronRight
-      size={16}
-      className="text-orange-400"
-    />
-  ),
-  className = '',
-}: WidgetProps) => {
-  return (
-    <div
-      className={`bg-white rounded-md p-4 border shadow ${
-        onClick ? 'cursor-pointer' : ''
-      } group ${className}`}
-    >
-      <div className="flex justify-between items-center mb-0">
-        <h2 className="text-sm font-semibold">{title}</h2>
-        {rightIcon}
-      </div>
-      {children}
-    </div>
-  )
-}
 
-export function GridWidgets() {
-  return (
-    <div className="grid grid-cols-2 gap-2 mt-0">
-      
-      {/* Success Coach Widget */}
-      <Widget 
-        title="Success Coach" 
-        className="flex flex-col gap-2"
-      >
-        <Bot size={32} />
-
-        <div className="text-sm text-gray-600 mt-2">
-        Get instant guidance and support from your 24/7 AI coach
-        </div>
-      </Widget>
-
-      {/* Analytics Widget */}
-      <Widget title="Analytics" className="flex flex-col gap-2">
-        <div className="space-y-2">
-          <div>
-          <TrendingUp size={32} />
-          <div className="text-xs text-gray-500">Trending Up</div>
-        </div>
-          <div className="space-y-1 text-xs">
-            <div className="flex justify-between items-center">
-              <span className="text-gray-600">Last 7 Days</span>
-              <span className="text-orange-500 font-bold">80%</span>
-            </div>
-            <div className="h-1.5 bg-gray-100 rounded-full overflow-hidden">
-              <div className="h-full w-3/4 bg-orange-500 rounded-full"></div>
-            </div>
-            <div className="flex justify-between items-center">
-              <span className="text-gray-600">Last 30 days</span>
-              <span className="text-gray-900 font-bold">48%</span>
-            </div>
-            <div className="h-1.5 bg-gray-100 rounded-full overflow-hidden">
-              <div className="h-full w-1/2 bg-gray-900 rounded-full"></div>
-            </div>
-          </div>
-        </div>
-      </Widget>
-
-      {/* Life score Widget */}
-      <Widget 
-        title="Life Score" 
-        className="flex flex-col gap-2"
-      >
-        <LoaderPinwheel size={32} />
-
-        <div className="text-sm text-gray-600 mt-2">
-        Measure your score across all life areas with our intuitive wheel assessment tool
-        </div>
-      </Widget>
-
-      {/* Achievements Widget */}
-      <Widget 
-        title="Achievements" 
-        className="flex flex-col gap-2"
-      >
-        <Trophy size={32} />
-        <div className="text-sm text-gray-600 mt-2">
-        Unlock rewards as you reach new milestones
-        </div>
-      </Widget>
-    </div>
-  )
-}
 ```
 
-```jsx
-// app/components/Habits.tsx
-import { ChevronRight } from 'lucide-react'
+```tsx
+// app/api/habits/route.ts
+// API route for habits CRUD operations
 
-export function Habits() {
-  return (
-    <div className="bg-white rounded-md border shadow p-4">
-      <div className="flex items-center justify-between">
-        <p className="text-lg font-bold">Today's Habits</p>
-        <ChevronRight className="h-5 w-5 text-orange-400" />
-      </div>
 
-      <div className="flex items-center justify-between">
-        <div className="my-2">
-          <p className="text-sm text-gray-400">Completed</p>
-          <p className="text-md font-bold">8/10</p>
-        </div>
-        <p className="text-2xl font-bold">80%</p>
-      </div>
-      
-      <div className="w-full bg-gray-100 rounded-full h-1.5 overflow-hidden">
-        <div
-          className="h-full rounded-full bg-black"
-          style={{ width: '80%', transition: 'width 1s ease-in-out' }} 
-        />
-      </div>
-    </div>
-  )
-}
 ```
 
-```jsx
-// components/ShopAndCourses.tsx
-import { ReactNode } from 'react'
-import { GraduationCap, ChevronRight, Store } from 'lucide-react'
+```tsx
+// app/api/todos/route.ts
+// API route for todos CRUD operations
 
-interface WidgetProps {
-  title: string
-  children: ReactNode
-  onClick?: () => void
-  rightIcon?: ReactNode
-  className?: string
-}
 
-const Widget = ({
-  title,
-  children,
-  onClick,
-  rightIcon = (
-    <ChevronRight
-      size={16}
-      className="text-orange-400"
-    />
-  ),
-  className = '',
-}: WidgetProps) => {
-  return (
-    <div
-      className={`bg-white rounded-md p-4 border shadow ${
-        onClick ? 'cursor-pointer' : ''
-      } group ${className}`}
-    >
-      <div className="flex justify-between items-center mb-0">
-        <h2 className="text-sm font-semibold">{title}</h2>
-        {rightIcon}
-      </div>
-      {children}
-    </div>
-  )
-}
-
-export function ShopAndCourses() {
-  return (
-    <div className="grid grid-cols-2 gap-2 mt-0">
-      <Widget 
-        title="Shop" 
-        className="flex flex-col gap-2"
-      >
-        <Store size={32} />
-        <div className="text-sm text-gray-600 mt-2">
-        Explore products and services all in one place
-        </div>
-      </Widget>
-      <Widget 
-        title="Courses" 
-        className="flex flex-col gap-2"
-      >
-        <GraduationCap size={32} />
-        <div className="text-sm text-gray-600 mt-2">
-        Explore curated learning paths and track your educational journey in one place
-        </div>
-      </Widget>
-    </div>
-  )
-}
 ```
 
-```jsx
-// app/components/Todos.tsx
-import { ChevronRight } from 'lucide-react'
+```tsx
+// app/api/user/route.ts
+// API route for user data
 
-export function Todos() {
-  return (
-    <div className="bg-white rounded-md border shadow p-4">
-      <div className="flex items-center justify-between">
-        <p className="text-lg font-bold">Today's Todo's</p>
-        <ChevronRight className="h-5 w-5 text-orange-400" />
-      </div>
 
-      <div className="flex items-center justify-between">
-        <div className="my-2">
-          <p className="text-sm text-gray-400">Completed</p>
-          <p className="text-md font-bold">3/12</p>
-        </div>
-        <p className="text-2xl font-bold">29%</p>
-      </div>
-      
-      <div className="w-full bg-gray-100 rounded-full h-1.5 overflow-hidden">
-        <div
-          className="h-full rounded-full bg-black"
-          style={{ width: '29%', transition: 'width 1s ease-in-out' }} 
-        />
-      </div>
-    </div>
-  )
-}
 ```
 
-```jsx
-// lib/utils.ts
-import { clsx, type ClassValue } from "clsx"
-import { twMerge } from "tailwind-merge"
+```tsx
+// app/auth/login/page.tsx
+// Login page component
 
-export function cn(...inputs: ClassValue[]) {
-  return twMerge(clsx(inputs))
-}
+
 ```
 
-# File Structure v2
-```txt
-.
-├── app/
-│   ├── globals.css 
-│   ├── layout.tsx 
-│   └── page.tsx 
-├── components/
-│   ├── layout/
-│   │   ├── background/
-│   │   │   └── shapes-background.tsx 
-│   │   ├── floating-button/
-│   │   │   └── floating-chat-button.tsx 
-│   │   ├── header-container/
-│   │   │   ├── header-container.tsx 
-│   │   │   ├── top-bar.tsx 
-│   │   │   ├── logo-symbol.tsx
-│   │   │   ├── avatar-section.tsx 
-│   │   │   ├── greeting-section.tsx 
-│   │   │   └── tips-carousel.tsx 
-│   │   └── widgets-container/
-│   │         ├── widgets-container.tsx
-│   │         ├── announcement-widget/
-│   │         │   └── announcement-widget.tsx 
-│   │         ├── habits-widget/
-│   │         │   ├── habits-widget.tsx 
-│   │         │   ├── habits-page.tsx
-│   │         │   ├── habits-top-buttons.tsx
-│   │         │   ├── set-challenge-ui.tsx
-│   │         │   ├── current-challenge.tsx
-│   │         │   ├── habit-card.tsx
-│   │         │   └── habit-card-back.tsx
-│   │         ├── todos-widget/
-│   │         │   ├── todos-widget.tsx 
-│   │         │   ├── todos-page.tsx
-│   │         │   ├── todos-top-buttons.tsx
-│   │         │   ├── todo-card.tsx
-│   │         │   └── todo-card-back.tsx
-│   │         ├── success-coach-widget/
-│   │         │   ├── success-coach-widget.tsx 
-│   │         │   └── success-coach-page.tsx
-│   │         ├── analytics-widget/
-│   │         │   ├── analytics-widget.tsx 
-│   │         │   └── analytics-page.tsx
-│   │         ├── life-score-widget/
-│   │         │   ├── life-score-widget.tsx 
-│   │         │   └── life-score-page.tsx
-│   │         ├── achievements-widget/
-│   │         │   ├── achievements-widget.tsx 
-│   │         │   └── achievements-page.tsx
-│   │         ├── ads-widget/
-│   │         │   └── ads-carousel-widget.tsx 
-│   │         └── shop-courses-widget/
-│   │             └── shop-courses-widget.tsx 
-│   ├── ui/ (shadcn components)
-│   │   ├── avatar.tsx
-│   │   ├── badge.tsx
-│   │   ├── button.tsx
-│   │   ├── card.tsx
-│   │   ├── carousel.tsx
-│   │   ├── dropdown-menu.tsx
-│   │   └── progress.tsx
-│   └── common/
-│        ├── icon-button.tsx
-│        ├── hide-completed-button.tsx
-│        ├── challenge-button.tsx
-│        ├── add-button.tsx
-│        ├── full-page.tsx
-│        └── widget.tsx 
-├── lib/
-│        └── utils.ts
-├── public/
-│        ├── logo-symbol.svg
-│        └── bg.svg 
-config files ...
+```tsx
+// app/auth/signup/page.tsx
+// Signup page component
+
+
 ```
 
-# Components flowchart v2:
-```
-flowchart TD
-    HomePage["HomePage"]
-    BackgroundShapes["BackgroundShapes"]
-    FloatingChatButton["FloatingChatButton"]
-    HeaderContainer["HeaderContainer"]
-    TopBar["TopBar"]
-    AvatarSection["AvatarSection"]
-    GreetingSection["GreetingSection"]
-    TipsCarousel["TipsCarousel"]
-    WidgetsContainer["WidgetsContainer"]
+```tsx
+// app/api/auth/[...nextauth]/route.ts
+// NextAuth.js API route
 
-    AnnouncementWidget["AnnouncementWidget"]
-    AnnouncementPage["AnnouncementPage"]
 
-    HabitsWidget["HabitsWidget"]
-    HabitsPage["HabitsPage"]
-    HabitsTopButtons["HabitsTopButtons"]
-    HabitsListContainer["HabitsListContainer"]
-    HabitCard["HabitCard"]
-    HabitCardBack["HabitCardBack"]
-
-    TodosWidget["TodosWidget"]
-    TodosPage["TodosPage"]
-    TodosTopButtons["TodosTopButtons"]
-    TodoListContainer["TodoListContainer"]
-    TodoCard["TodoCard"]
-    TodoCardBack["TodoCardBack"]
-
-    SuccessCoachWidget["SuccessCoachWidget"]
-    SuccessCoachPage["SuccessCoachPage"]
-
-    AnalyticsWidget["AnalyticsWidget"]
-    AnalyticsPage["AnalyticsPage"]
-
-    LifeScoreWidget["LifeScoreWidget"]
-    LifeScorePage["LifeScorePage"]
-
-    AchievementsWidget["AchievementsWidget"]
-    AchievementsPage["AchievementsPage"]
-
-    AdsCarouselWidget["AdsCarouselWidget"]
-    ShopCoursesWidgets["ShopCoursesWidgets"]
-
-    HomePage --> BackgroundShapes
-    HomePage --> FloatingChatButton
-    HomePage --> HeaderContainer
-    HomePage --> WidgetsContainer
-
-    HeaderContainer --> TopBar
-    HeaderContainer --> AvatarSection
-    HeaderContainer --> GreetingSection
-    HeaderContainer --> TipsCarousel
-
-    WidgetsContainer --> AnnouncementWidget
-    WidgetsContainer --> HabitsWidget
-    WidgetsContainer --> TodosWidget
-    WidgetsContainer --> SuccessCoachWidget
-    WidgetsContainer --> AnalyticsWidget
-    WidgetsContainer --> LifeScoreWidget
-    WidgetsContainer --> AchievementsWidget
-    WidgetsContainer --> AdsCarouselWidget
-    WidgetsContainer --> ShopCoursesWidgets
-
-    AnnouncementWidget --> AnnouncementPage
-
-    HabitsWidget --> HabitsPage
-    HabitsPage --> HabitsTopButtons
-    HabitsPage --> HabitsListContainer
-    HabitsListContainer --> HabitCard
-    HabitCard --> HabitCardBack
-
-    TodosWidget --> TodosPage
-    TodosPage --> TodosTopButtons
-    TodosPage --> TodoListContainer
-    TodoListContainer --> TodoCard
-    TodoCard --> TodoCardBack
-
-    SuccessCoachWidget --> SuccessCoachPage
-    AnalyticsWidget --> AnalyticsPage
-    LifeScoreWidget --> LifeScorePage
-    AchievementsWidget --> AchievementsPage
 ```
 
-# Important:
-The code and descriptions provided are just for context, not professionally done or thought thru. Consider whats the best practice approach based on the context & what the app needs to do, how it needs to display, behave, etc.
+```tsx
+// app/api/habits/route.ts
+// API route for habits CRUD operations
 
-Yo! When writing new files or editing existing ones, always include the file path comment in the first line & always write the entire content for the file at hand. Do not omit anything for brevity. This is because new content overwrites the previous content of the file in full. 
 
-# READY?
+```
+
+```tsx
+// app/api/todos/route.ts
+// API route for todos CRUD operations
+
+
+```
+
+```tsx
+// app/chat/page.tsx
+// Chat page component
+
+
+```
+
+```tsx
+// app/habits/page.tsx
+// Habits list page component
+
+
+```
+
+```tsx
+// app/todos/page.tsx
+// Todos list page component
+
+
+```
+
+
+```tsx
+// app/components/layout/floating-chat-btn.tsx
+// Floating chat button component
+
+
+```
+
+```tsx
+// app/components/layout/header-area.tsx
+// Header area component
+
+
+```
+
+```tsx
+// app/components/layout/sticky-top.tsx
+// Sticky top component
+
+
+```
+
+```tsx
+// app/components/layout/widgets-area.tsx
+// Widget area component
+```
+
+
+```tsx
+// app/components/ui/button.tsx
+// Reusable button component
+
+
+```
+
+```tsx
+// app/components/ui/card.tsx
+// Reusable card component with front/back functionality
+
+
+```
+
+```tsx
+// app/components/ui/input.tsx
+// Reusable input component
+
+
+```
+
+```tsx
+// app/hooks/use-habits.ts
+// Custom hook for managing habits
+
+
+```
+
+```tsx
+// app/hooks/use-todos.ts
+// Custom hook for managing todos
+
+
+```
+
+```tsx
+// app/hooks/use-user-data.ts
+// Custom hook for managing user data
+
+
+```
+
+```tsx
+// app/lib/auth.ts
+// Authentication utilities
+
+
+```
+
+```tsx
+// app/lib/db.ts
+// Database connection utility
+
+
+```
+
+```tsx
+// app/lib/db.ts
+// Database connection utility
+
+
+```
+
+```tsx
+/* app/globals.css */
+/* Global styles */
+
+
+```
+
+This structure provides a solid foundation with the specific requirements you've outlined. It includes:
+
+1. Separate pages for habits and todos.
+2. A homepage with all the widgets you've specified.
+3. Authentication setup (login/signup).
+4. API routes for habits, todos, and user data.
+5. Reusable components for cards, buttons, and inputs.
+6. Custom hooks for managing habits, todos, and user data.
+7. Utilities for database connection and authentication.
+
+
+To implement the functionality:
+
+1. Use the `card.tsx` component to create the habit and todo items with front and back views.
+2. Implement the CRUD operations in the API routes.
+3. Use the custom hooks (`use-habits.ts` and `use-todos.ts`) to manage the state and interactions with the API.
+4. Implement user authentication using NextAuth.js in the `[...nextauth]` route.
+5. Create the layout and widgets for the homepage as specified in your breakdown.
+
+
+Remember to use server components where appropriate, especially for initial data fetching, and client components for interactive elements. This structure should give you a good starting point for building your app.

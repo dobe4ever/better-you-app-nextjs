@@ -1,64 +1,56 @@
-// components/layout/widgets.tsx
+// components/layout/widgets-area.tsx
 'use client'
 
-import React from 'react'
 import { useState } from 'react'
-import { ReactNode} from 'react'
+import { ReactNode } from 'react'
 import { ChevronRight, Bot, Store, GraduationCap, LoaderPinwheel, Trophy, X, TrendingUp } from 'lucide-react'
-import { Home, HabitsPage, AnalyticsPage } from '../../components/pages'
 
-interface WidgetProps {
-    title: string
-    page: React.ComponentType
-    children: ReactNode
-    onClick: () => void
-  }
-  
 // commmon Widget component
-export function Widget({ title, children, onClick }: WidgetProps) {
-    return (
-      <div 
-        className="bg-white rounded-lg shadow-md p-4 cursor-pointer"
-        onClick={onClick}
-      >
-        <div className="flex justify-between items-center mb-2">
-          <h2 className="text-lg font-semibold">{title}</h2>
-          <ChevronRight className="w-5 h-5 text-gray-400" />
-        </div>
-        {children}
+interface WidgetProps {
+  title: string
+  children: ReactNode
+  onClick?: () => void
+  rightIcon?: ReactNode
+  className?: string
+}
+
+export function Widget({
+  title,
+  children,
+  onClick,
+  rightIcon = <ChevronRight size={16} className="text-orange-400" />,
+  className = '',
+}: WidgetProps) {
+  return (
+    <div
+      className={`bg-white rounded-lg p-4 border shadow-md ${
+        onClick ? 'cursor-pointer' : ''
+      } group ${className}`}
+    >
+      <div className="flex justify-between items-center mb-2">
+        <h2 className="text-md font-semibold">{title}</h2>
+        {rightIcon}
       </div>
-    )
-  }
-// export function Widget({ title, children, onClick }: WidgetProps) {
-//     return (
-//       <div className="bg-white rounded-lg shadow-md p-4 cursor-pointer" onClick={onClick}>
-        
-//         <div className="flex justify-between items-center mb-2">
-//           <h2 className="text-lg font-semibold">{title}</h2>
-//           <ChevronRight className="w-5 h-5 text-gray-400" />
-//         </div>
-
-//         {children}
-
-//       </div>
-//     )
-//   }
+      {children}
+    </div>
+  )
+}
 
 // AdsCarouselWidget component
 export function AdsCarouselWidget() {
     return (
-        <Widget title="Analytics" page={Home} onClick={() => {}}>
+    <Widget title="Featured Ads">
         <div className="text-sm text-gray-600 mt-2">
-          Ads carousel content goes here
+            Ads carousel content goes here
         </div>
-      </Widget>
+    </Widget>
     )
-  }
+}
 
 // AnalyticsWidget component
 export function AnalyticsWidget() {
     return (
-        <Widget title="Analytics" page={AnalyticsPage} onClick={() => {}}>
+        <Widget title="Analytics" onClick={() => {}} className="flex flex-col gap-2">
         <div className="space-y-2">
             <div>
                 <TrendingUp size={32} />
@@ -87,41 +79,41 @@ export function AnalyticsWidget() {
 // AnnouncementWidget component
 export function AnnouncementWidget() {
     const [showAnnouncement, setShowAnnouncement] = useState(true)
-  
+
     if (!showAnnouncement) return null
-  
+
     return (
-      <Widget 
-      className="relative overflow-hidden"
-      title="Premium Upgrade"
-      rightIcon={
+        <Widget 
+        className="relative overflow-hidden"
+        title="Premium Upgrade"
+        rightIcon={
         <button 
-          className="absolute top-4 right-4 text-orange-400"
-          onClick={(e) => {
+            className="absolute top-4 right-4 text-orange-400"
+            onClick={(e) => {
             e.stopPropagation();  // Prevents triggering any parent onClick handlers
             setShowAnnouncement(false);
-          }}
+            }}
         >
-          <X size={16} />
+            <X size={16} />
         </button>
-      }
+        }
     >
     <p className="text-sm text-gray-400">
-      50% off premium features, limited time
+        50% off premium features, limited time
     </p>
     <div className="mt-4">
-      <a
+        <a
         href="https://vercel.com/dobe4evers-projects/vitejs-node-ts-tailwind-better-you"
         target="_blank"
         rel="noopener noreferrer"
         className="border border-orange-400 text-sm text-orange-400 px-4 py-2 rounded-full"
-      >
+        >
         Claim Offer
-      </a>
-      </div>
+        </a>
+        </div>
     </Widget>
     )
-  }
+}
 
 // BadgesWidget component
 export function BadgesWidget() {
@@ -136,44 +128,25 @@ export function BadgesWidget() {
 }
 
 // HabitsWidget component
-// export function HabitsWidget() {
-//     return (
-//         <Widget title="Today's Habits" onClick={() => {}}>
-//             <div className="flex items-end justify-between mb-2">
-//                 <div>
-//                 <p className="text-sm text-gray-400">Completed</p>
-//                 <p className="text-xl font-bold">8/10</p>
-//                 </div>
-//                 <p className="text-4xl font-bold">80%</p>
-//             </div>
-//             <div className="w-full bg-gray-100 rounded-full h-2 overflow-hidden">
-//                 <div 
-//                 className="h-full rounded-full bg-gradient-to-br from-gray-200 via-gray-300 to-gray-400"
-//                 style={{ width: '80%', transition: 'width 1s ease-in-out' }}
-//                 />
-//             </div>
-//         </Widget>
-//     )
-// }
 export function HabitsWidget() {
     return (
-      <Widget title="Today's Habits" onClick={() => {}}> 
-        <div className="flex items-end justify-between mb-2">
-          <div>
-            <p className="text-sm text-gray-400">Completed</p>
-            <p className="text-xl font-bold">8/10</p>
-          </div>
-          <p className="text-4xl font-bold">80%</p>
-        </div>
-        <div className="w-full bg-gray-100 rounded-full h-2 overflow-hidden">
-          <div 
-            className="h-full rounded-full bg-gradient-to-br from-gray-200 via-gray-300 to-gray-400"
-            style={{ width: '80%', transition: 'width 1s ease-in-out' }}
-          />
-        </div>
-      </Widget>
+        <Widget title="Today's Habits" onClick={() => {}}>
+            <div className="flex items-end justify-between mb-2">
+                <div>
+                <p className="text-sm text-gray-400">Completed</p>
+                <p className="text-xl font-bold">8/10</p>
+                </div>
+                <p className="text-4xl font-bold">80%</p>
+            </div>
+            <div className="w-full bg-gray-100 rounded-full h-2 overflow-hidden">
+                <div 
+                className="h-full rounded-full bg-gradient-to-br from-gray-200 via-gray-300 to-gray-400"
+                style={{ width: '80%', transition: 'width 1s ease-in-out' }}
+                />
+            </div>
+        </Widget>
     )
-  }
+}
 
 // LifeScoreWidget component
 export function LifeScoreWidget() {
@@ -244,8 +217,7 @@ export function TodosWidget() {
     )
 }
 
-// Widgets component
-export function Widgets() {
+export function WidgetsArea() {
     return (
         // <div className="bg-gray-200 rounded-t-2xl mt-4 p-4 space-y-4 flex-grow">
         <div className="flex flex-col overflow-hidden w-full bg-white pt- p-4 gap-4 rounded-t-xl">
@@ -255,8 +227,6 @@ export function Widgets() {
         <div className="grid grid-cols-2 gap-4">
             <div><SuccessCoachWidget /></div>
             <div><AnalyticsWidget /></div>
-        </div>
-        <div className="grid grid-cols-2 gap-4">
             <div><LifeScoreWidget /></div>
             <div><BadgesWidget /></div>
         </div>

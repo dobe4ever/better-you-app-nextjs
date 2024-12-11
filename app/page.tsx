@@ -2,10 +2,10 @@
 'use client'
 
 import { useState, useRef, useEffect } from 'react'
-import FloatButton from '../components/layout/floating-button/floating-chat-button'
-import { HeaderContainer } from '../components/layout/header-container/header-container'
-import { TipsCarousel } from '../components/layout/sticky-top/tips-carousel'
-import { WidgetsContainer } from '../components/layout/widgets-container/widgets-container'
+import { FloatingChatBtn } from '../components/layout/floating-chat-btn'
+import { HeaderArea } from '../components/layout/header-area'
+import { StickyTop } from '../components/layout/sticky-top'
+import { WidgetsArea } from '../components/layout/widgets-area'
 
 export default function HomePage() {
   const [fadePercentage, setFadePercentage] = useState(0)
@@ -26,14 +26,13 @@ export default function HomePage() {
   }, [])
 
   return (
-    // <div className="min-h-screen min-w-screen bg-gradient-to-b from-black/0 via-black/25 to-black/100 relative">
     // <div className="bg-gradient-to-r from-orange-400 via-orange-300 to-orange-500 min-h-screen w-full">
     <div className="relative min-h-screen min-w-screen bg-white">
 
-      <FloatButton />
+      <FloatingChatBtn />
 
       <div ref={headerRef} className="relative z-10">
-        <HeaderContainer />
+        <HeaderArea />
         <div 
           className="absolute top-0 w-full h-[450px] bg-white pointer-events-none" 
           style={{ opacity: fadePercentage / 100, zIndex: 20 }} 
@@ -41,14 +40,31 @@ export default function HomePage() {
       </div>
 
       <div className="sticky top-0 z-30">
-        <TipsCarousel />
+        <StickyTop />
       </div>
 
       <div className="relative z-20">
-        <WidgetsContainer />
+        <WidgetsArea />
       </div>
     
     </div>
   )
 }
+
+
+// // app/page.tsx
+// 'use client'
+
+// import { Home } from '../components/pages'
+
+// export default function HomePage() {
+//   return (
+//     // <div className="bg-gradient-to-r from-orange-400 via-orange-300 to-orange-500 min-h-screen w-full">
+//     <div className="relative min-h-screen min-w-screen bg-white">
+//       <Home />
+//     </div>
+//   )
+// }
+
+
 

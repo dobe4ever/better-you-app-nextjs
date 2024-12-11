@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import { X } from 'lucide-react'
-import { Widget } from '../../backups/common/widget'
+import { Widget } from '../common/widget'
 
 export function AnnouncementWidget() {
   const [showAnnouncement, setShowAnnouncement] = useState(true)

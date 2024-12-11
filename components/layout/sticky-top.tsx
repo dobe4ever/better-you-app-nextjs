@@ -1,9 +1,9 @@
-// components/layout/sticky-top/tips-carousel.tsx
+// components/layout/sticky-top.tsx
 'use client'
 
 import { Bot } from 'lucide-react'
 
-export function TipsCarousel() {
+export function StickyTop() {
   const tips = [
     {
       message: "You're building a strong routine",
