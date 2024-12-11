@@ -5,7 +5,6 @@ import { useState } from 'react'
 import { ReactNode } from 'react'
 import { ChevronRight, Bot, Store, GraduationCap, LoaderPinwheel, Trophy, X, TrendingUp } from 'lucide-react'
 
-// commmon Widget component
 interface WidgetProps {
   title: string
   children: ReactNode
@@ -14,6 +13,7 @@ interface WidgetProps {
   className?: string
 }
 
+// commmon Widget component
 export function Widget({
   title,
   children,
@@ -220,18 +220,18 @@ export function TodosWidget() {
 export function WidgetsArea() {
     return (
         // <div className="bg-gray-200 rounded-t-2xl mt-4 p-4 space-y-4 flex-grow">
-        <div className="flex flex-col overflow-hidden w-full bg-white pt- p-4 gap-4 rounded-t-xl">
+        <div className="flex flex-col overflow-hidden w-full bg-white p-3 gap-3 rounded-t-xl">
         <AnnouncementWidget />
         <HabitsWidget />
         <TodosWidget />
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-2 gap-3">
             <div><SuccessCoachWidget /></div>
             <div><AnalyticsWidget /></div>
             <div><LifeScoreWidget /></div>
             <div><BadgesWidget /></div>
         </div>
         <AdsCarouselWidget />
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-2 gap-3">
             <div><ShopWidget /></div>
             <div><CoursesWidget /></div>
         </div>
