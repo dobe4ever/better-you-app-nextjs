@@ -121,7 +121,7 @@ export function BadgesWidget() {
         <Widget title="Badges" onClick={() => {}} className="flex flex-col gap-2">
         <Trophy size={32} />
             <div className="text-sm text-gray-600 mt-2">
-                Earn rewards by reaching milestones
+                Earn rewards by hitting milestones
             </div>
         </Widget>
     )
