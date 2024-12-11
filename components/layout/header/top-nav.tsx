@@ -37,6 +37,7 @@ import { ChevronLeft } from 'lucide-react'
 import { Logo } from './logo'
 import { NotificationBtn } from './notification-btn'
 import { ProfileBtn } from './profile-btn'
+import { ChevronLeftBtn } from './chevron-left-btn'
 import { Button } from '@/components/ui/button'
 import { SearchBtn } from './search-btn'
 
@@ -51,9 +52,7 @@ export function TopNav({ username, avatarUrl, onClose }: TopNavProps) {
     <div className="fixed top-0 right-0 left-0 p-2 z-10">
       <div className="flex justify-between items-center">
         <div className="flex items-center gap-4">
-          <Button variant="ghost" size="icon" className="relative text-white" onClick={onClose}>
-            <ChevronLeft />
-          </Button>
+          <ChevronLeftBtn/>
           <Logo />
         </div>
 

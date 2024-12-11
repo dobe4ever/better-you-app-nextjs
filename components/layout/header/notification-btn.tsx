@@ -9,7 +9,7 @@ export function NotificationBtn() {
   const [notificationCount, setNotificationCount] = useState(3)
 
   return (
-    <div className="[&_svg]:size-5">
+    <div className="[&_svg]:size-6">
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
           <Button variant="ghost" size="icon" className="relative text-white">
