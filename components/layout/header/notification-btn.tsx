@@ -26,7 +26,7 @@ export function NotificationBtn({ color = 'white' }: NotificationBtnProps) {
               <motion.span
                 initial={{ scale: 0 }}
                 animate={{ scale: 1 }}
-                className={`absolute -right-1 -top-1 flex size-4 items-center justify-center rounded-full text-xs font-bold ${bgColor} ${textColor}`}
+                className={`absolute right-0 top-0 flex size-4 items-center justify-center rounded-full text-xs font-bold ${bgColor} ${textColor}`}
               >
                 {notificationCount}
               </motion.span>
