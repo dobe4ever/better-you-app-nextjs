@@ -4,11 +4,6 @@ import { LogoWhite } from './logo'
 import { NotificationBtn } from './notification-btn'
 import { ProfileBtn } from './profile-btn'
 
-interface TopBarProps {
-  username: string
-  avatarUrl: string
-}
-
 export function TopBar() {
   return (
     <div className="relative p-2 pr-3 z-10">
