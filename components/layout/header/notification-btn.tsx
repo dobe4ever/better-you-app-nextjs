@@ -13,7 +13,7 @@ export function NotificationBtn({ color = 'white' }: NotificationBtnProps) {
   const [notificationCount, setNotificationCount] = useState(3)
 
   const iconColor = color === 'white' ? 'white' : 'orange'
-  const bgColor = color === 'white' ? 'bg-white' : 'bg-orange-500'
+  const bgColor = color === 'white' ? 'bg-white' : 'bg-orange-main'
   const textColor = color === 'white' ? 'text-orange-main' : 'text-white'
 
   return (
