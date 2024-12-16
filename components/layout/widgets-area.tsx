@@ -344,7 +344,7 @@ export function AnnouncementWidget() {
       <p className="text-description-card">
         50% off premium features, limited time
       </p>
-      <div className="mt-4">
+      <div className="my-2">
         <a
           href="https://vercel.com/dobe4evers-projects/vitejs-node-ts-tailwind-better-you"
           target="_blank"
