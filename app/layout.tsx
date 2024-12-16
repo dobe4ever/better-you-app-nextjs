@@ -57,7 +57,7 @@ import { Inter, Nunito } from 'next/font/google'
 const inter = Inter({ subsets: ['latin'] })
 
 const nunito = Nunito({
-  weight: ['400', '900'],
+  weight: ['400', '700', '900'],
   subsets: ['latin'],
   display: 'swap',
 })

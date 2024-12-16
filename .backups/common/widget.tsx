@@ -14,7 +14,7 @@ export function Widget({
   title,
   children,
   onClick,
-  rightIcon = <ChevronRight size={16} className="text-orange-400" />,
+  rightIcon = <ChevronRight size={16} className="text-orange-main" />,
   className = '',
 }: WidgetProps) {
   return (

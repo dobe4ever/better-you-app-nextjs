@@ -16,7 +16,7 @@ const Widget = ({
   rightIcon = (
     <ChevronRight
       size={16}
-      className="text-orange-400"
+      className="text-orange-main"
     />
   ),
   className = '',
@@ -78,7 +78,7 @@ export function AdsCarousel() {
         >
           {ads.map((item, index) => (
             <div key={index} className="flex-shrink-0 w-full">
-              <blockquote className="border-l-4 pl-3 h-full border-orange-400 italic text-sm text-gray-400">
+              <blockquote className="border-l-4 pl-3 h-full border-gradient-orange italic text-sm text-gray-500">
                 <p className="text-black font-bold">{item.message}</p>
                 <p className="text-gray-500">{item.source}</p>
               </blockquote>
@@ -90,7 +90,7 @@ export function AdsCarousel() {
             <button
               key={index}
               className={`h-2 w-2 rounded-full transition-colors ${
-                activeSlide === index ? 'bg-orange-400' : 'bg-gray-300'
+                activeSlide === index ? 'bg-orange-main' : 'bg-gray-300'
               }`}
               onClick={(e) => {
                 e.stopPropagation();

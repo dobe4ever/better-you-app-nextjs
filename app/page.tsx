@@ -26,7 +26,7 @@
 //   }, [])
 
 //   return (
-//     // <div className="bg-gradient-to-r from-orange-400 via-orange-300 to-orange-500 min-h-screen w-full">
+//     // <div className="bg-gradient-to-r from-orange-main via-orange-300 to-orange-main min-h-screen w-full">
 //     <div className="relative min-h-screen min-w-screen bg-white">
 
 //       <FloatingChatBtn onClick={function (): void {

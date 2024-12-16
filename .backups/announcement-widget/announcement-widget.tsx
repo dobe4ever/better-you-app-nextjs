@@ -15,7 +15,7 @@ export function AnnouncementWidget() {
     title="Premium Upgrade"
     rightIcon={
       <button 
-        className="absolute top-4 right-4 text-orange-400"
+        className="absolute top-4 right-4 text-orange-main"
         onClick={(e) => {
           e.stopPropagation();  // Prevents triggering any parent onClick handlers
           setShowAnnouncement(false);
@@ -25,7 +25,7 @@ export function AnnouncementWidget() {
       </button>
     }
   >
-  <p className="text-sm text-gray-400">
+  <p className="text-sm text-gray-500">
     50% off premium features, limited time
   </p>
   <div className="mt-4">
@@ -33,7 +33,7 @@ export function AnnouncementWidget() {
       href="https://vercel.com/dobe4evers-projects/vitejs-node-ts-tailwind-better-you"
       target="_blank"
       rel="noopener noreferrer"
-      className="border border-orange-400 text-sm text-orange-400 px-4 py-2 rounded-full"
+      className="border border-gradient-orange text-sm text-orange-main px-4 py-2 rounded-full"
     >
       Claim Offer
     </a>

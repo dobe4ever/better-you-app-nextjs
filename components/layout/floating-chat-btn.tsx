@@ -19,14 +19,14 @@
 //     <>
 //       <button
 //         onClick={toggleChat}
-//         className="z-50 fixed bottom-4 right-4 border-2 border-white bg-orange-400 text-white rounded-full p-3 shadow-md"
+//         className="z-50 fixed bottom-4 right-4 border-2 border-white bg-orange-main text-white rounded-full p-3 shadow-md"
 //       >
 //         <Bot size={32} />
 //       </button>
 
 //       {isChatOpen && (
 //         <div className="fixed inset-0 bg-white z-50 flex flex-col h-screen">
-//           <div className="fixed top-0 left-0 right-0 flex justify-between items-center p-4 bg-white text-orange-400">
+//           <div className="fixed top-0 left-0 right-0 flex justify-between items-center p-4 bg-white text-orange-main">
 //             <h2 className="text-xl text-black font-bold">AI Coach</h2>
 //             <button onClick={toggleChat}>
 //               <X size={24} />
@@ -63,14 +63,14 @@ export function FloatingChatBtn({ onClick }: FloatingChatBtnProps) {
     <>
       <button
         onClick={toggleChat}
-        className="z-50 fixed bottom-4 right-4 border-2 border-white bg-gradient-orange text-white rounded-full p-3 shadow-md"
+        className="z-50 fixed bottom-4 right-4 border-2 border-orange-300/25 bg-gradient-orange text-white rounded-full p-3 shadow-md"
       >
         <Bot size={32} />
       </button>
 
       {isChatOpen && (
         <div className="fixed inset-0 bg-white z-50 flex flex-col h-screen">
-          <div className="fixed top-0 left-0 right-0 flex justify-between items-center p-4 bg-white text-orange-400">
+          <div className="fixed top-0 left-0 right-0 flex justify-between items-center p-4 bg-white text-orange-main">
             <h2 className="text-xl text-black font-bold">AI Coach</h2>
             <button onClick={toggleChat}>
               <X size={24} />

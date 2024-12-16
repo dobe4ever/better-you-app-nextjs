@@ -87,7 +87,7 @@ const Chatbot: React.FC = () => {
               className={`flex ${message.sender === 'user' ? 'justify-end' : 'justify-start'} mb-4`}
             >
               {message.sender === 'bot' && (
-                <div className="flex-shrink-0 w-8 h-8 rounded-full p-2 shadow-md bg-orange-400 mr-2 flex items-center justify-center">
+                <div className="flex-shrink-0 w-8 h-8 rounded-full p-2 shadow-md bg-orange-main mr-2 flex items-center justify-center">
                   <Bot size={20} color="white" />
                 </div>
               )}
@@ -117,7 +117,7 @@ const Chatbot: React.FC = () => {
         <div className="relative rounded-xl overflow-hidden bg-gray-200">
           <div className="relative">
             {!isFocused && !input && (
-              <span className="absolute left-4 top-2 text-gray-400 text-sm pointer-events-none">
+              <span className="absolute left-4 top-2 text-gray-500 text-sm pointer-events-none">
                 Type your message...
               </span>
             )}
@@ -139,7 +139,7 @@ const Chatbot: React.FC = () => {
             {input.trim() ? (
               <button 
                 onClick={sendMessage} 
-                className="bg-orange-400 text-white p-2 rounded-full"
+                className="bg-orange-main text-white p-2 rounded-full"
               >
                 <Send size={20} />
               </button>

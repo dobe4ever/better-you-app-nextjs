@@ -7,12 +7,12 @@ export function Todos() {
     <div className="bg-white rounded-md border shadow p-4">
       <div className="flex items-center justify-between">
         <p className="text-lg font-bold">Today's Todo's</p>
-        <ChevronRight className="h-5 w-5 text-orange-400" />
+        <ChevronRight className="h-5 w-5 text-orange-main" />
       </div>
 
       <div className="flex items-center justify-between">
         <div className="my-2">
-          <p className="text-sm text-gray-400">Completed</p>
+          <p className="text-sm text-gray-500">Completed</p>
           <p className="text-md font-bold">3/12</p>
         </div>
         <p className="text-2xl font-bold">29%</p>

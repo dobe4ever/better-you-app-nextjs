@@ -710,15 +710,15 @@ export function ProfileBtn({ username, avatarUrl }: ProfileBtnProps) {
           </Button>
         </DropdownMenuTrigger>
         <DropdownMenuContent align="end" className="w-56 p-2">
-          <DropdownMenuItem className="text-sm text-gray-400 p-2">email@gmail.com</DropdownMenuItem>
+          <DropdownMenuItem className="text-sm text-gray-500 p-2">email@gmail.com</DropdownMenuItem>
           <DropdownMenuItem className="flex flex-row">
-            <Avatar className="border-2 border-orange-500 h-8 w-8">
+            <Avatar className="border-2 border-gradient-orange h-8 w-8">
               <AvatarImage src={avatarUrl} alt={username} />
               <AvatarFallback>{initials}</AvatarFallback>
             </Avatar>
             <span className="flex flex-col gap-0 ml-2">
               <h1>{username}</h1>
-              <p className="text-gray-400">Free plan</p>
+              <p className="text-gray-500">Free plan</p>
             </span>
           </DropdownMenuItem>
           <DropdownMenuSeparator />
@@ -784,7 +784,7 @@ export function DateSection() {
       transition={{ delay: 0.1, duration: 0.2 }}
       className="text-center"
     >
-      <h1 className="text-orange-400">
+      <h1 className="text-orange-main">
         <span className="tracking-tighter font-bold text-2xl">FRIDAY DECEMBER 6, 2024</span>
       </h1>
     </motion.div>
@@ -796,8 +796,8 @@ export function ShapesBackground() {
     return (
       <div className="absolute top-0 left-0 right-0 bottom- -z-10">
         <div className="top-0 left-0 right-0 bottom- -z-10">
-          <div className="absolute top-0 left-0 h-[25vh] w-1/2 bg-orange-400 origin-top-left transform -skew-y-12"></div>
-          <div className="absolute top-0 right-0 h-[25vh] w-1/2 bg-orange-400 origin-top-right transform skew-y-12"></div>
+          <div className="absolute top-0 left-0 h-[25vh] w-1/2 bg-orange-main origin-top-left transform -skew-y-12"></div>
+          <div className="absolute top-0 right-0 h-[25vh] w-1/2 bg-orange-main origin-top-right transform skew-y-12"></div>
         </div>
       </div>
     )

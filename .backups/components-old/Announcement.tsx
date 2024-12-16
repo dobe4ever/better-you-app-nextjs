@@ -20,7 +20,7 @@ const Widget = ({
   rightIcon = (
     <ChevronRight
       size={16}
-      className="text-orange-400"
+      className="text-orange-main"
     />
   ),
   className = '',
@@ -53,7 +53,7 @@ export function Announcement() {
           title="Upgrade to Premium 50% off limited time offer!"
           rightIcon={
             <button
-              className="absolute top-4 right-4 text-orange-400"
+              className="absolute top-4 right-4 text-orange-main"
               onClick={(e) => {
                 e.stopPropagation()
                 setShowAnnouncement(false)
@@ -68,7 +68,7 @@ export function Announcement() {
               href="https://vercel.com/dobe4evers-projects/vitejs-node-ts-tailwind-better-you"
               target="_blank"
               rel="noopener noreferrer"
-              className="border border-orange-500 text-sm p-2 rounded-md"
+              className="border border-gradient-orange text-sm p-2 rounded-md"
             >
               Read More
             </a>

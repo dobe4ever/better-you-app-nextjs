@@ -28,10 +28,10 @@
 //       <div className="flex items-center">
 
 //         <div className="flex-shrink-0 mr- pr- h-12">
-//         <Bot size={46} className="text-orange-400 pr-2" />
+//         <Bot size={46} className="text-orange-main pr-2" />
 //         </div>
 
-//         <blockquote className="flex flex-col italic text-sm text-gray-400 border-l-4 border-orange-400 pl-4">
+//         <blockquote className="flex flex-col italic text-sm text-gray-500 border-l-4 border-gradient-orange pl-4">
 //           <p className="text-md text-gray-700 font-semibold">{currentTip.message}</p>
 //           <p className="text-sm text-gray-500 mt-1">{currentTip.detail}</p>
 //         </blockquote>

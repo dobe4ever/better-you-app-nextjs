@@ -170,7 +170,7 @@ export function Widget({
   title,
   children,
   onClick,
-  rightIcon = <ChevronRight size={16} className="text-orange-400" />,
+  rightIcon = <ChevronRight size={16} className="text-orange-main" />,
   className = '',
 }: WidgetProps) {
   return (
@@ -197,7 +197,7 @@ import { Button } from '../../ui/button'
 export function FloatingChatButton() {
   return (
     <Button
-      className="fixed bottom-4 right-4 rounded-full p-3 bg-orange-500 z-50"
+      className="fixed bottom-4 right-4 rounded-full p-3 bg-orange-main z-50"
       onClick={() => console.log('Open chat')}
     >
       <Bot className="h-6 w-6 text-white" />
@@ -351,15 +351,15 @@ export function TopBar({ username = 'Brotastic', avatarUrl = 'https://i.pravatar
               </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end" className="w-full p-2">
-              <DropdownMenuItem className="text-sm text-gray-400 p-2">email@gmail.com</DropdownMenuItem>
+              <DropdownMenuItem className="text-sm text-gray-500 p-2">email@gmail.com</DropdownMenuItem>
               <DropdownMenuItem className="flex flex-row">
-                <Avatar className="border-2 border-orange-500 h-8 w-8">
+                <Avatar className="border-2 border-gradient-orange h-8 w-8">
                   <AvatarImage src={avatarUrl} alt={username} />
                   <AvatarFallback>{initials}</AvatarFallback>
                 </Avatar>
                 <span className="flex flex-col gap-0 ml-2">
                   <h1>{username}</h1>
-                  <p className="text-gray-400">Free plan</p>
+                  <p className="text-gray-500">Free plan</p>
                 </span>
               </DropdownMenuItem>
               <DropdownMenuSeparator />
@@ -510,10 +510,10 @@ export function AnalyticsWidget() {
         <div className="space-y-1 text-xs">
           <div className="flex justify-between items-center">
             <span className="text-gray-600">Last 7 Days</span>
-            <span className="text-orange-500 font-bold">80%</span>
+            <span className="text-orange-main font-bold">80%</span>
           </div>
           <div className="h-1.5 bg-gray-100 rounded-full overflow-hidden">
-            <div className="h-full w-3/4 bg-orange-500 rounded-full"></div>
+            <div className="h-full w-3/4 bg-orange-main rounded-full"></div>
           </div>
           <div className="flex justify-between items-center">
             <span className="text-gray-600">Last 30 days</span>
@@ -548,7 +548,7 @@ export function AnnouncementWidget() {
       title="Upgrade to Premium 50% off limited time offer!"
       rightIcon={
         <button
-          className="absolute top-4 right-4 text-orange-400"
+          className="absolute top-4 right-4 text-orange-main"
           onClick={(e) => {
             e.stopPropagation()
             setShowAnnouncement(false)
@@ -563,7 +563,7 @@ export function AnnouncementWidget() {
           href="https://example.com/premium-offer"
           target="_blank"
           rel="noopener noreferrer"
-          className="border border-orange-500 text-sm p-2 rounded-md"
+          className="border border-gradient-orange text-sm p-2 rounded-md"
         >
           Read More
         </a>
@@ -580,10 +580,10 @@ import { Widget } from '../../../common/widget'
 
 export function HabitsWidget() {
   return (
-    <Widget title="Today's Habits" rightIcon={<ChevronRight className="h-5 w-5 text-orange-400" />}>
+    <Widget title="Today's Habits" rightIcon={<ChevronRight className="h-5 w-5 text-orange-main" />}>
       <div className="flex items-center justify-between">
         <div className="my-2">
-          <p className="text-sm text-gray-400">Completed</p>
+          <p className="text-sm text-gray-500">Completed</p>
           <p className="text-md font-bold">8/10</p>
         </div>
         <p className="text-2xl font-bold">80%</p>
@@ -679,10 +679,10 @@ import { Widget } from '../../../common/widget'
 
 export function TodosWidget() {
   return (
-    <Widget title="Today's Todo's" rightIcon={<ChevronRight className="h-5 w-5 text-orange-400" />}>
+    <Widget title="Today's Todo's" rightIcon={<ChevronRight className="h-5 w-5 text-orange-main" />}>
       <div className="flex items-center justify-between">
         <div className="my-2">
-          <p className="text-sm text-gray-400">Completed</p>
+          <p className="text-sm text-gray-500">Completed</p>
           <p className="text-md font-bold">3/12</p>
         </div>
         <p className="text-2xl font-bold">29%</p>

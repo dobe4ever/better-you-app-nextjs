@@ -112,7 +112,7 @@ module.exports = {
       },
       colors: {
         orange: {
-          main: '#FF5300',
+          main: '#f36022',
           light: '#FFB700',
           tomato: '#8f3e1c',
           yellow: '#eab308',
@@ -120,14 +120,20 @@ module.exports = {
       },
       backgroundImage: {
         'gradient-orange': 'linear-gradient(45deg, #f04c23, #f99f1c)',
-        // 'gradient-orange': 'linear-gradient(45deg, #f9a13d, #ee7539, #e55136)',
+        'gradient-white': 'linear-gradient(45deg, #FFF3E2, #FFFFE2, #FFFFFF)',
+        'gradient-tomato': 'linear-gradient(45deg, #ffd78a, #f4762d)',
+        'gradient-pink': 'linear-gradient(45deg, #f74985, #46295c, #5355fb)',
+        'artistic-home': "url('/src/assets/background.svg')",
+      },
+      backgroundColor: {
+        'gradient-orange': 'linear-gradient(45deg, #f04c23, #f99f1c)',
         'gradient-white': 'linear-gradient(45deg, #FFF3E2, #FFFFE2, #FFFFFF)',
         'gradient-tomato': 'linear-gradient(45deg, #ffd78a, #f4762d)',
         'gradient-pink': 'linear-gradient(45deg, #f74985, #46295c, #5355fb)',
         'artistic-home': "url('/src/assets/background.svg')",
       },
       borderColor: {
-        'border-gradient-orange': 'linear-gradient(45deg, #FF5300, #FFB700)',
+        'gradient-orange': 'linear-gradient(45deg, #f04c23, #f99f1c)',
       },
       fontFamily: {
         nunito: ['Nunito', 'sans-serif'],
@@ -169,6 +175,13 @@ module.exports = {
         '2xl': '16px',
         full: '9999px',
       },
+      dropShadow: {
+        sm: '12px',
+        md: '4px',
+        lg: '8px',
+        xl: '12px',
+        '2xl': '16px',
+      },
     },
   },
   // Define custom plugins for Tailwind CSS
@@ -177,38 +190,6 @@ module.exports = {
     function ({ addUtilities }) {
       // Define new utility classes
       const newUtilities = {
-        // Card Title
-        '.text-card-title': {
-          textAlign: 'left',
-          fontSize: '1.2rem',
-          lineHeight: '1.2rem',
-          fontWeight: '500',
-          fontFamily: 'Poppins, sans-serif',
-        },
-        // Card Description
-        '.text-card-description': {
-          textAlign: 'left',
-          fontSize: '0.8rem',
-          fontFamily: 'Poppins, sans-serif',
-        },
-        // Logo text 'Better You'
-        '.text-logo': {
-          color: '#FFFFFF',
-          textAlign: 'center',
-          fontSize: '1.2rem',
-          lineWeight: '0.5rem',
-          fontWeight: '900',
-          fontFamily: 'Poppins, sans-serif',
-        },
-        // Logo subline 'EVERYDAY'
-        '.text-logo-subline': {
-          textAlign: 'center',
-          fontSize: '0.8rem',
-          lineHeight: '1.2rem',
-          fontWeight: '200',
-          fontFamily: 'Poppins, sans-serif',
-          letterSpacing: '0.4em',
-        },
         '.text-title-orange': {
           fontSize: '26px',
           lineHeight: '1', // 1 =  lineHeight to fontSize ratio (40px)
@@ -219,53 +200,28 @@ module.exports = {
           textAlign: 'center',
           color: 'transparent',
         },
-        '.text-title-white': {
-          fontSize: '20px',
+        '.text-title-card': {
+          fontSize: '18px',
           lineHeight: '1', // 1 =  lineHeight to fontSize ratio (40px)
-          fontWeight: '900',
-          fontFamily: 'Nunito, sans-serif',
-          //backgroundClip: 'text',
-          //backgroundImage: 'linear-gradient(45deg, #FFF3E2, #FFFFE2, #FFFFFF)',
-          textAlign: 'center',
-          color: 'white',
-        },
-        '.text-title-yellow': {
-          fontSize: '40px',
-          lineHeight: '1', // 1 =  lineHeight to fontSize ratio (40px)
-          fontWeight: '900',
-          fontFamily: 'Nunito, sans-serif',
-          backgroundClip: 'text',
-          backgroundImage: 'linear-gradient(45deg, #f74985, #973fc0, #46295c)',
-          textAlign: 'center',
-          color: 'transparent',
-        },
-        // Custom class for heading style
-        '.text-heading': {
-          fontSize: '2rem',
-          lineHeight: '2.5rem',
           fontWeight: '700',
-          fontFamily: 'Nunito, sans-serif',
+          // fontFamily: 'Nunito, sans-serif',
+          textAlign: 'left',
+          color: 'black',
         },
-        // Custom class for subheading style
-        '.text-subheading': {
-          fontSize: '1rem',
-          lineHeight: '2rem',
-          fontWeight: '600',
-          fontFamily: 'Nunito',
+        '.text-description-card': {
+          // fontSize: '12px',
+          // fontWeight: '300',
+          // fontFamily: 'Poppins, sans-serif',
+          textAlign: 'left',
+          color: '#5f6368',
         },
-        // Custom class for base text style
-        '.text-base': {
-          fontSize: '1rem',
-          lineHeight: '1.5rem',
-          fontWeight: '500',
-          fontFamily: 'Nunito, sans-serif',
-        },
-        // Custom class for decor text style
-        '.text-decor': {
-          fontSize: '1rem',
-          lineHeight: '1.5rem',
-          fontWeight: '600',
-          fontFamily: 'Poppins, sans-serif',
+        '.text-big-percent-number': {
+          fontSize: '28px',
+          lineHeight: '1', // 1 =  lineHeight to fontSize ratio (40px)
+          fontWeight: '900',
+          // fontFamily: 'Nunito, sans-serif',
+          textAlign: 'center',
+          color: 'black',
         },
       };
       

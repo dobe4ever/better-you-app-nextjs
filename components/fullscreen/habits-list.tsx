@@ -43,7 +43,7 @@ export function HabitsList() {
   if (!isVisible) return null;
 
   return (
-    <div className="fixed inset-0 bg-gradient-to-b from-orange-500 to-orange-400 flex flex-col">
+    <div className="fixed inset-0 bg-gradient-to-b from-orange-main to-orange-main flex flex-col">
       <TopNav username="Brotastic" avatarUrl="https://i.pravatar.cc/300" onClose={handleClose} />
       <div className="flex-1 overflow-hidden flex flex-col p-4 space-y-6 mt-16">
         <h1 className="text-3xl font-bold text-white text-center">Habits</h1>
@@ -95,8 +95,8 @@ function DateNavigation({ selectedDate, onDateChange }: { selectedDate: Date; on
             key={date.toISOString()}
             className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-medium transition-colors ${
               date.toDateString() === selectedDate.toDateString()
-                ? 'bg-white text-orange-500'
-                : 'bg-orange-400 text-white hover:bg-orange-300'
+                ? 'bg-white text-orange-main'
+                : 'bg-orange-main text-white hover:bg-orange-300'
             }`}
             onClick={() => onDateChange(date)}
           >

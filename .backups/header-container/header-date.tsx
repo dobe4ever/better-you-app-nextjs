@@ -9,7 +9,7 @@ export function HeaderDate() {
       transition={{ delay: 0.1, duration: 0.2 }}
       className="text-center"
     >
-      <h1 className="text-orange-400">
+      <h1 className="text-orange-main">
         <span className="tracking-tighter font-bold text-2xl">FRIDAY DECEMBER 6, 2024</span>
       </h1>
     </motion.div>

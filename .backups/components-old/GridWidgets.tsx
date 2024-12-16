@@ -17,7 +17,7 @@ const Widget = ({
   rightIcon = (
     <ChevronRight
       size={16}
-      className="text-orange-400"
+      className="text-orange-main"
     />
   ),
   className = '',
@@ -63,10 +63,10 @@ export function GridWidgets() {
           <div className="space-y-1 text-xs">
             <div className="flex justify-between items-center">
               <span className="text-gray-600">Last 7 Days</span>
-              <span className="text-orange-500 font-bold">80%</span>
+              <span className="text-orange-main font-bold">80%</span>
             </div>
             <div className="h-1.5 bg-gray-100 rounded-full overflow-hidden">
-              <div className="h-full w-3/4 bg-orange-500 rounded-full"></div>
+              <div className="h-full w-3/4 bg-orange-main rounded-full"></div>
             </div>
             <div className="flex justify-between items-center">
               <span className="text-gray-600">Last 30 days</span>
