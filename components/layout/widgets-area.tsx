@@ -299,16 +299,16 @@ export function AnalyticsWidget() {
           <TrendingUp size={32} />
         </div>
         <div className="space-y-1">
-          <div className="flex justify-between items-center">
-            <span className="text-description-card">Last 7 Days</span>
-            <span className="text-orange-main font-bold">80%</span>
+          <div className="flex justify-between">
+            <div className="text-description-card">Last 7 days</div>
+            <div className="text-orange-main font-bold">80%</div>
           </div>
           <div className="h-1.5 bg-gray-100 rounded-full overflow-hidden">
             <div className="h-full w-3/4 bg-gradient-orange rounded-full"></div>
           </div>
-          <div className="flex justify-between items-center">
-            <span className="text-description-card">Last 30 days</span>
-            <span className="text-gray-900 font-bold">48%</span>
+          <div className="flex justify-between">
+            <div className="text-description-card">Last 30 days</div>
+            <div className="text-gray-900 font-bold">48%</div>
           </div>
           <div className="h-1.5 bg-gray-100 rounded-full overflow-hidden">
             <div className="h-full w-1/2 bg-gray-900 rounded-full"></div>
