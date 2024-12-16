@@ -46,7 +46,7 @@ interface TopNavProps {
 
 export function TopNav() {
   return (
-    <div className="fixed top-3 right-4 left-10 p- z-10">
+    <div className="fixed top-3 right-4 left-12 p- z-10">
 
       <div className="flex justify-between items-center">
         <div className="flex items-center gap-4">
