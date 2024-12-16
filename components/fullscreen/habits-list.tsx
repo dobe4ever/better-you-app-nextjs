@@ -44,7 +44,7 @@ export function HabitsList() {
 
   return (
     <div className="fixed inset-0 bg-gradient-to-b from-orange-main to-orange-main flex flex-col">
-      <TopNav username="Brotastic" avatarUrl="https://i.pravatar.cc/300" onClose={handleClose} />
+      <TopNav />
       <div className="flex-1 overflow-hidden flex flex-col p-4 space-y-6 mt-16">
         <h1 className="text-3xl font-bold text-white text-center">Habits</h1>
         <DateNavigation selectedDate={selectedDate} onDateChange={setSelectedDate} />
