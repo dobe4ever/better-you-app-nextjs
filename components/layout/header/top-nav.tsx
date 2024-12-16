@@ -35,9 +35,8 @@
 // components/layout/header/top-nav.tsx
 import { Logo } from './logo'
 import { NotificationBtn } from './notification-btn'
-import { ProfileBtn } from './profile-btn'
-import { ChevronLeftBtn } from './chevron-left'
-import { SearchBtn } from './search-btn'
+// import { ProfileBtn } from './profile-btn'
+import { AvatarSection } from './avatar-section'
 
 interface TopNavProps {
   username: string;
@@ -51,13 +50,11 @@ export function TopNav({ username, avatarUrl, onClose }: TopNavProps) {
 
       <div className="flex justify-between items-center">
         <div className="flex items-center gap-4">
-        {/* <ChevronLeftBtn onClick={onClose} /> */}
           <Logo />
         </div>
         <div className="flex items-center gap-4">
-          {/* <SearchBtn /> */}
           <NotificationBtn />
-          <ProfileBtn username={username} avatarUrl={avatarUrl} />
+          <AvatarSection size="h-8 w-8" />
         </div>
       </div>
 

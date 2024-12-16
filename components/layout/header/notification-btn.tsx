@@ -9,16 +9,16 @@ export function NotificationBtn() {
   const [notificationCount, setNotificationCount] = useState(3)
 
   return (
-    <div className="[&_svg]:size-6">
+    <div className="[&_svg]:size-5">
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
           <Button variant="ghost" size="icon" className="relative text-white">
-            <Bell />
+            <Bell strokeWidth={1.5} />
             {notificationCount > 0 && (
               <motion.span
                 initial={{ scale: 0 }}
                 animate={{ scale: 1 }}
-                className="absolute right-0 top-0 flex h-4 w-4 items-center justify-center rounded-full bg-red-500 text-xs font-bold text-white"
+                className="absolute -right-1 -top-1 flex size-4 items-center justify-center rounded-full text-xs font-bold text-white"
               >
                 {notificationCount}
               </motion.span>

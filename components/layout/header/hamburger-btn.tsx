@@ -5,11 +5,11 @@ import { Menu } from 'lucide-react'
 
 export function HamburgerBtn() {
   return (
-    <div className="[&_svg]:size-6">
+    <div className="[&_svg]:size-5">
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
           <Button variant="ghost" size="icon" className="relative text-white">
-            <Menu />
+            <Menu strokeWidth={1.5} />
           </Button>
         </DropdownMenuTrigger>
         <DropdownMenuContent align="end" className="w-56">

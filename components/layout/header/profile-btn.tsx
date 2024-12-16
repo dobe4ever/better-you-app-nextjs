@@ -16,11 +16,10 @@ export function ProfileBtn({ username, avatarUrl }: ProfileBtnProps) {
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <Button variant="ghost" size="icon" className="rounded-full text-white pr-">
-          <Avatar className="border-2 border-white h-8 w-8">
+          <Avatar className="border-2 border-white size-6">
             <AvatarImage src={avatarUrl} alt={username} />
             <AvatarFallback>{initials}</AvatarFallback>
           </Avatar>
-          <span className="sr-only">User menu</span>
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end" className="w-56 p-2">
