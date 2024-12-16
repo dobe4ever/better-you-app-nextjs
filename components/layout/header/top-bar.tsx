@@ -2,7 +2,7 @@
 import { HamburgerBtn } from './hamburger-btn'
 import { LogoWhite } from './logo'
 import { NotificationBtn } from './notification-btn'
-import { AvatarSection } from './avatar-section'
+import { ProfileBtn } from './profile-btn'
 
 interface TopBarProps {
   username: string
@@ -11,16 +11,16 @@ interface TopBarProps {
 
 export function TopBar() {
   return (
-    <div className="relative p-2 pr-4 z-10">
+    <div className="relative p-3 z-10">
 
       <div className="flex justify-between items-center">
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-2">
           <HamburgerBtn />
           <LogoWhite />
         </div>
         <div className="flex items-center gap-4">
           <NotificationBtn />
-          <AvatarSection classnames='size-8 border-2 border- shadow- rounded-full' />
+          <ProfileBtn />
         </div>
       </div>
     </div>

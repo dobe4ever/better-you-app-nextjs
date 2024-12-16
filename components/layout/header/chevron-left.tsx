@@ -10,7 +10,7 @@ interface ChevronLeftBtnProps {
 export function ChevronLeftBtn({ onClick }: ChevronLeftBtnProps) {
   return (
     <div className="[&_svg]:size-5">
-      <Button variant="ghost" size="icon" className="text-orange-main" onClick={onClick}>
+      <Button variant="ghost" size="icon" className="text-orange-main pt-2" onClick={onClick}>
         <ChevronLeft />
       </Button>
     </div>
