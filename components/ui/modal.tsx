@@ -11,11 +11,9 @@ interface ModalProps {
 export const Modal: React.FC<ModalProps> = ({ onClose, children }) => {
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
-      <div className="bg-gradient-orange p-2 rounded-lg w-full h-full">
+      <div className="bg-white p-2 rounded-lg w-full h-full">
         <ChevronLeftBtn onClick={onClose}/>
-        <TopNav username={''} avatarUrl={''} onClose={function (): void {
-          throw new Error('Function not implemented.')
-        } }/>
+        <TopNav />
         {/* {children} */}
       </div>
     </div>

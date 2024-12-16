@@ -33,7 +33,7 @@
 
 
 // components/layout/header/top-nav.tsx
-import { Logo } from './logo'
+import { LogoOrange } from './logo'
 import { NotificationBtn } from './notification-btn'
 // import { ProfileBtn } from './profile-btn'
 import { AvatarSection } from './avatar-section'
@@ -44,17 +44,17 @@ interface TopNavProps {
   onClose: () => void;
 }
 
-export function TopNav({ username, avatarUrl, onClose }: TopNavProps) {
+export function TopNav() {
   return (
     <div className="fixed top-2 right-4 left-10 p- z-10">
 
       <div className="flex justify-between items-center">
         <div className="flex items-center gap-4">
-          <Logo />
+          <LogoOrange />
         </div>
-        <div className="flex items-center gap-4">
-          <NotificationBtn />
-          <AvatarSection classnames='size-8 border-2 border- shadow- rounded-full' />
+        <div className="text-orange-main flex items-center gap-4">
+          <NotificationBtn color="orange" />
+          <AvatarSection classnames='size-8 border-2 border-orange-main shadow- rounded-full' />
         </div>
       </div>
 
