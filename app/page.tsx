@@ -29,7 +29,9 @@
 //     // <div className="bg-gradient-to-r from-orange-400 via-orange-300 to-orange-500 min-h-screen w-full">
 //     <div className="relative min-h-screen min-w-screen bg-white">
 
-//       <FloatingChatBtn />
+//       <FloatingChatBtn onClick={function (): void {
+//         throw new Error('Function not implemented.')
+//       } } />
 
 //       <div ref={headerRef} className="relative z-10">
 //         <HeaderArea />
@@ -44,7 +46,11 @@
 //       </div>
 
 //       <div className="relative z-20">
-//         <WidgetsArea />
+//         <WidgetsArea onHabitsClick={function (): void {
+//           throw new Error('Function not implemented.')
+//         } } onTodosClick={function (): void {
+//           throw new Error('Function not implemented.')
+//         } } />
 //       </div>
     
 //     </div>

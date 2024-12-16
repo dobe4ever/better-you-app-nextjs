@@ -1,3 +1,4 @@
+// components/fullscreen/habits-list.tsx
 'use client'
 
 import { useState, useEffect } from 'react'
@@ -32,12 +33,14 @@ export function HabitsList() {
     { id: '4', title: 'Write in journal', completed: false },
     { id: '5', title: 'Drink 8 glasses of water', completed: true },
   ])
+  const [isVisible, setIsVisible] = useState(true);
 
   const handleClose = () => {
-    // This function would be called when the chevron left is clicked
-    console.log('Close button clicked')
-    // You'd typically handle closing the component here, e.g., by updating some state in the parent component
+    setIsVisible(false);
+    console.log('HabitsList closed');
   }
+
+  if (!isVisible) return null;
 
   return (
     <div className="fixed inset-0 bg-gradient-to-b from-orange-500 to-orange-400 flex flex-col">
@@ -210,4 +213,5 @@ function HabitCard({ habit }: { habit: Habit }) {
     </Card>
   )
 }
+
 

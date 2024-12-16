@@ -47,11 +47,11 @@ interface TopNavProps {
 
 export function TopNav({ username, avatarUrl, onClose }: TopNavProps) {
   return (
-    <div className="fixed top-0 right-0 left-0 p-2 z-10">
+    <div className="fixed top-2 right-4 left-10 p- z-10">
 
       <div className="flex justify-between items-center">
         <div className="flex items-center gap-4">
-          <ChevronLeftBtn/>
+        {/* <ChevronLeftBtn onClick={onClose} /> */}
           <Logo />
         </div>
         <div className="flex items-center gap-4">

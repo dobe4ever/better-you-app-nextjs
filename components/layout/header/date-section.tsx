@@ -10,7 +10,7 @@ export function DateSection() {
       className="text-center"
     >
       <h1 className="text-orange-400">
-        <span className="tracking-tighter font-bold text-2xl">FRIDAY DECEMBER 6, 2024</span>
+        <span className="tracking-tighter font-bold text-title-orange">FRIDAY DECEMBER 6, 2024</span>
       </h1>
     </motion.div>
   )

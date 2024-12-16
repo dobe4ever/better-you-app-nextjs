@@ -84,6 +84,10 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        sans: ['var(--font-inter)', 'sans-serif'],
+        nunito: ['var(--font-nunito)', 'sans-serif'],
+      },
     screens: {
         sm: '640px',
         md: '768px',
@@ -115,8 +119,8 @@ module.exports = {
         },
       },
       backgroundImage: {
-        'gradient-blue': 'linear-gradient(45deg, #faae7b, #432371)',
-        'gradient-orange': 'linear-gradient(45deg, #f9a13d, #ee7539, #e55136)',
+        'gradient-orange': 'linear-gradient(45deg, #f04c23, #f99f1c)',
+        // 'gradient-orange': 'linear-gradient(45deg, #f9a13d, #ee7539, #e55136)',
         'gradient-white': 'linear-gradient(45deg, #FFF3E2, #FFFFE2, #FFFFFF)',
         'gradient-tomato': 'linear-gradient(45deg, #ffd78a, #f4762d)',
         'gradient-pink': 'linear-gradient(45deg, #f74985, #46295c, #5355fb)',
@@ -206,12 +210,12 @@ module.exports = {
           letterSpacing: '0.4em',
         },
         '.text-title-orange': {
-          fontSize: '20px',
+          fontSize: '26px',
           lineHeight: '1', // 1 =  lineHeight to fontSize ratio (40px)
           fontWeight: '900',
-          fontFamily: 'Nunito, sans-serif',
+          // fontFamily: 'Nunito, sans-serif',
           backgroundClip: 'text',
-          backgroundImage: 'linear-gradient(45deg, #fb9a47, #fa8730 )',
+          backgroundImage: 'linear-gradient(45deg, #f04c23, #f99f1c)',
           textAlign: 'center',
           color: 'transparent',
         },

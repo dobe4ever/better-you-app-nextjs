@@ -63,7 +63,7 @@ export function FloatingChatBtn({ onClick }: FloatingChatBtnProps) {
     <>
       <button
         onClick={toggleChat}
-        className="z-50 fixed bottom-4 right-4 border-2 border-white bg-orange-400 text-white rounded-full p-3 shadow-md"
+        className="z-50 fixed bottom-4 right-4 border-2 border-white bg-gradient-orange text-white rounded-full p-3 shadow-md"
       >
         <Bot size={32} />
       </button>
