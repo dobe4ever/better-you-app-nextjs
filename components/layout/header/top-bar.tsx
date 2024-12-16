@@ -9,7 +9,7 @@ interface TopBarProps {
   avatarUrl: string
 }
 
-export function TopBar({ username, avatarUrl }: TopBarProps) {
+export function TopBar() {
   return (
     <div className="relative p-2 pr-4 z-10">
 
@@ -20,7 +20,7 @@ export function TopBar({ username, avatarUrl }: TopBarProps) {
         </div>
         <div className="flex items-center gap-4">
           <NotificationBtn />
-          <AvatarSection size="size-7" />
+          <AvatarSection classnames='size-8 border-2 border- shadow- rounded-full' />
         </div>
       </div>
     </div>

@@ -2,18 +2,16 @@
 import React from 'react'
 
 interface AvatarSectionProps {
-  avatarUrl?: string,
-  size?: string
+  classnames?: string
 }
 
-export function AvatarSection({ avatarUrl = 'https://i.pravatar.cc/300', size = 'h-56 w-56' }: AvatarSectionProps) {
+export function AvatarSection({ classnames='size-56 border-4 border-orange-300/50 shadow-lg rounded-full' }: AvatarSectionProps) {
   return (
     <div className="w-full flex justify-center z-10">
-      <div className="rounded-full shadow-lg border-[3px] border-orange-300/25 overflow-hidden">
+      <div className={classnames}>
         <img
-          src={avatarUrl}
-          alt="Avatar"
-          className={size}
+          src="https://i.pravatar.cc/300"
+          className="overflow-hidden rounded-full"
         />
       </div>
     </div>

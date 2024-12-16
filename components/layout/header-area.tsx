@@ -242,7 +242,7 @@ import { TopBar } from './header/top-bar'
 export function HeaderArea() {
   return (
     <div className="">
-      <TopBar username="Brotastic" avatarUrl="https://i.pravatar.cc/300" />
+      <TopBar />
       <AvatarSection />
       <DateSection />
       <ShapesBackground />

@@ -54,7 +54,7 @@ export function TopNav({ username, avatarUrl, onClose }: TopNavProps) {
         </div>
         <div className="flex items-center gap-4">
           <NotificationBtn />
-          <AvatarSection size="h-8 w-8" />
+          <AvatarSection classnames='size-8 border-2 border- shadow- rounded-full' />
         </div>
       </div>
 
