@@ -14,7 +14,7 @@ export function ProfileBtn() {
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <Button variant="ghost" size="icon" className="rounded-full size-8 text-white pr-">
-          <AvatarSection classnames='size-8 border-2 rounded-full border-orange-main' />
+          <AvatarSection classnames='size-8 border-2 rounded-full border-white' />
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end" className="w-56 p-2">
