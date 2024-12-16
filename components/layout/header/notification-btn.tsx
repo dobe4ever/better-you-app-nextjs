@@ -13,7 +13,7 @@ export function NotificationBtn() {
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
           <Button variant="ghost" size="icon" className="relative text-white">
-            <Bell strokeWidth={1.5} />
+            <Bell strokeWidth={2} />
             {notificationCount > 0 && (
               <motion.span
                 initial={{ scale: 0 }}

@@ -20,7 +20,7 @@ export function TopBar({ username, avatarUrl }: TopBarProps) {
         </div>
         <div className="flex items-center gap-4">
           <NotificationBtn />
-          <AvatarSection size="h-8 w-8" />
+          <AvatarSection size="size-7" />
         </div>
       </div>
     </div>

@@ -9,7 +9,7 @@ export function HamburgerBtn() {
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
           <Button variant="ghost" size="icon" className="relative text-white">
-            <Menu strokeWidth={1.5} />
+            <Menu strokeWidth={2} />
           </Button>
         </DropdownMenuTrigger>
         <DropdownMenuContent align="end" className="w-56">
