@@ -21,7 +21,7 @@ export function ProfileBtn() {
         <DropdownMenuItem className="text-sm text-gray-500 p-2">email@gmail.com</DropdownMenuItem>
         <DropdownMenuItem className="flex flex-row">
         <div className="flex justify-between items-center" >
-          <AvatarSection classnames='size-10 border-2 rounded-full border-orange-main mr-4' />
+          <AvatarSection classnames='size-10 border-2 rounded-full border-white mr-4' />
           <span className="flex flex-col gap-0 ml-">
             <h1>username</h1>
             <p className="text-gray-500">Free plan</p>
