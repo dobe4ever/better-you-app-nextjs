@@ -10,8 +10,8 @@ interface ModalProps {
 
 export const Modal: React.FC<ModalProps> = ({ onClose, children }) => {
   return (
-    <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
-      <div className="bg-white pt-2 pl-1 w-full min-h-screen">
+    <div className="fixed inset-0 flex items-center justify-center bg-white z-50">
+      <div className="fixed top-0 left-0">
         <ChevronLeftBtn onClick={onClose}/>
         <TopNav />
         {/* {children} */}
