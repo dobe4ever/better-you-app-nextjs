@@ -36,13 +36,6 @@
 import { LogoOrange } from './logo'
 import { NotificationBtn } from './notification-btn'
 import { ProfileBtn } from './profile-btn'
-// import { AvatarSection } from './avatar-section'
-
-interface TopNavProps {
-  username: string;
-  avatarUrl: string;
-  onClose: () => void;
-}
 
 export function TopNav() {
   return (

@@ -119,7 +119,7 @@ module.exports = {
         },
       },
       backgroundImage: {
-        'bg-orange': 'linear-gradient(45deg, #f04c23, #f04c23, #f99f1c)',
+        'bg-orange': 'linear-gradient(45deg, #f04c23, #f04c23, #f04c23, #f99f1c)',
         'gradient-orange': 'linear-gradient(45deg, #f04c23, #f99f1c)',
         'gradient-white': 'linear-gradient(45deg, #FFF3E2, #FFFFE2, #FFFFFF)',
         'gradient-tomato': 'linear-gradient(45deg, #ffd78a, #f4762d)',
@@ -127,7 +127,7 @@ module.exports = {
         'artistic-home': "url('/src/assets/background.svg')",
       },
       backgroundColor: {
-        'gradient-orange': 'linear-gradient(45deg, #f04c23, #f99f1c)',
+        'gradient-orange': 'linear-gradient(45deg, #f36022, #f99f1c)',
         'gradient-white': 'linear-gradient(45deg, #FFF3E2, #FFFFE2, #FFFFFF)',
         'gradient-tomato': 'linear-gradient(45deg, #ffd78a, #f4762d)',
         'gradient-pink': 'linear-gradient(45deg, #f74985, #46295c, #5355fb)',
