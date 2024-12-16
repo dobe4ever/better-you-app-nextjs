@@ -119,6 +119,7 @@ module.exports = {
         },
       },
       backgroundImage: {
+        'bg-orange': 'linear-gradient(45deg, #f04c23, #f04c23, #f99f1c)',
         'gradient-orange': 'linear-gradient(45deg, #f04c23, #f99f1c)',
         'gradient-white': 'linear-gradient(45deg, #FFF3E2, #FFFFE2, #FFFFFF)',
         'gradient-tomato': 'linear-gradient(45deg, #ffd78a, #f4762d)',

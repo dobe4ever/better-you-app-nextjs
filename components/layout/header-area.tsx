@@ -241,22 +241,25 @@ import { TopBar } from './header/top-bar'
 
 export function HeaderArea() {
   return (
-    <div className="">
+    <>
       <TopBar />
-      <AvatarSection />
+      <div className="">
+        <AvatarSection />
+        <ShapesBackground />
+      </div>
       <DateSection />
-      <ShapesBackground />
-    </div>
+      {/* <ShapesBackground /> */}
+    </>
   )
 }
 
 // Diagonal lines BG
 export function ShapesBackground() {
   return (
-    <div className="absolute top-0 left-0 right-0 bottom- -z-10">
-      <div className="top-0 left-0 right-0 bottom- -z-10">
-        <div className="absolute top-0 left-0 h-[25vh] w-1/2 bg-orange-main origin-top-left transform -skew-y-12"></div>
-        <div className="absolute top-0 right-0 h-[25vh] w-1/2 bg-orange-main origin-top-right transform skew-y-12"></div>
+    <div className="relative top-0 left-0 right-0 bottom- -z-10">
+      <div className="z-10">
+        <div className="absolute top-0 left-0 h-[25vh] w-1/2 bg-white origin-top-left transform -skew-y-12"></div>
+        <div className="absolute top-0 right-0 h-[25vh] w-1/2 bg-white origin-top-right transform skew-y-12"></div>
       </div>
     </div>
   )
