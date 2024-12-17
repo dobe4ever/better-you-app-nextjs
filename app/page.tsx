@@ -67,9 +67,9 @@ import { HeaderArea } from '../components/layout/header-area'
 import { StickyTop } from '../components/layout/sticky-top'
 import { WidgetsArea } from '../components/layout/widgets-area'
 import { Modal } from '../components/ui/modal'
-import { HabitsList } from '../components/fullscreen/habits-list'
-import { TodosList } from '../components/fullscreen/todos-list'
-import { Chat } from '../components/fullscreen/chat'
+import { HabitsPage } from '../components/fullscreen/habits-page'
+import { TodosPage } from '../components/fullscreen/todos-page'
+import { ChatbotPage } from '../components/fullscreen/chatbot-page'
 
 export default function HomePage() {
   const [fadePercentage, setFadePercentage] = useState(0)
@@ -123,9 +123,9 @@ export default function HomePage() {
 
       {activeModal && (
         <Modal onClose={closeModal}>
-          {activeModal === 'habits' && <HabitsList />}
-          {activeModal === 'todos' && <TodosList />}
-          {activeModal === 'chat' && <Chat />}
+          {activeModal === 'habits' && <HabitsPage />}
+          {activeModal === 'todos' && <TodosPage />}
+          {activeModal === 'chat' && <ChatbotPage />}
         </Modal>
       )}
     </div>

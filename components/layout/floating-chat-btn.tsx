@@ -45,6 +45,7 @@
 'use client'
 
 import { useState } from 'react'
+import { ChatbotPage } from '../../components/fullscreen/chatbot-page'
 import { Bot, X } from 'lucide-react'
 
 interface FloatingChatBtnProps {
@@ -70,14 +71,8 @@ export function FloatingChatBtn({ onClick }: FloatingChatBtnProps) {
 
       {isChatOpen && (
         <div className="fixed inset-0 bg-white z-50 flex flex-col h-screen">
-          <div className="fixed top-0 left-0 right-0 flex justify-between items-center p-4 bg-white text-orange-main">
-            <h2 className="text-xl text-black font-bold">AI Coach</h2>
-            <button onClick={toggleChat}>
-              <X size={24} />
-            </button>
-          </div>
           <div className="flex-1 overflow-hidden">
-            {/* <Chatbot /> */}
+            <ChatbotPage />
           </div>
         </div>
       )}

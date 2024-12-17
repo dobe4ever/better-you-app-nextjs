@@ -22,7 +22,7 @@ interface Habit {
   completed: boolean;
 }
 
-export function HabitsList() {
+export function HabitsPage() {
   const [showCompleted, setShowCompleted] = useState(false)
   const [selectedDate, setSelectedDate] = useState(new Date())
   const [habits, setHabits] = useState<Habit[]>([
