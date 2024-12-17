@@ -44,7 +44,7 @@ export function ChallengeCard() {
   const [selectedIntensity, setSelectedIntensity] = useState<'Easy' | 'Medium' | 'Max'>('Easy')
 
   return (
-    <div className="w-full bg-gradient-to-r from-orange-500 to-red-600 rounded-xl shadow-lg p-6 text-white">
+    <div className="w-full bg-gradient-to-r from-orange-500 to-red-600 rounded-xl shadow-lg p-4 text-white">
       {!challenge.isRunning ? (
         <>
           <h2 className="text-2xl font-bold mb-4">Set a Challenge: Choose Duration & Intensity</h2>

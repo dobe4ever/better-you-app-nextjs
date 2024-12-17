@@ -93,16 +93,16 @@ export const TodosPage: React.FC = () => {
   return (
     <div className="flex flex-col w-full gap-3 rounded-xl shadow p-">
 
-      <h1 className="text-title-orange">Todos</h1>
+      <h1 className="text-title-orange">Habits</h1>
 
-      <div className="flex flex-col w-full rounded-xl shadow">
-        <div className="pt-4 text-title-card">
+      {/* <div className="flex flex-col w-full rounded-xl shadow"> */}
+        <div className="p-4 shadow">
           <ChallengeCard />
         </div>
-      </div>
+      {/* </div> */}
 
       <div className="pt-4 text-title-card">
-        <TrelloList title="Todo's" cards={cards} onAddCard={handleAddCard} />
+        <TrelloList title="Habits's" cards={cards} onAddCard={handleAddCard} />
       </div>
 
     </div>
