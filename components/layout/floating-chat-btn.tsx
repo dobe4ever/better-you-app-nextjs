@@ -16,17 +16,17 @@ export function FloatingChatBtn({
   title = "Chatbot Page",
   children,
   onClick,
-  BotIcon = <Bot size={36} className="text-white" />,
+  BotIcon = <Bot size={56} className="border-2 border-orange-300/90 bg-gradient-orange text-white rounded-full shadow-md p-2 pb-3" />,
   className = '',
 }: FloatingChatBtnProps) {
   return (
     <div
-      className={`z-50 fixed bottom-4 right-4 size-[56px] border-2 border-orange-300/90 bg-gradient-orange text-white rounded-full shadow-md ${
+      className={`z-50 fixed bottom-4 right-4 ${
         onClick ? 'cursor-pointer' : ''
       } group ${className}`}
       onClick={onClick}
     >
-      <div className="p-2">
+      <div className="">
         {BotIcon}
       </div>
       {children}
