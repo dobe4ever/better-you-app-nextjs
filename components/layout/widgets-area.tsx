@@ -53,14 +53,14 @@ export function UndelayWidget() {
       </p>
 
       {/* Right side: Link and Close */}
-      <div className="flex items-center mb-2 space-x-2">
+      <div className="flex items-center mb-2 space-x-1">
         <a
           href="https://example.com"
           target="_blank"
           rel="noopener noreferrer"
           className="text-xs text-orange-main font-semibold -mt-4"
         >
-          Upgrade Plan
+          Upgrade Now
         </a>
         <button
           className="text-orange-main -mt-4"
