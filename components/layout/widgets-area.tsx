@@ -23,7 +23,7 @@ export function Widget({
 }: WidgetProps) {
   return (
     <div
-      className={`bg-white rounded-3xl p-3 border shadow-md ${
+      className={`bg-white rounded-2xl p-3 border shadow-md ${
         onClick ? 'cursor-pointer' : ''
       } group ${className}`}
       onClick={onClick}
@@ -45,7 +45,7 @@ export function UndelayWidget() {
 
   return (
     <div
-      className="relative flex items-center justify-between bg-gray-100 rounded-3xl pt-8 pl-2 pr-2 -mb-12 shadow-none border-2 border-white max-w-[100%] mx-"
+      className="relative flex items-center justify-between bg-gray-100 rounded-2xl pt-8 pl-2 pr-2 -mb-10 shadow-none border-2 border-white max-w-[100%] mx-"
     >
       {/* Left side: Description */}
       <div className="flex flex-col">
