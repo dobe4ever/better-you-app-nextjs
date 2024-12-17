@@ -115,21 +115,23 @@ function ActionButtons({ showCompleted, onToggleCompleted }: { showCompleted: bo
   return (
     <div className="w-full overflow-x-auto">
       <div className="flex flex-wrap gap-2 p-">
+        {/* Show/hide completed button */}
         <Button
           variant="secondary"text-acti
           className="flex-1 min-w-[140px] h-12 items-center justify-center whitespace-nowrap bg-gradient-orange text-action-buttons"
           onClick={onToggleCompleted}
         >
-          {showCompleted ? <EyeOff className="mr-2 h-5 w-5" /> : <Eye className="mr-2 h-5 w-5" />}
+          {showCompleted ? <EyeOff className="h-5 w-5" /> : <Eye className="h-5 w-5" />}
           <span>Completed</span>
         </Button>
+        {/* Challenge button */}
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <Button 
               variant="secondary" 
               className="flex-1 min-w-[140px] h-12 items-center justify-center whitespace-nowrap bg-gradient-orange text-action-buttons"
             >
-              <Zap className="mr-2 h-5 w-5" />
+              <Zap className="h-5 w-5" />
               <span>Challenge</span>
             </Button>
           </DropdownMenuTrigger>
@@ -137,6 +139,7 @@ function ActionButtons({ showCompleted, onToggleCompleted }: { showCompleted: bo
             <DropdownMenuItem>Set Challenge</DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
+        {/* Add button */}
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <Button 
@@ -144,7 +147,7 @@ function ActionButtons({ showCompleted, onToggleCompleted }: { showCompleted: bo
               className="h-12 w-12 p-0 flex items-center justify-center bg-gradient-orange text-white"
             >
               {/* <Plus className="h-6 w-6" /> */}
-              <span className="text-2xl">+</span>
+              <span className="text-action-buttons">+</span>
             </Button>
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end" className="w-56">
