@@ -34,8 +34,8 @@ export function HabitsList() {
   ]);
 
   return (
-    <div className="fixed inset-0 m-2 mt-16 bg- flex flex-col">
-      <div className="flex-1 overflow-hidden flex flex-col gap-6">
+    <div className="fixed inset-0 m- mt-16 bg- flex flex-col">
+      <div className="flex-1 overflow-hidden flex flex-col gap-3">
         <h1 className="text-title-orange">Habits</h1>
         <DateNavigation selectedDate={selectedDate} onDateChange={setSelectedDate} />
         <ActionButtons
@@ -114,7 +114,7 @@ function DateNavigation({ selectedDate, onDateChange }: { selectedDate: Date; on
 function ActionButtons({ showCompleted, onToggleCompleted }: { showCompleted: boolean; onToggleCompleted: () => void }) {
   return (
     <div className="w-full overflow-x-auto">
-      <div className="flex flex-wrap gap-2 p-">
+      <div className="flex flex-wrap gap-2 p-2">
         {/* Show/hide completed button */}
         <Button
           variant="secondary"text-acti
@@ -161,11 +161,6 @@ function ActionButtons({ showCompleted, onToggleCompleted }: { showCompleted: bo
   )
 }
 
-
-
-
-
-
 function HabitCardList({ habits, setHabits, showCompleted }: { 
   habits: Habit[]; 
   setHabits: React.Dispatch<React.SetStateAction<Habit[]>>; 
@@ -193,7 +188,7 @@ function HabitCardList({ habits, setHabits, showCompleted }: {
   const filteredHabits = showCompleted ? habits : habits.filter((habit) => !habit.completed)
 
   return (
-    <div className="flex-1 overflow-y-auto">
+    <div className="flex-1 overflow-y-auto bg-gray-200 rounded-t-xl pt-4">
       <DndContext sensors={sensors} collisionDetection={closestCenter} onDragEnd={handleDragEnd}>
         <SortableContext items={filteredHabits} strategy={verticalListSortingStrategy}>
           {filteredHabits.map((habit) => (
@@ -219,7 +214,7 @@ function HabitCard({ habit }: { habit: Habit }) {
       style={style}
       {...attributes}
       {...listeners}
-      className="rounded-lg mb-2 cursor-move"
+      className="rounded-lg mb-2 bg-white m-2 cursor-move"
     >
       <CardContent className="flex items-center p-4">
         <Checkbox id={habit.id} checked={habit.completed} className="mr-4" />
