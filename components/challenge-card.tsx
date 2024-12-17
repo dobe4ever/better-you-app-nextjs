@@ -44,7 +44,7 @@
 //   const [selectedIntensity, setSelectedIntensity] = useState<'Easy' | 'Medium' | 'Max'>('Easy')
 
 //   return (
-//     <div className="w-full bg-gradient-to-r from-orange-500 to-red-600 rounded-xl shadow-lg p-4 text-white">
+//     <div className="w-full bg-gradient-to-tr from-red-600 via-orange-500 to-yellow-200 rounded-xl shadow-lg p-4 text-white">
 //       {!challenge.isRunning ? (
 //         <>
 //           <h2 className="text-2xl font-bold mb-4">Set a Challenge: Choose Duration & Intensity</h2>
@@ -99,6 +99,8 @@
 //     </div>
 //   )
 // }
+
+
 
 // components/challenge-card.tsx
 'use client'
@@ -178,7 +180,7 @@ export function ChallengeCard() {
   )
 
   return (
-    <div className="w-full max-w-md mx-auto bg-gradient-to-r from-orange-700 via-orange-500 to-orange-300 rounded-3xl shadow-2xl text-white transition-all duration-300">
+    <div className="w-full max-w-md mx-auto bg-gradient-to-tr from-red-600 via-orange-500 to-yellow-200 rounded-3xl shadow-2xl text-white transition-all duration-300">
       <div className="flex items-center justify-between p-4">
         <h2 className="text-xl font-bold flex items-center">
           {challenge.isRunning ? (

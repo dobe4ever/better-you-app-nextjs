@@ -23,7 +23,7 @@ export function Widget({
 }: WidgetProps) {
   return (
     <div
-      className={`bg-white rounded-lg p-3 border shadow-md ${
+      className={`bg-white rounded-3xl p-3 border shadow-md ${
         onClick ? 'cursor-pointer' : ''
       } group ${className}`}
       onClick={onClick}
@@ -37,43 +37,42 @@ export function Widget({
   )
 }
 
-// AdsCarouselWidget component
-export function AdsCarouselWidget() {
-  return (
-    <Widget title="Featured Ads">
-      <div className="text-description-card mt-2">
-        Ads carousel content goes here
-      </div>
-    </Widget>
-  )
-}
+// UndelayWidget component
+export function UndelayWidget() {
+  const [showWidget, setShowWidget] = useState(true)
 
-// AnalyticsWidget component
-export function AnalyticsWidget() {
+  if (!showWidget) return null
+
   return (
-    <Widget title="Analytics" onClick={() => {}} className="flex flex-col gap-2">
-      <div className="space-y-2">
-        <div>
-          <TrendingUp size={32} />
-        </div>
-        <div className="space-y-1">
-          <div className="flex justify-between">
-            <div className="text-description-card">Last 7 days</div>
-            <div className="text-orange-main font-bold">80%</div>
-          </div>
-          <div className="h-1.5 bg-gray-100 rounded-full overflow-hidden">
-            <div className="h-full w-3/4 bg-gradient-orange rounded-full"></div>
-          </div>
-          <div className="flex justify-between">
-            <div className="text-description-card">Last 30 days</div>
-            <div className="text-gray-900 font-bold">48%</div>
-          </div>
-          <div className="h-1.5 bg-gray-100 rounded-full overflow-hidden">
-            <div className="h-full w-1/2 bg-gray-900 rounded-full"></div>
-          </div>
-        </div>
+    <div
+      className="relative flex items-center justify-between bg-gray-100 rounded-3xl pt-6 p-4 -mb-8 shadow-none border-2 border-white max-w-[100%] mx-"
+    >
+      {/* Left side: Description */}
+      <p className="text-xs -mt-6">
+        50% off premium features, limited time
+      </p>
+
+      {/* Right side: Link and Close */}
+      <div className="flex items-center mb-2 space-x-2">
+        <a
+          href="https://example.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-orange-main text-sm font-semibold underline -mt-4"
+        >
+          Upgrade Plan
+        </a>
+        <button
+          className="text-orange-main -mt-3"
+          onClick={(e) => {
+            e.stopPropagation() // Prevent parent handlers (if any)
+            setShowWidget(false)
+          }}
+        >
+          <X size={16} />
+        </button>
       </div>
-    </Widget>
+    </div>
   )
 }
 
@@ -116,22 +115,10 @@ export function AnnouncementWidget() {
   )
 }
 
-// BadgesWidget component
-export function BadgesWidget() {
-  return (
-    <Widget title="Badges" onClick={() => {}} className="flex flex-col gap-2">
-      <Trophy size={32} />
-      <div className="text-description-card mt-2">
-        Earn rewards by hitting milestones
-      </div>
-    </Widget>
-  )
-}
-
 // HabitsWidget component
 export function HabitsWidget({ onHabitsClick }: { onHabitsClick: () => void }) {
   return (
-    <Widget title="Today's Habits" onClick={onHabitsClick}>
+    <Widget title="Today's Habits" onClick={onHabitsClick} className="z-10">
       <div className="flex items-end justify-between mb-2">
         <div>
           <p className="text-description-card">Completed</p>
@@ -149,6 +136,68 @@ export function HabitsWidget({ onHabitsClick }: { onHabitsClick: () => void }) {
   )
 }
 
+// TodosWidget component
+export function TodosWidget({ onTodosClick }: { onTodosClick: () => void }) {
+  return (
+    <Widget title="Today's Todos" onClick={onTodosClick}>
+      <div className="flex items-end justify-between mb-2">
+        <div>
+          <p className="text-description-card">Completed</p>
+          <p className="text-xl font-bold">3/12</p>
+        </div>
+        <p className="text-big-percent-number">29%</p>
+      </div>
+      <div className="w-full bg-gray-100 rounded-full h-1.5 overflow-hidden">
+        <div
+          className="h-full rounded-full bg-gradient-to-br from-gray-200 via-gray-300 to-gray-400"
+          style={{ width: '29%', transition: 'width 1s ease-in-out' }}
+        />
+      </div>
+    </Widget>
+  )
+}
+
+// SuccessCoachWidget component
+export function SuccessCoachWidget() {
+  return (
+    <Widget title="AI Check-in" onClick={() => {}} className="flex flex-col gap-2">
+      <Bot size={32} />
+      <div className="text-description-card mt-6">
+        24/7 AI guidance and support
+      </div>
+    </Widget>
+  )
+}
+
+// AnalyticsWidget component
+export function AnalyticsWidget() {
+  return (
+    <Widget title="Analytics" onClick={() => {}} className="flex flex-col gap-2">
+      <div className="space-y-2">
+        <div>
+          <TrendingUp size={32} />
+        </div>
+        <div className="space-y-1">
+          <div className="flex justify-between">
+            <div className="text-description-card">Last 7 days</div>
+            <div className="text-orange-main font-bold">80%</div>
+          </div>
+          <div className="h-1.5 bg-gray-100 rounded-full overflow-hidden">
+            <div className="h-full w-3/4 bg-gradient-orange rounded-full"></div>
+          </div>
+          <div className="flex justify-between">
+            <div className="text-description-card">Last 30 days</div>
+            <div className="text-gray-900 font-bold">48%</div>
+          </div>
+          <div className="h-1.5 bg-gray-100 rounded-full overflow-hidden">
+            <div className="h-full w-1/2 bg-gray-900 rounded-full"></div>
+          </div>
+        </div>
+      </div>
+    </Widget>
+  )
+}
+
 // LifeScoreWidget component
 export function LifeScoreWidget() {
   return (
@@ -156,6 +205,29 @@ export function LifeScoreWidget() {
       <LoaderPinwheel size={32} />
       <div className="text-description-card mt-2">
         Visualize progress across all life areas
+      </div>
+    </Widget>
+  )
+}
+
+// BadgesWidget component
+export function BadgesWidget() {
+  return (
+    <Widget title="Badges" onClick={() => {}} className="flex flex-col gap-2">
+      <Trophy size={32} />
+      <div className="text-description-card mt-2">
+        Earn rewards by hitting milestones
+      </div>
+    </Widget>
+  )
+}
+
+// AdsCarouselWidget component
+export function AdsCarouselWidget() {
+  return (
+    <Widget title="Featured Ads">
+      <div className="text-description-card mt-2">
+        Ads carousel content goes here
       </div>
     </Widget>
   )
@@ -185,39 +257,6 @@ export function CoursesWidget() {
   )
 }
 
-// SuccessCoachWidget component
-export function SuccessCoachWidget() {
-  return (
-    <Widget title="AI Check-in" onClick={() => {}} className="flex flex-col gap-2">
-      <Bot size={32} />
-      <div className="text-description-card mt-6">
-        24/7 AI guidance and support
-      </div>
-    </Widget>
-  )
-}
-
-// TodosWidget component
-export function TodosWidget({ onTodosClick }: { onTodosClick: () => void }) {
-  return (
-    <Widget title="Today's Todos" onClick={onTodosClick}>
-      <div className="flex items-end justify-between mb-2">
-        <div>
-          <p className="text-description-card">Completed</p>
-          <p className="text-xl font-bold">3/12</p>
-        </div>
-        <p className="text-big-percent-number">29%</p>
-      </div>
-      <div className="w-full bg-gray-100 rounded-full h-1.5 overflow-hidden">
-        <div
-          className="h-full rounded-full bg-gradient-to-br from-gray-200 via-gray-300 to-gray-400"
-          style={{ width: '29%', transition: 'width 1s ease-in-out' }}
-        />
-      </div>
-    </Widget>
-  )
-}
-
 interface WidgetsAreaProps {
   onHabitsClick: () => void
   onTodosClick: () => void
@@ -226,7 +265,8 @@ interface WidgetsAreaProps {
 export function WidgetsArea({ onHabitsClick, onTodosClick }: WidgetsAreaProps) {
   return (
     <div className="flex flex-col overflow-hidden w-full bg-white p-2 gap-2 rounded-t-xl">
-      <AnnouncementWidget />
+      <UndelayWidget />
+      {/* <AnnouncementWidget /> */}
       <HabitsWidget onHabitsClick={onHabitsClick} />
       <TodosWidget onTodosClick={onTodosClick} />
       <div className="grid grid-cols-2 gap-2">
