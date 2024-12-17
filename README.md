@@ -872,10 +872,10 @@ export { Avatar, AvatarImage, AvatarFallback }
 ```
 
 
+vo deployment:
 # Fix all of the following accesibility issues:
 
 Document does not have a main landmark
-
 
 All touch targets must be 24px large, or leave sufficient space
 Target has insufficient size (58.1px by 12px, should be at least 24px by 24px)
@@ -884,7 +884,6 @@ Ensure touch target have sufficient size and space
 ```. space-x-1. mb-2. items-center:nth-child(1) > a
 .- mt-8:nth-child(2)
 .- mt-4```
-
 
 . Images must have alternate text
 Ensures <img> elements have altemate text or a role of none or presentation. 
@@ -897,7 +896,6 @@ Element's default semantics were not overridden with role="none" or role="presen
 > img[src="https://i.pravatar. cc/300"]
 .size-56 > img[src="https://i. pravatar. cc/300"]```
 
-
 . Buttons must have discernible text
 Ensures buttons have discernible text. Learn More
 Element does not have inner text that is visible to screen readers
@@ -909,3 +907,11 @@ Element's default semantics were not overridden with role="none" or role="presen
 #radix-\:R55afkq\
 .- mt-8:nth-child(2)
 . mb-```
+
+main production app:
+
+`tsconfig.json'
+File '/home/dobe4ever/better-you-app-nextjs/components/tello-list.tsx' not found.
+  The file is in the program because:
+    Matched by include pattern '**/*.tsx' in '/home/dobe4ever/better-you-app-nextjs/tsconfig.json'ts
+JSON schema for the TypeScript compiler's configuration file
