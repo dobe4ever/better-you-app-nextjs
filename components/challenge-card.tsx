@@ -195,7 +195,7 @@ export function ChallengeCard() {
           variant="ghost"
           size="sm"
           onClick={() => setIsExpanded(!isExpanded)}
-          className="text-white hover:bg-white/20"
+          className="text-white"
         >
           {isExpanded ? <ChevronUp /> : <ChevronDown />}
         </Button>
