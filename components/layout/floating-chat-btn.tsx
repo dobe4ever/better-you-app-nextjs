@@ -8,7 +8,7 @@ interface FloatingChatBtnProps {
   title?: string
   children?: ReactNode
   onClick?: () => void
-  rightIcon?: ReactNode
+  BotIcon?: ReactNode
   className?: string
 }
 
@@ -16,7 +16,7 @@ export function FloatingChatBtn({
   title = "Chatbot Page",
   children,
   onClick,
-  rightIcon = <Bot size={30} className="m-3 text-white" />,
+  BotIcon = <Bot size={36} className="text-white" />,
   className = '',
 }: FloatingChatBtnProps) {
   return (
@@ -26,8 +26,8 @@ export function FloatingChatBtn({
       } group ${className}`}
       onClick={onClick}
     >
-      <div className="flex justify-between items-center mb-2">
-        {rightIcon}
+      <div className="p-2">
+        {BotIcon}
       </div>
       {children}
     </div>
