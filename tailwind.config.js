@@ -224,6 +224,14 @@ module.exports = {
           textAlign: 'center',
           color: 'black',
         },
+        '.text-action-buttons': {
+          fontSize: '18px',
+          lineHeight: '1', // 1 =  lineHeight to fontSize ratio (40px)
+          fontWeight: '700',
+          // fontFamily: 'Nunito, sans-serif',
+          textAlign: 'left',
+          color: 'white',
+        },
       };
       
       // Add the new utility classes to Tailwind, making them responsive and hoverable

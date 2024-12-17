@@ -114,40 +114,37 @@ function DateNavigation({ selectedDate, onDateChange }: { selectedDate: Date; on
 function ActionButtons({ showCompleted, onToggleCompleted }: { showCompleted: boolean; onToggleCompleted: () => void }) {
   return (
     <div className="w-full overflow-x-auto">
-      <div className="flex space-x-2 min-w-max m-2">
-        {/* Show/hide completed button */}
+      <div className="flex flex-wrap gap-2 p-">
         <Button
-          variant="secondary"
-          className="flex items-center whitespace-nowrap bg-gradient-orange text-white text-md h-10"
+          variant="secondary"text-acti
+          className="flex-1 min-w-[140px] h-12 items-center justify-center whitespace-nowrap bg-gradient-orange text-action-buttons"
           onClick={onToggleCompleted}
         >
-          {showCompleted ? <EyeOff size={18} /> : <Eye size={18} />}
-          <span className="ml-2">Completed</span>
+          {showCompleted ? <EyeOff className="mr-2 h-5 w-5" /> : <Eye className="mr-2 h-5 w-5" />}
+          <span>Completed</span>
         </Button>
-        {/* Challenge button */}
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <Button 
               variant="secondary" 
-              className="flex items-center whitespace-nowrap bg-gradient-orange text-white text-md h-10"
+              className="flex-1 min-w-[140px] h-12 items-center justify-center whitespace-nowrap bg-gradient-orange text-action-buttons"
             >
-              <Zap size={18} />
-              <div className="">Challenge</div>
+              <Zap className="mr-2 h-5 w-5" />
+              <span>Challenge</span>
             </Button>
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end" className="w-56">
-            <DropdownMenuItem>Set Options</DropdownMenuItem>
+            <DropdownMenuItem>Set Challenge</DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
-        {/* Add button */}
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <Button 
               variant="secondary" 
-              className="flex items-center whitespace-nowrap bg-gradient-orange text-white text-md h-10"
+              className="h-12 w-12 p-0 flex items-center justify-center bg-gradient-orange text-white"
             >
-              <Plus size={18} />
-              <span>Add</span>
+              {/* <Plus className="h-6 w-6" /> */}
+              <span className="text-2xl">+</span>
             </Button>
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end" className="w-56">
@@ -157,9 +154,14 @@ function ActionButtons({ showCompleted, onToggleCompleted }: { showCompleted: bo
           </DropdownMenuContent>
         </DropdownMenu>
       </div>
-    </div> 
+    </div>
   )
 }
+
+
+
+
+
 
 function HabitCardList({ habits, setHabits, showCompleted }: { 
   habits: Habit[]; 
