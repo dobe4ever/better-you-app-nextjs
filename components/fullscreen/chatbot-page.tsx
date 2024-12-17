@@ -9,5 +9,3 @@ export const ChatbotPage: React.FC = () => {
     </div>
   )
 }
-
-
