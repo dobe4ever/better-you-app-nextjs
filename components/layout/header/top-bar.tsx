@@ -9,7 +9,7 @@ export function TopBar() {
     <div className="relative pl-1 p-2 pr-2 z-10">
 
       <div className="flex justify-between items-center">
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-4">
           <HamburgerBtn />
           <LogoWhite />
         </div>
