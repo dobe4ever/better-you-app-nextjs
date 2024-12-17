@@ -187,7 +187,7 @@ export function ChallengeCard() {
             </>
           ) : (
             <>
-              <Target className="mr-2 w-5 h-5" /> Set a Challenge
+              <Flame className="mr-2 w-5 h-5" /> Set a Challenge
             </>
           )}
         </h2>
