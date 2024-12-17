@@ -76,7 +76,7 @@
 'use client'
 
 import { useState } from "react"
-import { TrelloList } from "@/components/tello-list"
+import { TrelloList } from "@/components/trello-list"
 import { ChallengeCard } from "@/components/challenge-card"
 import type { Card } from "@/types/list"
 

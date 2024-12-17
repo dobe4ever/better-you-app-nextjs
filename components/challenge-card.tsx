@@ -101,14 +101,13 @@
 // }
 
 
-
 // components/challenge-card.tsx
 'use client'
 
 import React, { useState } from 'react'
 import { Button } from "@/components/ui/button"
 import { Progress } from "@/components/ui/progress"
-import { Flame, Target, ChevronDown, ChevronUp } from 'lucide-react'
+import { Flame, ChevronDown, ChevronUp } from 'lucide-react'
 
 interface ChallengeState {
   isRunning: boolean
@@ -124,7 +123,7 @@ const MOTIVATIONAL_QUOTES = [
   "Small progress is still progress 💪",
   "Consistency beats intensity 🔥",
   "Your habits build your future 🌟"
-];
+]
 
 const useChallenge = () => {
   const [challenge, setChallenge] = useState<ChallengeState>({
@@ -152,46 +151,17 @@ const useChallenge = () => {
 
 export function ChallengeCard() {
   const { challenge, startChallenge } = useChallenge()
-  const [selectedTimeframe, setSelectedTimeframe] = useState<'1' | '3' | '6'>('1')
-  const [selectedIntensity, setSelectedIntensity] = useState<'Easy' | 'Medium' | 'Max'>('Easy')
   const [isExpanded, setIsExpanded] = useState(false)
 
-  const motivationalQuote = MOTIVATIONAL_QUOTES[Math.floor(Math.random() * MOTIVATIONAL_QUOTES.length)];
-
-  const TimeframeButton = ({ value, label }: { value: '1' | '3' | '6', label: string }) => (
-    <Button
-      variant={selectedTimeframe === value ? "default" : "outline"}
-      onClick={() => setSelectedTimeframe(value)}
-      className="flex-1"
-    >
-      {label}
-    </Button>
-  )
-
-  const IntensityButton = ({ value, label, percentage }: { value: 'Easy' | 'Medium' | 'Max', label: string, percentage: string }) => (
-    <Button
-      variant={selectedIntensity === value ? "default" : "outline"}
-      onClick={() => setSelectedIntensity(value)}
-      className="flex-1 flex flex-col items-center"
-    >
-      <span>{label}</span>
-      <span className="text-xs">{percentage}</span>
-    </Button>
-  )
+  const motivationalQuote = MOTIVATIONAL_QUOTES[Math.floor(Math.random() * MOTIVATIONAL_QUOTES.length)]
 
   return (
-    <div className="w-full max-w-md mx-auto bg-gradient-to-tr from-red-600 via-orange-500 to-yellow-200 rounded-3xl shadow-2xl text-white transition-all duration-300">
-      <div className="flex items-center justify-between p-4">
+    <div className="w-full bg-gradient-to-tr from-orange-500 via-red-400 to-yellow-300 rounded-3xl shadow-lg text-white p-6 space-y-6 transition-all">
+      {/* Header */}
+      <div className="flex items-center justify-between">
         <h2 className="text-xl font-bold flex items-center">
-          {challenge.isRunning ? (
-            <>
-              <Flame className="mr-2 w-5 h-5" /> Track Challenge!
-            </>
-          ) : (
-            <>
-              <Flame className="mr-2 w-5 h-5" /> Set a Challenge
-            </>
-          )}
+          <Flame className="mr-2 w-6 h-6" />
+          {challenge.isRunning ? "Track Your Challenge" : "Set Your Challenge"}
         </h2>
         <Button
           variant="ghost"
@@ -203,75 +173,95 @@ export function ChallengeCard() {
         </Button>
       </div>
 
+      {/* Collapsible Content */}
       {isExpanded && (
-        <div className="p-4 space-y-6">
+        <div className="space-y-6">
+          {/* State 1: No Challenge Running */}
           {!challenge.isRunning ? (
             <>
-              <div className="space-y-4">
-                <div>
-                  <h3 className="text-lg font-semibold mb-2">Choose Timeframe</h3>
-                  <div className="flex gap-2">
-                    <TimeframeButton value="1" label="1 Month" />
-                    <TimeframeButton value="3" label="3 Months" />
-                    <TimeframeButton value="6" label="6 Months" />
-                  </div>
-                </div>
-
-                <div>
-                  <h3 className="text-lg font-semibold mb-2">Choose Intensity</h3>
-                  <div className="flex gap-2">
-                    <IntensityButton value="Easy" label="Easy" percentage="50%" />
-                    <IntensityButton value="Medium" label="Medium" percentage="75%" />
-                    <IntensityButton value="Max" label="Max" percentage="100%" />
-                  </div>
+              {/* Timeframe Selection */}
+              <div>
+                <h3 className="text-lg font-bold">Choose Duration</h3>
+                <p className="text-sm text-white/80">
+                  Select how long you want your challenge to last. Options are 1, 3, or 6 months.
+                </p>
+                <div className="flex gap-2 mt-3">
+                  {['1', '3', '6'].map((timeframe) => (
+                    <Button
+                      key={timeframe}
+                      variant={challenge.timeframe === timeframe ? "default" : "outline"}
+                      onClick={() => startChallenge(timeframe as '1' | '3' | '6', challenge.intensity)}
+                      className="flex-1"
+                    >
+                      {timeframe} {timeframe === '1' ? 'Month' : 'Months'}
+                    </Button>
+                  ))}
                 </div>
               </div>
 
-              <Button 
-                onClick={() => startChallenge(selectedTimeframe, selectedIntensity)}
-                className="w-full bg-white text-orange-600 hover:bg-orange-100 transition-colors rounded-full font-bold"
-              >
+              {/* Intensity Selection */}
+              <div>
+                <h3 className="text-lg font-bold">Select Intensity</h3>
+                <p className="text-sm text-white/80">
+                  How challenging do you want this to be? Pick a level: Easy, Medium, or Max.
+                </p>
+                <div className="flex gap-2 mt-3">
+                  {['Easy', 'Medium', 'Max'].map((intensity) => (
+                    <Button
+                      key={intensity}
+                      variant={challenge.intensity === intensity ? "default" : "outline"}
+                      onClick={() => startChallenge(challenge.timeframe, intensity as 'Easy' | 'Medium' | 'Max')}
+                      className="flex-1"
+                    >
+                      {intensity}
+                    </Button>
+                  ))}
+                </div>
+              </div>
+
+              {/* Start Challenge Button */}
+              <Button className="w-full bg-white text-orange-600 rounded-full font-bold hover:bg-orange-100 mt-4">
                 Start Challenge
               </Button>
 
-              <p className="text-sm text-center italic text-white/80">
+              {/* Motivational Quote */}
+              <p className="text-sm text-center italic">
                 {motivationalQuote}
               </p>
             </>
           ) : (
+            /* State 2: Challenge Running */
             <>
-              <div className="space-y-4">
-                <div>
-                  <div className="flex justify-between items-center mb-2">
-                    <p>Overall Progress</p>
-                    <p>{Math.round((challenge.completedDays / challenge.totalDays) * 100)}%</p>
-                  </div>
-                  <Progress 
-                    value={(challenge.completedDays / challenge.totalDays) * 100} 
-                    className="h-3 bg-white/20" 
-                  />
+              {/* Overall Progress */}
+              <div>
+                <h3 className="text-lg font-bold">Overall Progress</h3>
+                <p className="text-sm text-white/80">
+                  See how far you've come in your challenge journey.
+                </p>
+                <div className="flex justify-between items-center mt-2">
+                  <p className="text-sm">Progress:</p>
+                  <p className="text-sm">{Math.round((challenge.completedDays / challenge.totalDays) * 100)}%</p>
                 </div>
-
-                <div>
-                  <div className="flex justify-between items-center mb-2">
-                    <p>Today's Progress</p>
-                    <p>{challenge.todayProgress}%</p>
-                  </div>
-                  <Progress 
-                    value={challenge.todayProgress} 
-                    className="h-3 bg-white/20" 
-                  />
-                </div>
+                <Progress value={(challenge.completedDays / challenge.totalDays) * 100} className="h-3 bg-white/30" />
               </div>
 
-              <div className="flex items-center justify-between bg-white/20 p-3 rounded-lg">
-                <div className="flex items-center space-x-2">
-                  <Flame className="w-5 h-5 text-orange-300" />
-                  <span className="font-semibold">Keep the streak alive!</span>
+              {/* Today's Progress */}
+              <div>
+                <h3 className="text-lg font-bold">Today's Progress</h3>
+                <p className="text-sm text-white/80">
+                  Track your daily habits and stay on target!
+                </p>
+                <div className="flex justify-between items-center mt-2">
+                  <p className="text-sm">Completed:</p>
+                  <p className="text-sm">{challenge.todayProgress}%</p>
                 </div>
-                <div className="font-bold">
-                  🔥 Streak: {challenge.completedDays} days
-                </div>
+                <Progress value={challenge.todayProgress} className="h-3 bg-white/30" />
+              </div>
+
+              {/* Streak & Motivation */}
+              <div className="flex items-center justify-between bg-white/20 p-3 rounded-lg mt-4">
+                <span className="text-sm">🔥 Streak: {challenge.completedDays} days</span>
+                <span className="text-sm font-bold">Keep the streak alive!</span>
               </div>
             </>
           )}
@@ -280,4 +270,3 @@ export function ChallengeCard() {
     </div>
   )
 }
-

@@ -1,4 +1,4 @@
-// components/tello-list.tsx
+// components/trello-list.tsx
 'use client'
 
 import { useState } from "react"

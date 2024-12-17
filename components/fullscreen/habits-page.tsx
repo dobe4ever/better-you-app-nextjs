@@ -1,4 +1,4 @@
-// components/fullscreen/habits-list.tsx
+// components/fullscreen/habits-page.tsx
 'use client'
 
 import { useState, useEffect } from 'react'
