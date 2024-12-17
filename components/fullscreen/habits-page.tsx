@@ -34,7 +34,8 @@ export function HabitsPage() {
   ]);
 
   return (
-    <div className="fixed inset-0 m- mt-16 bg- flex flex-col">
+    // <div className="fixed inset-0 m- mt-16 bg- flex flex-col">
+    <div className="fixed inset-0 mt-12 bg-white">
       <div className="flex-1 overflow-hidden flex flex-col gap-3">
         <h1 className="text-title-orange">Habits</h1>
         <DateNavigation selectedDate={selectedDate} onDateChange={setSelectedDate} />

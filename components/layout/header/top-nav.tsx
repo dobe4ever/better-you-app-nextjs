@@ -39,7 +39,7 @@ import { ProfileBtn } from './profile-btn'
 
 export function TopNav() {
   return (
-    <div className="fixed top-2 right-2 left-12 p- z-10">
+    <div className="fixed top-2 right-2 left-12 z-10">
 
       <div className="flex justify-between items-center">
         <div className="flex items-center gap-4">

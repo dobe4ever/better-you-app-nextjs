@@ -21,7 +21,7 @@ export function NotificationBtn({ color = 'white' }: NotificationBtnProps) {
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
           <Button variant="ghost" size="icon" className="relative">
-            <Bell strokeWidth={2} color={color} />
+            <Bell strokeWidth={2} color={color}/>
             {notificationCount > 0 && (
               <motion.span
                 initial={{ scale: 0 }}
