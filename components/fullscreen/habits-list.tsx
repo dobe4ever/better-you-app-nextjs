@@ -15,7 +15,6 @@ import {
 import { DndContext, closestCenter, KeyboardSensor, PointerSensor, useSensor, useSensors, DragEndEvent } from '@dnd-kit/core'
 import { arrayMove, SortableContext, sortableKeyboardCoordinates, verticalListSortingStrategy, useSortable } from '@dnd-kit/sortable'
 import { CSS } from '@dnd-kit/utilities'
-import { TopNav } from '../../components/layout/header/top-nav'
 
 interface Habit {
   id: string;
@@ -32,21 +31,12 @@ export function HabitsList() {
     { id: '3', title: 'Exercise', completed: false },
     { id: '4', title: 'Write in journal', completed: false },
     { id: '5', title: 'Drink 8 glasses of water', completed: true },
-  ])
-  const [isVisible, setIsVisible] = useState(true);
-
-  const handleClose = () => {
-    setIsVisible(false);
-    console.log('HabitsList closed');
-  }
-
-  if (!isVisible) return null;
+  ]);
 
   return (
-    <div className="fixed inset-0 bg-gradient-to-b from-orange-main to-orange-main flex flex-col">
-      <TopNav />
-      <div className="flex-1 overflow-hidden flex flex-col p-4 space-y-6 mt-16">
-        <h1 className="text-3xl font-bold text-white text-center">Habits</h1>
+    <div className="fixed inset-0 m-2 mt-16 bg- flex flex-col">
+      <div className="flex-1 overflow-hidden flex flex-col gap-6">
+        <h1 className="text-title-orange">Habits</h1>
         <DateNavigation selectedDate={selectedDate} onDateChange={setSelectedDate} />
         <ActionButtons
           showCompleted={showCompleted}
@@ -62,30 +52,44 @@ function DateNavigation({ selectedDate, onDateChange }: { selectedDate: Date; on
   const [dates, setDates] = useState<Date[]>([])
 
   useEffect(() => {
+    const today = new Date()
     const newDates = Array.from({ length: 7 }, (_, i) => {
-      const date = new Date(selectedDate)
+      const date = new Date(today)
       date.setDate(date.getDate() - i)
       return date
     }).reverse()
     setDates(newDates)
-  }, [selectedDate])
+  }, [])
 
   const navigateDate = (direction: 'prev' | 'next') => {
-    const newDate = new Date(selectedDate)
-    newDate.setDate(newDate.getDate() + (direction === 'next' ? 1 : -1))
-    onDateChange(newDate)
+    const currentIndex = dates.findIndex(date => date.toDateString() === selectedDate.toDateString())
+    if (direction === 'prev' && currentIndex > 0) {
+      onDateChange(dates[currentIndex - 1])
+    } else if (direction === 'next' && currentIndex < dates.length - 1) {
+      onDateChange(dates[currentIndex + 1])
+    }
   }
 
   return (
     <div className="flex flex-col items-center space-y-4">
       <div className="flex items-center space-x-4">
-        <Button variant="ghost" size="icon" onClick={() => navigateDate('prev')}>
+        <Button 
+          variant="ghost" 
+          size="icon" 
+          onClick={() => navigateDate('prev')}
+          disabled={selectedDate.toDateString() === dates[0]?.toDateString()}
+        >
           <ChevronRight className="h-4 w-4 rotate-180" />
         </Button>
-        <span className="text-xl font-semibold text-white">
+        <span className="text-xl font-semibold text-black">
           {selectedDate.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
         </span>
-        <Button variant="ghost" size="icon" onClick={() => navigateDate('next')}>
+        <Button 
+          variant="ghost" 
+          size="icon" 
+          onClick={() => navigateDate('next')}
+          disabled={selectedDate.toDateString() === dates[dates.length - 1]?.toDateString()}
+        >
           <ChevronRight className="h-4 w-4" />
         </Button>
       </div>
@@ -93,15 +97,14 @@ function DateNavigation({ selectedDate, onDateChange }: { selectedDate: Date; on
         {dates.map((date) => (
           <button
             key={date.toISOString()}
-            className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-medium transition-colors ${
+            className={`size-2 rounded-full transition-colors ${
               date.toDateString() === selectedDate.toDateString()
-                ? 'bg-white text-orange-main'
-                : 'bg-orange-main text-white hover:bg-orange-300'
+                ? 'bg-orange-500'
+                : 'bg-gray-300'
             }`}
             onClick={() => onDateChange(date)}
-          >
-            {date.getDate()}
-          </button>
+            aria-label={date.toLocaleDateString()}
+          />
         ))}
       </div>
     </div>
@@ -110,41 +113,50 @@ function DateNavigation({ selectedDate, onDateChange }: { selectedDate: Date; on
 
 function ActionButtons({ showCompleted, onToggleCompleted }: { showCompleted: boolean; onToggleCompleted: () => void }) {
   return (
-    <div className="flex justify-between items-center">
-      <Button
-        variant="secondary"
-        className="flex items-center space-x-2"
-        onClick={onToggleCompleted}
-      >
-        <Eye size={18} />
-        <span>{showCompleted ? 'Hide' : 'Show'} Completed</span>
-      </Button>
-
-      <DropdownMenu>
-        <DropdownMenuTrigger asChild>
-          <Button variant="secondary" className="flex items-center space-x-2">
-            <Zap size={18} />
-            <span>Challenge Mode</span>
-          </Button>
-        </DropdownMenuTrigger>
-        <DropdownMenuContent align="end" className="w-56">
-          <DropdownMenuItem>Set Challenge Options</DropdownMenuItem>
-        </DropdownMenuContent>
-      </DropdownMenu>
-
-      <DropdownMenu>
-        <DropdownMenuTrigger asChild>
-          <Button variant="secondary" className="flex items-center space-x-2">
-            <Plus size={18} />
-            <span>Add</span>
-          </Button>
-        </DropdownMenuTrigger>
-        <DropdownMenuContent align="end" className="w-56">
-          <DropdownMenuItem>Add Habit</DropdownMenuItem>
-          <DropdownMenuItem>Add Routine</DropdownMenuItem>
-          <DropdownMenuItem>Ask Coach</DropdownMenuItem>
-        </DropdownMenuContent>
-      </DropdownMenu>
+    <div className="w-full overflow-x-auto">
+      <div className="flex space-x-2 min-w-max p-">
+        {/* Show/hide completed button */}
+        <Button
+          variant="secondary"
+          className="flex items-center whitespace-nowrap bg-gradient-orange text-white"
+          onClick={onToggleCompleted}
+        >
+          <Eye size={18} color={'white'}/>
+          <span>{showCompleted ? 'Hide' : 'Show'}</span>
+        </Button>
+        {/* Challenge button */}
+        <DropdownMenu>
+          <DropdownMenuTrigger asChild>
+            <Button 
+              variant="secondary" 
+              className="flex items-center whitespace-nowrap bg-gradient-orange text-white"
+            >
+              <Zap size={18} />
+              <span>Challenge</span>
+            </Button>
+          </DropdownMenuTrigger>
+          <DropdownMenuContent align="end" className="w-56">
+            <DropdownMenuItem>Set Challenge</DropdownMenuItem>
+          </DropdownMenuContent>
+        </DropdownMenu>
+        {/* Add button */}
+        <DropdownMenu>
+          <DropdownMenuTrigger asChild>
+            <Button 
+              variant="secondary" 
+              className="flex items-center whitespace-nowrap bg-gradient-orange text-white"
+            >
+              <Plus size={18} />
+              <span>Add</span>
+            </Button>
+          </DropdownMenuTrigger>
+          <DropdownMenuContent align="end" className="w-56">
+            <DropdownMenuItem>Add Habit</DropdownMenuItem>
+            <DropdownMenuItem>Add Routine</DropdownMenuItem>
+            <DropdownMenuItem>Ask Coach</DropdownMenuItem>
+          </DropdownMenuContent>
+        </DropdownMenu>
+      </div>
     </div>
   )
 }
@@ -202,7 +214,7 @@ function HabitCard({ habit }: { habit: Habit }) {
       style={style}
       {...attributes}
       {...listeners}
-      className="mb-4 cursor-move"
+      className="rounded-lg mb-2 cursor-move"
     >
       <CardContent className="flex items-center p-4">
         <Checkbox id={habit.id} checked={habit.completed} className="mr-4" />
@@ -213,5 +225,3 @@ function HabitCard({ habit }: { habit: Habit }) {
     </Card>
   )
 }
-
-
