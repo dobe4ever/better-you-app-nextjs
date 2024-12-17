@@ -58,18 +58,18 @@ export function UndelayWidget() {
           href="https://example.com"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-orange-main text-sm font-semibold underline -mt-4"
+          className="text-xs text-orange-main font-semibold -mt-4"
         >
           Upgrade Plan
         </a>
         <button
-          className="text-orange-main -mt-3"
+          className="text-orange-main -mt-4"
           onClick={(e) => {
             e.stopPropagation() // Prevent parent handlers (if any)
             setShowWidget(false)
           }}
         >
-          <X size={16} />
+          <X size={14} />
         </button>
       </div>
     </div>
