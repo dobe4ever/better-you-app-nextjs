@@ -178,7 +178,7 @@ export function ChallengeCard() {
   )
 
   return (
-    <div className="w-full max-w-md mx-auto bg-gradient-to-r from-orange-300 via-orange-500 to-orange-700 rounded-2xl shadow-2xl text-white transition-all duration-300">
+    <div className="w-full max-w-md mx-auto bg-gradient-to-r from-orange-700 via-orange-500 to-orange-300 rounded-3xl shadow-2xl text-white transition-all duration-300">
       <div className="flex items-center justify-between p-4">
         <h2 className="text-xl font-bold flex items-center">
           {challenge.isRunning ? (
@@ -227,7 +227,7 @@ export function ChallengeCard() {
 
               <Button 
                 onClick={() => startChallenge(selectedTimeframe, selectedIntensity)}
-                className="w-full bg-white text-orange-600 hover:bg-orange-100 transition-colors font-bold"
+                className="w-full bg-white text-orange-600 hover:bg-orange-100 transition-colors rounded-full font-bold"
               >
                 Start Challenge
               </Button>
