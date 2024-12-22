@@ -1,17 +1,13 @@
 // components/fullscreen/habits-page.tsx
 'use client'
 
+import { ChallengeWidget } from '../../components/challenge-widget'
 import { useState, useEffect } from 'react'
 import { ChevronRight, Eye, EyeOff, Zap, Plus } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
 import { Checkbox } from '@/components/ui/checkbox'
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu'
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/components/ui/dropdown-menu'
 import { DndContext, closestCenter, KeyboardSensor, PointerSensor, useSensor, useSensors, DragEndEvent } from '@dnd-kit/core'
 import { arrayMove, SortableContext, sortableKeyboardCoordinates, verticalListSortingStrategy, useSortable } from '@dnd-kit/sortable'
 import { CSS } from '@dnd-kit/utilities'
@@ -43,6 +39,7 @@ export function HabitsPage() {
           showCompleted={showCompleted}
           onToggleCompleted={() => setShowCompleted(!showCompleted)}
         />
+        <ChallengeWidget />
         <HabitCardList habits={habits} setHabits={setHabits} showCompleted={showCompleted} />
       </div>
     </div>
