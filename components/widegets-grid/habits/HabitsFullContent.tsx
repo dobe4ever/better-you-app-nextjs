@@ -18,6 +18,7 @@ import { arrayMove, SortableContext, sortableKeyboardCoordinates, verticalListSo
 import { CSS } from '@dnd-kit/utilities'
 import { HabitsList } from "@/components/widegets-grid/habits/HabitsList"
 import { ChallengeCard } from "./ChallengeCard"
+import CircularSlider from "./CircularSlider"
 import type { HabitCard } from "@/types/list"
 
 interface Habit {
@@ -49,8 +50,14 @@ export function HabitsFullContent() {
   return (
     <div className="w-full h-full border-">
       <div className="flex-1 overflow-hidden flex flex-col gap-3">
-
-        <div className="shadow">
+      
+        <div className="
+          relative 
+          overflow-hidden 
+          bg-white 
+          rounded-2xl 
+          shadow-[0_5px_5px_rgba(0,0,0,0.25)]
+        ">
           <ChallengeCard />
         </div>
 

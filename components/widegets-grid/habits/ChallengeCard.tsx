@@ -274,213 +274,146 @@
 // components/challenge/challenge-card.tsx
 'use client'
 
-import { useState } from 'react'
-import { motion } from 'framer-motion'
-import { Flame, Rocket } from 'lucide-react'
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
-import { Progress } from "@/components/ui/progress"
-import { Slider } from "@/components/ui/slider"
-import { Badge } from "@/components/ui/badge"
-import { Separator } from "@/components/ui/separator"
+// ChallengeCard.tsx
+import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { CircularSlider } from './CircularSlider';
 
-const durations = [
-  { months: 1, label: '1 Month' },
-  { months: 3, label: '3 Months' },
-  { months: 6, label: '6 Months' },
-  { months: 12, label: '1 Year' },
-]
+interface ChallengeCardProps {
+  onStart?: (settings: { intensity: number; duration: number }) => void;
+}
 
-const intensityLevels = [
-  { value: 25, label: '25%' },
-  { value: 50, label: '50%' },
-  { value: 75, label: '75%' },
-  { value: 100, label: '100%' },
-]
+export const ChallengeCard: React.FC<ChallengeCardProps> = ({ onStart }) => {
+  const [isExpanded, setIsExpanded] = useState(false);
+  const [intensity, setIntensity] = useState(25);
+  const [duration, setDuration] = useState(1);
 
-export function ChallengeCard() {
-  const [isExpanded, setIsExpanded] = useState(false)
-  const [isChallengeActive, setIsChallengeActive] = useState(false)
-  const [challengeProgress, setChallengeProgress] = useState({
-    daysCompleted: 10,
-    totalDays: 90,
-    todayProgress: 65,
-    intensity: 50,
-  })
-  const [selectedDuration, setSelectedDuration] = useState(1)
-
-  const toggleExpansion = () => setIsExpanded(!isExpanded)
-
-  const startChallenge = () => {
-    setChallengeProgress({
-      daysCompleted: 0,
-      totalDays: selectedDuration * 30,
-      todayProgress: 0,
-      intensity: challengeProgress.intensity,
-    })
-    setIsChallengeActive(true)
-    setIsExpanded(false)
-  }
+  const months = Array.from({ length: 12 }, (_, i) => i + 1);
 
   return (
-    <Card className="rounded-2xl w-full overflow-hidden bg-white shadow-md">
-      <CardHeader 
-        className="cursor-pointer bg-white" 
-        onClick={toggleExpansion}
-      >
-        
-        <CardTitle className="flex justify-between items-center text-lg text-orange-500">
-          {isChallengeActive ? (
-            <Badge variant="secondary" className="text-sm font-normal bg-white text-orange-800 border border-orange-500">
-              {`${challengeProgress.daysCompleted} days completed, ${
-                challengeProgress.totalDays - challengeProgress.daysCompleted
-              } remaining`}
-            </Badge>
-          ) : (
-            <motion.span
-              className="flex items-center justify-center space-x-2 text-center font-bold text-lg text-orange-600"
-              animate={{ scale: [1, 1.1, 1] }}
-              transition={{ repeat: Infinity, duration: 1.5 }}
-            >
-              <Rocket className="text-orange-500" size={24} />
-              <span>Start a challenge!</span>
-            </motion.span>
-          )}
-        </CardTitle>
-      </CardHeader>
-      <motion.div
-        initial={false}
-        animate={{ height: isExpanded ? 'auto' : 0 }}
-        transition={{ duration: 0.3 }}
-      >
-        <CardContent className="space-y-6 p-6">
-          {isChallengeActive ? (
-            <>
-              <div className="space-y-4">
-                <div className="space-y-2">
-                  <div className="flex justify-between text-sm font-medium">
-                    <span>Challenge Progress</span>
-                    <span>
-                      {((challengeProgress.daysCompleted / challengeProgress.totalDays) * 100).toFixed(1)}%
-                    </span>
-                  </div>
-                  <Progress 
-                    value={(challengeProgress.daysCompleted / challengeProgress.totalDays) * 100} 
-                    className="h-2"
-                  />
+    <motion.div
+      layout
+      className="w-full max-w-2xl mx-auto bg-white rounded-3xl shadow-xl overflow-hidden"
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.4 }}
+    >
+      {/* Collapsed State - Challenge Button */}
+      <AnimatePresence mode="wait">
+        {!isExpanded && (
+          <motion.div
+            key="challenge-button"
+            className="p-6 cursor-pointer"
+            onClick={() => setIsExpanded(true)}
+            exit={{ opacity: 0 }}
+          >
+            <div className="flex items-center justify-between">
+              <div className="flex items-center space-x-4">
+                <div className="relative">
+                  <motion.div
+                    animate={{ scale: [1, 1.1, 1] }}
+                    transition={{ repeat: Infinity, duration: 2 }}
+                    className="w-12 h-12 bg-orange-500 rounded-full flex items-center justify-center"
+                  >
+                    <span className="text-2xl">🚀</span>
+                  </motion.div>
                 </div>
-                <div className="space-y-2">
-                  <div className="flex justify-between text-sm font-medium">
-                    <span>Today's Progress</span>
-                    <span>{challengeProgress.todayProgress}%</span>
-                  </div>
-                  <Progress value={challengeProgress.todayProgress} className="h-2" />
+                <div>
+                  <h3 className="text-xl font-bold text-gray-900">Start a Challenge!</h3>
+                  <p className="text-gray-600">Push your limits, level up your game</p>
                 </div>
               </div>
               <motion.div
-                className="flex items-center justify-center space-x-2 text-center font-bold text-lg text-orange-600"
-                animate={{ scale: [1, 1.1, 1] }}
+                animate={{ x: [0, 10, 0] }}
                 transition={{ repeat: Infinity, duration: 1.5 }}
               >
-                <Flame className="text-orange-500" size={24} />
-                <span>Keep the challenge alive!</span>
+                <span className="text-2xl">👉</span>
               </motion.div>
-            </>
-          ) : (
-           
-            <>
+            </div>
+          </motion.div>
+        )}
+
+        {/* Expanded State - Challenge Setup */}
+        {isExpanded && (
+          <motion.div
+            key="challenge-setup"
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
+            className="p-6"
+          >
+            <div className="space-y-6">
+              <div className="flex justify-between items-center">
+                <h2 className="text-2xl font-bold text-gray-900">Challenge Setup</h2>
+                <button
+                  onClick={() => setIsExpanded(false)}
+                  className="text-gray-500 hover:text-gray-700"
+                >
+                  ✕
+                </button>
+              </div>
+
+              {/* Intensity Selector */}
               <div className="space-y-4">
-                <h3 className="font-semibold text-gray-800">Duration</h3>
-                <Slider
-                  min={0}
-                  max={3}
-                  step={1}
-                  value={[durations.findIndex(d => d.months === selectedDuration)]}
-                  onValueChange={(value) => setSelectedDuration(durations[value[0]].months)}
-                  className="my-4"
-                />
-                <div className="flex justify-between text-sm font-medium">
-                  {durations.map((duration) => (
-                    <div 
-                      key={duration.months}
-                      className={`text-center ${
-                        selectedDuration === duration.months 
-                          ? 'text-orange-600' 
-                          : 'text-gray-600'
+                <h3 className="text-lg font-semibold text-gray-800">Challenge Intensity</h3>
+                <div className="flex justify-center">
+                  <CircularSlider
+                    value={intensity}
+                    onChange={setIntensity}
+                    min={25}
+                    max={100}
+                  />
+                </div>
+              </div>
+
+              {/* Duration Selector */}
+              <div className="space-y-4">
+                <h3 className="text-lg font-semibold text-gray-800">Challenge Duration</h3>
+                <div className="flex gap-2 flex-wrap">
+                  {months.map((month) => (
+                    <motion.button
+                      key={month}
+                      whileTap={{ scale: 0.95 }}
+                      onClick={() => setDuration(month)}
+                      className={`px-4 py-2 rounded-full ${
+                        duration === month
+                          ? 'bg-orange-500 text-white'
+                          : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                       }`}
                     >
-                      {duration.label}
-                    </div>
+                      {month}M
+                    </motion.button>
                   ))}
                 </div>
               </div>
-              
-              <Separator />
-              
-              <div className="space-y-4">
-                <h3 className="font-semibold text-gray-800">Intensity</h3>
-                <p className="text-sm text-gray-600">
-                  Choose the minimum percentage of your daily habits you'll need to complete:
-                </p>
-                <div className="grid grid-cols-4 gap-4">
-                  {intensityLevels.map((level) => (
-                    <button
-                      key={level.value}
-                      onClick={() => setChallengeProgress(prev => ({
-                        ...prev,
-                        intensity: level.value
-                      }))}
-                      className="relative aspect-square"
-                    >
-                      <div className={`
-                        absolute inset-0 rounded-full border-4
-                        transition-colors duration-200
-                        ${challengeProgress.intensity === level.value
-                          ? 'border-orange-500'
-                          : 'border-gray-200'
-                        }
-                      `}>
-                        <div className="absolute inset-0 flex items-center justify-center">
-                          <span className={`
-                            text-lg font-bold
-                            ${challengeProgress.intensity === level.value
-                              ? 'text-orange-500'
-                              : 'text-gray-600'
-                            }
-                          `}>
-                            {level.label}
-                          </span>
-                        </div>
-                        <svg className="w-full h-full" viewBox="0 0 36 36">
-                          <path
-                            d="M18 2.0845
-                              a 15.9155 15.9155 0 0 1 0 31.831
-                              a 15.9155 15.9155 0 0 1 0 -31.831"
-                            fill="none"
-                            stroke={challengeProgress.intensity === level.value ? '#f97316' : '#e5e7eb'}
-                            strokeWidth="3"
-                            strokeDasharray={`${level.value}, 100`}
-                          />
-                        </svg>
-                      </div>
-                    </button>
-                  ))}
-                </div>
-              </div>
-              
-              <div className="text-center pt-4">
-                <Button
-                  className="h-12 w-12 bg-orange-500 hover:bg-orange-600 text-white rounded-full"
-                  onClick={startChallenge}
-                >
-                  <Rocket className="h-6 w-6" />
-                </Button>
-              </div>
-            </>
-          )}
-        </CardContent>
-      </motion.div>
-    </Card>
-  )
-}
 
+              {/* Challenge Summary */}
+              <div className="bg-orange-50 p-4 rounded-xl">
+                <h4 className="font-semibold text-orange-800">Challenge Summary</h4>
+                <p className="text-orange-700">
+                  Complete {intensity}% of your habits daily for {duration} month
+                  {duration > 1 ? 's' : ''}
+                </p>
+              </div>
+
+              {/* Start Button */}
+              <motion.button
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                onClick={() => {
+                  onStart?.({ intensity, duration });
+                  setIsExpanded(false);
+                }}
+                className="w-full py-4 bg-orange-500 text-white rounded-xl font-bold text-lg hover:bg-orange-600 transition-colors"
+              >
+                Start Challenge 🔥
+              </motion.button>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </motion.div>
+  );
+};
+
+export default ChallengeCard;
