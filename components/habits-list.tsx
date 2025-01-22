@@ -1,4 +1,4 @@
-// components/trello-list.tsx
+// components/habits-list.tsx
 'use client'
 
 import { useState } from "react"
@@ -8,7 +8,7 @@ import { Card } from "./card"
 import { AddMenu } from "./dropdown-menu"
 import type { ListProps } from "../types/list"
 
-export function TrelloList({ title, cards, onAddCard }: ListProps) {
+export function HabitsList({ title, cards, onAddCard }: ListProps) {
   const [isVisible, setIsVisible] = useState(true)
   const [isAdding, setIsAdding] = useState(false)
   const [newCardTitle, setNewCardTitle] = useState("")

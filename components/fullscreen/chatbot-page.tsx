@@ -5,7 +5,7 @@ export const ChatbotPage: React.FC = () => {
   return (
     <div>
       <h1 className="text-2xl font-bold">Chatbot Page</h1>
-      {/* Add your todos page implementation here */}
+      {/* chat ui implementation here */}
     </div>
   )
 }

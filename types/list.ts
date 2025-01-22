@@ -1,11 +1,12 @@
-export interface Card {
+export interface HabitCard {
     id: string
     title: string
+    completed: boolean
   }
   
   export interface ListProps {
     title: string
-    cards: Card[]
+    cards: HabitCard[]
     onAddCard: (title: string) => void
   }
   

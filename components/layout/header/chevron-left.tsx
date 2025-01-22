@@ -1,7 +1,7 @@
 // components/layout/header/chevron-left.tsx
 
 import { Button } from '@/components/ui/button'
-import { ChevronLeft } from 'lucide-react'
+import { ChevronLeft, X } from 'lucide-react'
 
 interface ChevronLeftBtnProps {
   onClick: () => void;

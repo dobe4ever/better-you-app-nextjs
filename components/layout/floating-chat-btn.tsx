@@ -13,7 +13,7 @@ interface FloatingChatBtnProps {
 }
 
 export function FloatingChatBtn({
-  title = "Chatbot Page",
+  title = "Chatbot",
   children,
   onClick,
   BotIcon = <Bot size={56} className="border-2 border-white/50 bg-gradient-orange text-white rounded-full shadow-md p-2 pb-3" />,
