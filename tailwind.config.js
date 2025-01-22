@@ -192,8 +192,8 @@ module.exports = {
       // Define new utility classes
       const newUtilities = {
         '.text-title-orange': {
-          fontSize: '26px',
-          lineHeight: '1', // 1 =  lineHeight to fontSize ratio (40px)
+          fontSize: '22px',
+          lineHeight: '1.5', // 1 =  lineHeight to fontSize ratio (40px)
           fontWeight: '900',
           // fontFamily: 'Nunito, sans-serif',
           backgroundClip: 'text',

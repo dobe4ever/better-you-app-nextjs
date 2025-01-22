@@ -1,0 +1,19 @@
+// components/layout/header/chevron-left.tsx
+
+import { Button } from '@/old/components/ui/button'
+import { ChevronLeft, X } from 'lucide-react'
+
+interface ChevronLeftBtnProps {
+  onClick: () => void;
+}
+
+export function ChevronLeftBtn({ onClick }: ChevronLeftBtnProps) {
+  return (
+    <div className="[&_svg]:size-6">
+      <Button variant="ghost" size="icon" className="text-orange-main pt-5" onClick={onClick}>
+        <ChevronLeft />
+      </Button>
+    </div>
+  )
+}
+

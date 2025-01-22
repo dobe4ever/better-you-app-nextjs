@@ -22,6 +22,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "components/common/two-column-widget.tsx", "components/layout/header-container/top-bar.tsx.back"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "old/components/common/two-column-widget.tsx", "old/components/layout/header-container/top-bar.tsx.back"],
   "exclude": ["node_modules"]
 }
