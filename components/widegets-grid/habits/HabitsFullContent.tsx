@@ -4,19 +4,19 @@
 
 import { useState, useEffect } from 'react'
 import { ChevronRight, Eye, EyeOff, Zap } from 'lucide-react'
-import { Button } from '@/old/components/ui/button'
-import { Card, CardContent } from '@/old/components/ui/card'
-import { Checkbox } from '@/old/components/ui/checkbox'
+import { Button } from '@/components/ui/button'
+import { Card, CardContent } from '@/components/ui/card'
+import { Checkbox } from '@/components/ui/checkbox'
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from '@/old/components/ui/dropdown-menu'
+} from '@/components/ui/dropdown-menu'
 import { DndContext, closestCenter, KeyboardSensor, PointerSensor, useSensor, useSensors, DragEndEvent } from '@dnd-kit/core'
 import { arrayMove, SortableContext, sortableKeyboardCoordinates, verticalListSortingStrategy, useSortable } from '@dnd-kit/sortable'
 import { CSS } from '@dnd-kit/utilities'
-import { HabitsList } from "@/old/components/habits-list"
+import { HabitsList } from "@/components/widegets-grid/habits/HabitsList"
 import { ChallengeCard } from "./ChallengeCard"
 import type { HabitCard } from "@/types/list"
 
