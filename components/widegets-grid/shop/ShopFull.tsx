@@ -1,18 +1,22 @@
-// components2/widegets-grid/shop/ShopFull.tsx
+// components/widegets-grid/shop/ShopFull.tsx
+
 import React from 'react'
+import { ShopFullContent } from "./ShopFullContent"
 
 export const ShopFull: React.FC = () => {
   return (
-
     <>
-      <div>
-        
-      <>ShopFull Page</>
-
-      {/* implementation here */}
+      {/* title */}
+      <div className="fixed left-3 top-3 text-title-card">
+      Shop
       </div>
 
+      <>
+      {/* content */}
+        <div className="fixed top-12 right-0 left-0 bottom-0 rounded-t-2xl p-2 border">
+          <ShopFullContent/>
+        </div>
+      </>
     </>
-
   )
 }

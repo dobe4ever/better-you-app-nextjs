@@ -17,7 +17,7 @@ import { DndContext, closestCenter, KeyboardSensor, PointerSensor, useSensor, us
 import { arrayMove, SortableContext, sortableKeyboardCoordinates, verticalListSortingStrategy, useSortable } from '@dnd-kit/sortable'
 import { CSS } from '@dnd-kit/utilities'
 import { HabitsList } from "@/old/components/habits-list"
-import { ChallengeCard } from "@/old/components/challenge-card"
+import { ChallengeCard } from "./ChallengeCard"
 import type { HabitCard } from "@/types/list"
 
 interface Habit {
@@ -47,10 +47,8 @@ export function HabitsFullContent() {
   ]);
 
   return (
-    // <div className="fixed inset-0 m- mt-16 bg- flex flex-col">
-    <div className="fixed inset-0 mt-12 bg-white">
+    <div className="w-full h-full border-">
       <div className="flex-1 overflow-hidden flex flex-col gap-3">
-        <h1 className="text-title-orange">Habits</h1>
 
         <div className="p-4 shadow">
           <ChallengeCard />

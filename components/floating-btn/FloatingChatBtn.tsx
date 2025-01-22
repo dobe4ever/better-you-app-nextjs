@@ -1,4 +1,4 @@
-// components/layout/floating-chat-btn.tsx
+// components/floating-btn/FloatingChatBtn.tsx
 'use client'
 
 import { Bot } from 'lucide-react'

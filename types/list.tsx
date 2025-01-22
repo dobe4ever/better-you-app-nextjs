@@ -4,7 +4,7 @@ export interface HabitCard {
     completed: boolean
   }
   
-  export interface ListProps {
+  export interface HabitsListProps {
     title: string
     cards: HabitCard[]
     onAddCard: (title: string) => void

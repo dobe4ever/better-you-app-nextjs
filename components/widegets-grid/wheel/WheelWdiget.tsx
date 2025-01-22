@@ -17,10 +17,10 @@ import { LoaderPinwheel } from 'lucide-react'
 
 export function WheelWidget({ onWheelClick }: { onWheelClick: () => void }) {
   return (
-    <Widget title="Life Score" onClick={onWheelClick} className="flex flex-col gap-4 aspect-[1/1]">
+    <Widget title="Wheel Tool" onClick={onWheelClick} className="flex flex-col gap-4 aspect-[1/1]">
     <div className="flex flex-col items-center">
       <LoaderPinwheel className="w-8 h-8 text-orange-400 mt-2" />
-      <span className="text-xl font-bold mb-2">Wheel</span>
+      <span className="text-xl font-bold mb-2">Score: 73%</span>
       <span className="text-description-card">Visualize progress across all life areas</span>
     </div>
   </Widget>

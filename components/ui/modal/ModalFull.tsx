@@ -32,7 +32,7 @@ export const ModalFull: React.FC<ModalFullProps> = ({ onClose, children }) => {
         <CrossBtn onClick={onClose} />
       </div>
 
-      <div className="fixed right-0 left-0 top-10 border-b" >
+      <div className="fixed right-0 left-0 top-10" >
       </div>
 
       <div className="flex flex-col justify-between p-3 items-center">

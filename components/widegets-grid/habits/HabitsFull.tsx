@@ -1,20 +1,22 @@
-// components2/widegets-grid/habits/HabitsFull.tsx
+// components/widegets-grid/habits/HabitsFull.tsx
 import React from 'react'
+import { HabitsFullContent } from './HabitsFullContent'
 
 export const HabitsFull: React.FC = () => {
   return (
     <>
       {/* title */}
-      <div className="fixed left-3 top-3">
-        AI Coach
+      <div className="fixed left-3 top-3 text-title-card">
+        Habits
       </div>
 
-      {/* implementation here */}
       <>
-        <div className="">
-        ...
+        {/* content */}
+        <div className="fixed top-12 right-0 left-0 bottom-0 rounded-t-2xl p-2 border">
+          <HabitsFullContent/>
         </div>
       </>
     </>
   )
 }
+

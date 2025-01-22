@@ -2,7 +2,7 @@
 'use client'
 
 import { useState, useRef, useEffect } from 'react'
-import { FloatingChatBtn } from '@/components/floating-btn/floating-chat-btn'
+import { FloatingChatBtn } from '@/components/floating-btn/FloatingChatBtn'
 import { Header } from '@/components/header/Header'
 import { StickyTop } from '@/components/sticky-top/StickyTop'
 import { WidgetsGrid } from '@/components/widegets-grid/WidgetsGrid'
@@ -11,6 +11,9 @@ import { HabitsFull } from '@/components/widegets-grid/habits/HabitsFull'
 import { TodosFull } from '@/components/widegets-grid/todos/TodosFull'
 import { CheckinFull } from '@/components/widegets-grid/checkin/CheckinFull'
 import { AnalyticsFull } from '@/components/widegets-grid/analytics/AnalyticsFull'
+import { BadgesFull } from '@/components/widegets-grid/badges/BadgesFull'
+import { ShopFull } from '@/components/widegets-grid/shop/ShopFull'
+import { CoursesFull } from '@/components/widegets-grid/courses/CoursesFull'
 import { WheelFull } from '@/components/widegets-grid/wheel/WheelFull'
 import { ChatbotFull } from '@/components/floating-btn/ChatbotFull'
 
@@ -68,7 +71,8 @@ export default function Home() {
           onAdsClick={() => openModalFull('ads')}
           onShopClick={() => openModalFull('shop')}
           onCoursesClick={() => openModalFull('courses')}
-                 />
+          onChatbotClick={() => openModalFull('chatbot')}
+        />
       </div>
 
       {activeModalFull && (
@@ -79,6 +83,10 @@ export default function Home() {
           {activeModalFull === 'checkin' && <CheckinFull />}
           {activeModalFull === 'analytics' && <AnalyticsFull />}
           {activeModalFull === 'wheel' && <WheelFull />}
+          {activeModalFull === 'badges' && <BadgesFull />}
+          {activeModalFull === 'shop' && <ShopFull />}
+          {activeModalFull === 'courses' && <CoursesFull />}
+          {activeModalFull === 'chatbot' && <ChatbotFull />}
         </ModalFull>
       )}
     </div>
