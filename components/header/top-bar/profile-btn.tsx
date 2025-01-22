@@ -1,6 +1,6 @@
 // components/layout/header/profile-btn.tsx
-import { Button } from '@/old/components/ui/button'
-import { DropdownMenu, DropdownMenuContent, DropdownMenuTrigger, DropdownMenuItem, DropdownMenuSeparator } from '@/old/components/ui/dropdown-menu'
+import { Button } from '@/components/ui/button'
+import { DropdownMenu, DropdownMenuContent, DropdownMenuTrigger, DropdownMenuItem, DropdownMenuSeparator } from '@/components/ui/dropdown-menu'
 import { Settings, LogOut, UserPen } from 'lucide-react'
 import { BigAvatar } from '../user-card/BigAvatar'
 

@@ -105,8 +105,8 @@
 'use client'
 
 import React, { useState } from 'react'
-import { Button } from "@/old/components/ui/button"
-import { Progress } from "@/old/components/ui/progress"
+import { Button } from "@/components/ui/button"
+import { Progress } from "@/components/ui/progress"
 import { Flame, ChevronDown, ChevronUp } from 'lucide-react'
 
 interface ChallengeState {

@@ -1,8 +1,8 @@
 // components/layout/header/notification-btn.tsx
 import { useState } from 'react'
 import { motion } from 'framer-motion'
-import { Button } from '@/old/components/ui/button'
-import { DropdownMenu, DropdownMenuContent, DropdownMenuTrigger, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuItem } from '@/old/components/ui/dropdown-menu'
+import { Button } from '@/components/ui/button'
+import { DropdownMenu, DropdownMenuContent, DropdownMenuTrigger, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuItem } from '@/components/ui/dropdown-menu'
 import { Bell } from 'lucide-react'
 
 interface NotificationBtnProps {

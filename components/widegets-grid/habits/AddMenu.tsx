@@ -4,9 +4,9 @@ import {
     DropdownMenuContent,
     DropdownMenuItem,
     DropdownMenuTrigger,
-  } from "@/old/components/ui/dropdown-menu"
+  } from "@/components/ui/dropdown-menu"
   import { Plus } from 'lucide-react'
-  import { Button } from "@/old/components/ui/button"
+  import { Button } from "@/components/ui/button"
   
   interface AddMenuProps {
     onSelect: (option: string) => void
