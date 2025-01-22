@@ -2,7 +2,6 @@
 'use client'
 
 import { useState, useRef, useEffect } from 'react'
-import { FloatingChatBtn } from '@/components/floating-btn/FloatingChatBtn'
 import { Header } from '@/components/header/Header'
 import { StickyTop } from '@/components/sticky-top/StickyTop'
 import { WidgetsGrid } from '@/components/widegets-grid/WidgetsGrid'
@@ -15,6 +14,7 @@ import { BadgesFull } from '@/components/widegets-grid/badges/BadgesFull'
 import { ShopFull } from '@/components/widegets-grid/shop/ShopFull'
 import { CoursesFull } from '@/components/widegets-grid/courses/CoursesFull'
 import { WheelFull } from '@/components/widegets-grid/wheel/WheelFull'
+import { ChatbotButton } from '@/components/floating-btn/ChatbotButton'
 import { ChatbotFull } from '@/components/floating-btn/ChatbotFull'
 
 export default function Home() {
@@ -46,7 +46,7 @@ export default function Home() {
 
   return (
     <div className="relative min-h-screen min-w-screen bg-bg-orange">
-      <FloatingChatBtn onClick={() => openModalFull('chat')} />
+      <ChatbotButton onClick={() => openModalFull('chatbot')} />
 
       <div ref={headerRef} className="relative z-10">
         <Header />
@@ -71,7 +71,6 @@ export default function Home() {
           onAdsClick={() => openModalFull('ads')}
           onShopClick={() => openModalFull('shop')}
           onCoursesClick={() => openModalFull('courses')}
-          onChatbotClick={() => openModalFull('chatbot')}
         />
       </div>
 
@@ -79,7 +78,6 @@ export default function Home() {
         <ModalFull onClose={closeModalFull}>
           {activeModalFull === 'habits' && <HabitsFull />}
           {activeModalFull === 'todos' && <TodosFull />}
-          {activeModalFull === 'chat' && <ChatbotFull />}
           {activeModalFull === 'checkin' && <CheckinFull />}
           {activeModalFull === 'analytics' && <AnalyticsFull />}
           {activeModalFull === 'wheel' && <WheelFull />}
