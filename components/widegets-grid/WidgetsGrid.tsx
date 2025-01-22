@@ -36,7 +36,7 @@ export function WidgetsGrid({ onHabitsClick, onTodosClick, onCheckinClick, onAna
         <div><WheelWidget onWheelClick={onWheelClick} /></div>
         <div><BadgesWidget onBadgesClick={onBadgesClick} /></div>
       </div>
-      <AdsWidget onAdsClick={onAdsClick} />
+      <AdsWidget />
       <div className="grid grid-cols-2 gap-2">
         <div><ShopWidget onShopClick={onShopClick} /></div>
         <div><CoursesWidget onCoursesClick={onCoursesClick} /></div>
