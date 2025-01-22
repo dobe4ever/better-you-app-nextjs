@@ -2,9 +2,7 @@
 
 import './globals.css'
 import type { Metadata } from 'next'
-import { Inter, Nunito } from 'next/font/google'
-
-const inter = Inter({ subsets: ['latin'] })
+import { Nunito } from 'next/font/google'
 
 const nunito = Nunito({
   weight: ['400', '700', '900'],
@@ -27,7 +25,7 @@ export default function RootLayout({
       <head>
         <meta charSet="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0" />
       </head>
-      <body className={`${inter.className} ${nunito.className}`}>{children}</body>
+      <body className={`${nunito.className}`}>{children}</body>
     </html>
   )
 }

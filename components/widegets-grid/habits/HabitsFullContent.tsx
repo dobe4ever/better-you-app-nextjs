@@ -50,7 +50,7 @@ export function HabitsFullContent() {
     <div className="w-full h-full border-">
       <div className="flex-1 overflow-hidden flex flex-col gap-3">
 
-        <div className="p-4 shadow">
+        <div className="shadow">
           <ChallengeCard />
         </div>
 

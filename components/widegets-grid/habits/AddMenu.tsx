@@ -14,9 +14,10 @@ import {
   
   export function AddMenu({ onSelect }: AddMenuProps) {
     return (
+      // <div className="text-title-card">
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
-          <Button variant="ghost" size="sm" className="w-full justify-start">
+          <Button variant="ghost" size="lg" className="w-full justify-start border">
             <Plus className="h-4 w-4 mr-2" />
             Add a card
           </Button>
@@ -33,6 +34,7 @@ import {
           </DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>
+      // </div>
     )
   }
   

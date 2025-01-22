@@ -156,10 +156,10 @@ export function ChallengeCard() {
   const motivationalQuote = MOTIVATIONAL_QUOTES[Math.floor(Math.random() * MOTIVATIONAL_QUOTES.length)]
 
   return (
-    <div className="w-full bg-gradient-to-tr from-orange-500 via-red-400 to-yellow-300 rounded-3xl shadow-lg text-white p-6 space-y-6 transition-all">
+    <div className="w-full bg-white shadow-lg p-4 space-y-3 transition-all">
       {/* Header */}
       <div className="flex items-center justify-between">
-        <h2 className="text-xl font-bold flex items-center">
+        <h2 className="text-title-card flex items-center">
           <Flame className="mr-2 w-6 h-6" />
           {challenge.isRunning ? "Track Your Challenge" : "Set Your Challenge"}
         </h2>
@@ -185,7 +185,7 @@ export function ChallengeCard() {
                 <p className="text-sm text-white/80">
                   Select how long you want your challenge to last. Options are 1, 3, or 6 months.
                 </p>
-                <div className="flex gap-2 mt-3">
+                <div className="flex gap-2">
                   {['1', '3', '6'].map((timeframe) => (
                     <Button
                       key={timeframe}
@@ -205,7 +205,7 @@ export function ChallengeCard() {
                 <p className="text-sm text-white/80">
                   How challenging do you want this to be? Pick a level: Easy, Medium, or Max.
                 </p>
-                <div className="flex gap-2 mt-3">
+                <div className="flex gap-2">
                   {['Easy', 'Medium', 'Max'].map((intensity) => (
                     <Button
                       key={intensity}

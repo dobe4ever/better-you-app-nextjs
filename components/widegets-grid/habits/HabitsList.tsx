@@ -28,8 +28,8 @@ export function HabitsList({ title, cards, onAddCard }: HabitsListProps) {
   return (
     <div className="flex flex-col w-full bg-gray-100 rounded-xl shadow">
       {/* Header */}
-      <div className="flex items-center justify-between p-3 border-b border-gray-200">
-        <h3 className="font-medium text-gray-700">{title}</h3>
+      <div className="flex items-center justify-between p-2 border-b border-gray-200">
+        <h3 className="text-gray-600">{title}</h3>
         <Button
           variant="ghost"
           size="sm"
@@ -64,7 +64,7 @@ export function HabitsList({ title, cards, onAddCard }: HabitsListProps) {
       </div>
 
       {/* Footer */}
-      <div className="p-3 border-t border-gray-200">
+      <div className="p-2 border-t border-gray-200">
         <AddMenu onSelect={handleMenuSelect} />
       </div>
     </div>
