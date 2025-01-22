@@ -1,8 +1,23 @@
 // components2/shared/modal/ModalFull.ts
 
 import React from 'react'
-import { CrossBtn } from '@/components2/shared/icon/CloseModal'
-// import { TopNav } from '../layout/header/top-nav'
+import { Button } from '@/components/ui/button'
+import { X } from 'lucide-react'
+
+interface CrossBtnProps {
+  onClick: () => void;
+}
+
+export function CrossBtn({ onClick }: CrossBtnProps) {
+  return (
+    <div className="[&_svg]:size-6">
+      <Button variant="ghost" size="icon" className="text-orange-main pt-5" onClick={onClick}>
+        <X />
+      </Button>
+    </div>
+  )
+}
+
 
 interface ModalFullProps {
   onClose: () => void
