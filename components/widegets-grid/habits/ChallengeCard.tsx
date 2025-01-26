@@ -341,7 +341,7 @@ export const ChallengeCard: React.FC<ChallengeCardProps> = ({ onStart }) => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="p-6"
+            className="p-3"
           >
             <div className="space-y-6">
               <div className="flex justify-between items-center">
@@ -350,7 +350,7 @@ export const ChallengeCard: React.FC<ChallengeCardProps> = ({ onStart }) => {
                   onClick={() => setIsExpanded(false)}
                   className="text-gray-500 hover:text-gray-700"
                 >
-                  ✕
+                  ^
                 </button>
               </div>
 
