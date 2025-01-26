@@ -6,7 +6,18 @@ import { Eye, EyeOff } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { HabitCard } from "./HabitCard"
 import { AddMenu } from "./AddMenu"
-import type { HabitsListProps } from "@/types/list"
+
+interface HabitCard {
+  id: string
+  title: string
+  completed: boolean
+}
+
+interface HabitsListProps {
+  title: string
+  cards: HabitCard[]
+  onAddCard: (title: string) => void
+}
 
 export function HabitsList({ title, cards, onAddCard }: HabitsListProps) {
   const [isVisible, setIsVisible] = useState(true)
@@ -29,7 +40,7 @@ export function HabitsList({ title, cards, onAddCard }: HabitsListProps) {
     <div className="flex flex-col">
       
       {/* Header */}
-      <div className="flex items-center justify-between p- border-b">
+      <div className="flex items-center justify-between p-3 mt-4 border-t">
         <h3 className="text-gray-600">{title}</h3>
         <Button
           variant="ghost"
@@ -65,7 +76,7 @@ export function HabitsList({ title, cards, onAddCard }: HabitsListProps) {
       </div>
 
       {/* Footer */}
-      <div className="border-t">
+      <div className="relative bottom-0 w-full bg-white border-t">
         <AddMenu onSelect={handleMenuSelect} />
       </div>
     </div>
