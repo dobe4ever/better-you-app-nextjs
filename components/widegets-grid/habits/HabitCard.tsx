@@ -8,7 +8,7 @@ interface HabitCardProps {
 export function HabitCard({ title }: HabitCardProps) {
   return (
     <div className="
-        p-6
+        p-4
         bg-white 
         rounded-2xl 
         border shadow-md
