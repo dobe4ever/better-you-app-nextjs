@@ -36,6 +36,14 @@ export default function Home() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
+  useEffect(() => {
+    if (activeModalFull) {
+      document.body.classList.add('no-scroll')
+    } else {
+      document.body.classList.remove('no-scroll')
+    }
+  }, [activeModalFull])
+
   const openModalFull = (ModalFullName: string) => {
     setActiveModalFull(ModalFullName)
   }
@@ -90,5 +98,3 @@ export default function Home() {
     </div>
   )
 }
-
-

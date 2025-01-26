@@ -45,8 +45,8 @@ module.exports = {
       backgroundImage: {
         'bg-orange': 'linear-gradient(45deg, #f04c23, #f04c23, #f04c23, #f99f1c)',
         'gradient-orange': 'linear-gradient(45deg, #f04c23, #f99f1c)',
-        'gradient-white': 'linear-gradient(45deg, #FFF3E2, #FFFFE2, #FFFFFF)',
-        'gradient-tomato': 'linear-gradient(45deg, #ffd78a, #f4762d)',
+        'gradient-white': 'linear-gradient(0deg, #FFF3E2, #FFFFE2, #FFFFFF)',
+        'gradient-tomato': 'linear-gradient(180deg, #FFFFFF, #ffd78a, #f99f1c, #f4762d, #f4762d, #FFF3E2, #FFFFE2)',
         'gradient-pink': 'linear-gradient(45deg, #f74985, #46295c, #5355fb)',
         'artistic-home': "url('/src/assets/background.svg')",
       },

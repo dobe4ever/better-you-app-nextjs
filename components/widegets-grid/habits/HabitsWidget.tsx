@@ -1,4 +1,4 @@
-// components2/home/widegets-grid/habits/HabitsWidget.tsx
+// components/widegets-grid/habits/HabitsWidget.tsx
 
 import { Widget } from '@/components/ui/widget'
 

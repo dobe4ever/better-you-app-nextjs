@@ -1,4 +1,4 @@
-// components2/widegets-grid/WidgetsGrid.tsx
+// components/widegets-grid/WidgetsGrid.tsx
 'use client'
 
 import { PromoCard } from './promo-card/PromoCard'

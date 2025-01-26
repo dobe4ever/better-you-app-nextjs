@@ -1,3 +1,5 @@
+// types/list.tsx
+
 export interface HabitCard {
     id: string
     title: string

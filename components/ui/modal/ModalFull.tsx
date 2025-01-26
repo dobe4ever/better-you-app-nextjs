@@ -1,4 +1,4 @@
-// components2/shared/modal/ModalFull.ts
+// components/ui/modal/ModalFull.tsx
 
 import React from "react"
 import { Button } from "@/components/ui/button"
@@ -18,7 +18,6 @@ export function CrossBtn({ onClick }: CrossBtnProps) {
   )
 }
 
-
 interface ModalFullProps {
   onClose: () => void
   children: React.ReactNode
@@ -26,20 +25,16 @@ interface ModalFullProps {
 
 export const ModalFull: React.FC<ModalFullProps> = ({ onClose, children }) => {
   return (
-    <div className="fixed inset-0 items-center bg-white border z-50">
-
-      <div className="fixed right-2 top-2" >
+    <div className="fixed inset-0 items-center bg-gradient-orange border z-50">
+      <div className="fixed right-2 top-2">
         <CrossBtn onClick={onClose} />
       </div>
 
-      <div className="fixed right-0 left-0 top-10" >
+      <div className="fixed right-0 left-0 top-10 bottom-0 overflow-y-auto">
+        <div className="flex flex-col justify-between p-3 items-center">
+          {children}
+        </div>
       </div>
-
-      <div className="flex flex-col justify-between p-3 items-center">
-        {children}
-      </div>
-
     </div>
   )
 }
-

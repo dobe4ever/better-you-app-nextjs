@@ -1,4 +1,4 @@
-// components2/shared/widget/widget.tsx
+// components/ui/widget.tsx
 
 import { ReactNode } from 'react'
 import { ChevronRight } from 'lucide-react'

@@ -271,7 +271,8 @@
 //   )
 // }
 
-// components/challenge/challenge-card.tsx
+// components/widegets-grid/habits/ChallengeCard.tsx
+
 'use client'
 
 // ChallengeCard.tsx
@@ -293,7 +294,7 @@ export const ChallengeCard: React.FC<ChallengeCardProps> = ({ onStart }) => {
   return (
     <motion.div
       layout
-      className="w-full max-w-2xl mx-auto bg-white rounded-3xl shadow-xl overflow-hidden"
+      className="w-full max-w-2xl mx-auto bg-white rounded-3xl shadow- overflow-hidden"
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4 }}
@@ -303,11 +304,11 @@ export const ChallengeCard: React.FC<ChallengeCardProps> = ({ onStart }) => {
         {!isExpanded && (
           <motion.div
             key="challenge-button"
-            className="p-6 cursor-pointer"
+            className="cursor-pointer"
             onClick={() => setIsExpanded(true)}
             exit={{ opacity: 0 }}
           >
-            <div className="flex items-center justify-between">
+            <div className="py-1 px-2 flex items-center justify-between">
               <div className="flex items-center space-x-4">
                 <div className="relative">
                   <motion.div

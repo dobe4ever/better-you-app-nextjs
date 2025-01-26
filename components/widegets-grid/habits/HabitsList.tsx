@@ -26,9 +26,10 @@ export function HabitsList({ title, cards, onAddCard }: HabitsListProps) {
   }
 
   return (
-    <div className="flex flex-col w-full bg-gray-100 rounded-xl shadow">
+    <div className="flex flex-col">
+      
       {/* Header */}
-      <div className="flex items-center justify-between p-2 border-b border-gray-200">
+      <div className="flex items-center justify-between p- border-b">
         <h3 className="text-gray-600">{title}</h3>
         <Button
           variant="ghost"
@@ -49,14 +50,14 @@ export function HabitsList({ title, cards, onAddCard }: HabitsListProps) {
         {isVisible && cards.map((card) => <HabitCard key={card.id} title={card.title} />)}
 
         {isAdding && (
-          <div className="mb-2">
+          <div className="mb-">
             <input
               type="text"
               value={newCardTitle}
               onChange={(e) => setNewCardTitle(e.target.value)}
               onKeyDown={(e) => e.key === "Enter" && handleAddCard()}
               placeholder="Enter card title..."
-              className="w-full p-2 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full p- rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
               autoFocus
             />
           </div>
@@ -64,7 +65,7 @@ export function HabitsList({ title, cards, onAddCard }: HabitsListProps) {
       </div>
 
       {/* Footer */}
-      <div className="p-2 border-t border-gray-200">
+      <div className="border-t">
         <AddMenu onSelect={handleMenuSelect} />
       </div>
     </div>

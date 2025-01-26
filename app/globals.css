@@ -4,6 +4,11 @@
 @tailwind components;
 @tailwind utilities;
 
+
+.no-scroll {
+  overflow: hidden;
+}
+
 /* Hide scrollbars everywhere by default */
 * {
   -ms-overflow-style: none;  /* IE and Edge */

@@ -1,5 +1,5 @@
-
 // components/widegets-grid/habits/HabitsFullContent.tsx
+
 'use client'
 
 import { useState, useEffect } from 'react'
@@ -48,27 +48,42 @@ export function HabitsFullContent() {
   ]);
 
   return (
-    <div className="w-full h-full border-">
+    <div className="w-full h-full border- overflow-y-auto">
       <div className="flex-1 overflow-hidden flex flex-col gap-3">
       
         <div className="
-          relative 
-          overflow-hidden 
+          relative
+          p-3
           bg-white 
           rounded-2xl 
-          shadow-[0_5px_5px_rgba(0,0,0,0.25)]
+          border shadow-md
         ">
           <ChallengeCard />
         </div>
 
+        <div className="
+          relative 
+          p-3
+          bg-white 
+          rounded-2xl 
+          border shadow-md
+        ">
         <DateNavigation selectedDate={selectedDate} onDateChange={setSelectedDate} />
         {/* <ActionButtons
           showCompleted={showCompleted}
           onToggleCompleted={() => setShowCompleted(!showCompleted)}
         />
         <HabitCardList habits={habits} setHabits={setHabits} showCompleted={showCompleted} /> */}
+        </div>
 
-        <div className="pt-4 text-title-card">
+        <div className="
+          relative 
+          p-3
+          mb-3
+          bg-white 
+          rounded-2xl 
+          border shadow-md
+        ">
           <HabitsList title="Habits's" cards={cards} onAddCard={handleAddCard} />
         </div>
 
@@ -147,7 +162,7 @@ function ActionButtons({ showCompleted, onToggleCompleted }: { showCompleted: bo
         {/* Show/hide completed button */}
         <Button
           variant="secondary"text-acti
-          className="flex-1 min-w-[140px] h-12 items-center justify-center whitespace-nowrap bg-gradient-orange text-action-buttons"
+          className="flex-1 min-w-[140px] h-12 items-center justify-center whitespace-nowrap text-action-buttons"
           onClick={onToggleCompleted}
         >
           {showCompleted ? <EyeOff className="h-5 w-5" /> : <Eye className="h-5 w-5" />}
@@ -158,7 +173,7 @@ function ActionButtons({ showCompleted, onToggleCompleted }: { showCompleted: bo
           <DropdownMenuTrigger asChild>
             <Button 
               variant="secondary" 
-              className="flex-1 min-w-[140px] h-12 items-center justify-center whitespace-nowrap bg-gradient-orange text-action-buttons"
+              className="flex-1 min-w-[140px] h-12 items-center justify-center whitespace-nowrap text-action-buttons"
             >
               <Zap className="h-5 w-5" />
               <span>Challenge</span>
@@ -173,7 +188,7 @@ function ActionButtons({ showCompleted, onToggleCompleted }: { showCompleted: bo
           <DropdownMenuTrigger asChild>
             <Button 
               variant="secondary" 
-              className="h-12 w-12 p-0 flex items-center justify-center bg-gradient-orange text-white"
+              className="h-12 w-12 p-0 flex items-center justify-center text-white"
             >
               {/* <Plus className="h-6 w-6" /> */}
               <span className="text-action-buttons">+</span>
