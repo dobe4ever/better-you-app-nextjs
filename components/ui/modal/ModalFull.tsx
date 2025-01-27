@@ -11,7 +11,7 @@ interface CrossBtnProps {
 export function CrossBtn({ onClick }: CrossBtnProps) {
   return (
     <div className="[&_svg]:size-5">
-      <Button variant="ghost" size="icon" className="text-orange-main" onClick={onClick}>
+      <Button variant="ghost" size="icon" className="text-white" onClick={onClick}>
         <X />
       </Button>
     </div>

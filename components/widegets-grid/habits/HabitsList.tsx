@@ -51,7 +51,7 @@ export function HabitsList({ cards, onAddCard }: HabitsListProps) {
         {/* Date Navigator */}
         <DateNavigation selectedDate={selectedDate} onDateChange={setSelectedDate} />
         {/* Quick action icons */}
-        <div className="flex justify-between items-center border-white border-t">
+        <div className="flex justify-between items-center border-gray-300 border-t">
           <h1>Habits</h1>
           <Button
             variant="ghost"

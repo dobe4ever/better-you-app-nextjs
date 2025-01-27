@@ -170,7 +170,7 @@ module.exports = {
           lineHeight: '1', // 1 =  lineHeight to fontSize ratio (40px)
           fontWeight: '700',
           textAlign: 'left',
-          color: 'black',
+          // color: 'black',
         },
         '.text-description-card': {
           // fontSize: '12px',

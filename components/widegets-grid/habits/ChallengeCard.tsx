@@ -294,7 +294,7 @@ export const ChallengeCard: React.FC<ChallengeCardProps> = ({ onStart }) => {
   return (
     <motion.div
       layout
-      className="w-full my-2 mx-auto bg-white/50 rounded-2xl border shadow-md overflow-y-auto"
+      className="w-full my-2 mx-auto bg-white rounded-3xl border shadow-md overflow-y-auto"
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4 }}
@@ -308,29 +308,33 @@ export const ChallengeCard: React.FC<ChallengeCardProps> = ({ onStart }) => {
             onClick={() => setIsExpanded(true)}
             exit={{ opacity: 0 }}
           >
-            <div className="p-4 flex items-center justify-between">
+            <div className="p-2 flex items-center justify-between">
               <div className="flex items-center space-x-4">
+
                 <div className="relative">
                   <motion.div
-                    animate={{ scale: [1, 1.1, 1] }}
+                    animate={{ scale: [1, 1.2, 1] }}
                     transition={{ repeat: Infinity, duration: 2 }}
-                    className="w-12 h-12 bg-orange-500 rounded-full flex items-center justify-center"
+                    className="w-12 h-12 rounded-full flex items-center justify-center"
                   >
-                    <span className="text-2xl">🚀</span>
+                    <span className="text-2xl">🔥</span>
                   </motion.div>
                 </div>
+
                 <div>
-                  <h3 className="text-xl font-bold text-gray-900">Start a Challenge!</h3>
+                  <h3 className="text-title-orange">Start a Challenge!</h3>
                   <p className="text-gray-600">Push your limits, level up your game</p>
                 </div>
-              </div>
-              <motion.div
-                animate={{ x: [0, 10, 0] }}
-                transition={{ repeat: Infinity, duration: 1.5 }}
-              >
-                <span className="text-2xl">👉</span>
-              </motion.div>
-            </div>
+
+                </div>
+                  <motion.div
+                    animate={{ scale: [1, 1.2, 1] }}
+                    transition={{ repeat: Infinity, duration: 2 }}
+                    className="w-12 h-12 rounded-full flex items-center justify-center"
+                  >
+                    <span className="text-2xl">🔥</span>
+                  </motion.div>
+                </div>
           </motion.div>
         )}
 
