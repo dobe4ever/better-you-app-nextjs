@@ -29,8 +29,8 @@ export function DateNavigation({ selectedDate, onDateChange }: { selectedDate: D
     }
   
     return (
-      <div className="flex flex-col items-center space-y-4">
-        <div className="flex items-center space-x-4">
+      <div className="flex flex-col items-center space-y-4 bg-gray-200 p-3 rounded-t-2xl">
+        <div className="flex items-center space-x-6">
           <Button 
             variant="ghost" 
             size="icon" 
@@ -58,7 +58,7 @@ export function DateNavigation({ selectedDate, onDateChange }: { selectedDate: D
               className={`size-2 rounded-full transition-colors ${
                 date.toDateString() === selectedDate.toDateString()
                   ? 'bg-orange-500'
-                  : 'bg-gray-300'
+                  : 'bg-white'
               }`}
               onClick={() => onDateChange(date)}
               aria-label={date.toLocaleDateString()}

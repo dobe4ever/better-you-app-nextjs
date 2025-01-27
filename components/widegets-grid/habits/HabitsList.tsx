@@ -7,6 +7,8 @@ import { Button } from "@/components/ui/button"
 import { HabitCard } from "./HabitCard"
 import { AddMenu } from "./AddMenu"
 
+import { DateNavigation } from './DateNavigation'
+
 interface HabitCard {
   id: string
   title: string
@@ -19,6 +21,8 @@ interface HabitsListProps {
 }
 
 export function HabitsList({ cards, onAddCard }: HabitsListProps) {
+  const [selectedDate, setSelectedDate] = useState(new Date())
+
   const [isVisible, setIsVisible] = useState(true)
   const [isAdding, setIsAdding] = useState(false)
   const [newCardTitle, setNewCardTitle] = useState("")
@@ -36,40 +40,46 @@ export function HabitsList({ cards, onAddCard }: HabitsListProps) {
   }
 
   return (
+    // Main list wrapper
+    <div className="w-full max-h-screen rounded-3xl bg-gray-200">
+
+    {/* wrapper for header, boddy , footer*/}
     <div className="flex flex-col">
       
       {/* Header */}
-      <div className="flex items-center justify-between p-3 mt-4 border-t">
-
-        <h3 className="text-gray-600">Habits</h3>
-        
-        <Button
-          variant="ghost"
-          size="sm"
-          onClick={() => setIsVisible(!isVisible)}
-          className="p-1 hover:bg-gray-200"
-        >
-          {isVisible ? (
-            <Eye className="h-4 w-4" />
-          ) : (
-            <EyeOff className="h-4 w-4" />
-          )}
-        </Button>
+      <div className="flex flex-col w-full p-3 border-white">
+        {/* Date Navigator */}
+        <DateNavigation selectedDate={selectedDate} onDateChange={setSelectedDate} />
+        {/* Quick action icons */}
+        <div className="flex justify-between items-center border-white border-t">
+          <h1>Habits</h1>
+          <Button
+            variant="ghost"
+            size="sm"
+            onClick={() => setIsVisible(!isVisible)}
+            className="p-1"
+          >
+            {isVisible ? (
+              <Eye className="h-4 w-4" />
+            ) : (
+              <EyeOff className="h-4 w-4" />
+            )}
+          </Button>
+        </div>
       </div>
 
       {/* Body */}
-      <div className="flex-1 overflow-y-auto max-h-[calc(100vh-16rem)] p-3">
+      <div className="flex-1 overflow-y-auto max-h-[calc(82vh-16rem)] p-3">
         {isVisible && cards.map((card) => <HabitCard key={card.id} title={card.title} />)}
-
         {isAdding && (
-          <div className="mb-">
+          <div className="m-2">
             <input
               type="text"
               value={newCardTitle}
               onChange={(e) => setNewCardTitle(e.target.value)}
               onKeyDown={(e) => e.key === "Enter" && handleAddCard()}
               placeholder="Enter card title..."
-              className="w-full p- rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full p-2 rounded focus:ring-blue-500"
               autoFocus
             />
           </div>
@@ -77,9 +87,12 @@ export function HabitsList({ cards, onAddCard }: HabitsListProps) {
       </div>
 
       {/* Footer */}
-      <div className="fixed bottom-0 w-full bg-white border-t">
+      <div className="border-t rounded-b-3xl">
         <AddMenu onSelect={handleMenuSelect} />
-      </div>
+      </div> 
+
     </div>
+
+    </div> 
   )
 }

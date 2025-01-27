@@ -294,7 +294,7 @@ export const ChallengeCard: React.FC<ChallengeCardProps> = ({ onStart }) => {
   return (
     <motion.div
       layout
-      className="w-full max-w-2xl mx-auto bg-white rounded-3xl shadow- overflow-hidden"
+      className="w-full my-2 mx-auto bg-white/50 rounded-2xl border shadow-md overflow-y-auto"
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4 }}
@@ -308,7 +308,7 @@ export const ChallengeCard: React.FC<ChallengeCardProps> = ({ onStart }) => {
             onClick={() => setIsExpanded(true)}
             exit={{ opacity: 0 }}
           >
-            <div className="py-1 px-2 flex items-center justify-between">
+            <div className="p-4 flex items-center justify-between">
               <div className="flex items-center space-x-4">
                 <div className="relative">
                   <motion.div
