@@ -53,7 +53,7 @@ export default function Home() {
   }
 
   return (
-    <div className="relative min-h-screen min-w-screen bg-bg-orange">
+    <div className="relative min-h-screen w-full bg-bg-orange">
       <ChatbotButton onClick={() => openModalFull('chatbot')} />
 
       <div ref={headerRef} className="relative z-10">
