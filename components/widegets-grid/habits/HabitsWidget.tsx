@@ -1,6 +1,6 @@
 // components/widegets-grid/habits/HabitsWidget.tsx
 
-import { Widget } from '@/components/ui/widget'
+import { Widget } from '@/components/widegets-grid/widget'
 
 // HabitsWidget component
 export function HabitsWidget({ onHabitsClick }: { onHabitsClick: () => void }) {

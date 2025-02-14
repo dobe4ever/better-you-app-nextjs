@@ -1,4 +1,4 @@
-// components/layout/header/hamburger-btn.tsx
+// components/header/top-bar/hamburger-btn.tsx
 import { Button } from '@/components/ui/button'
 import { DropdownMenu, DropdownMenuContent, DropdownMenuTrigger, DropdownMenuItem } from '@/components/ui/dropdown-menu'
 import { Menu } from 'lucide-react'

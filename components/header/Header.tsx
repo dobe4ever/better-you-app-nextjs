@@ -1,4 +1,4 @@
-// components2/header/Header.tsx
+// components/header/Header.tsx
 
 import { UserCard } from './user-card/UserCard'
 import { TopBar } from './top-bar/TopBar'

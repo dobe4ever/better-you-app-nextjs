@@ -1,6 +1,6 @@
 // components2/home/widegets-grid/todos/TodosWdiget.tsx
 
-import { Widget } from '@/components/ui/widget'
+import { Widget } from '@/components/widegets-grid/widget'
 
 // TodosWidget component
 export function TodosWidget({ onTodosClick }: { onTodosClick: () => void }) {

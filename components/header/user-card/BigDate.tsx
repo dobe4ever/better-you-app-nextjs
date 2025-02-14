@@ -1,4 +1,4 @@
-// components2/header/big-date.tsx
+// components/header/user-card/BigDate.tsx
 import { motion } from 'framer-motion'
 
 export function BigDate() {

@@ -70,7 +70,8 @@ export function HabitsList({ cards, onAddCard }: HabitsListProps) {
 
       {/* Body */}
       <div className="flex-1 overflow-y-auto max-h-[calc(82vh-16rem)] p-3">
-        {isVisible && cards.map((card) => <HabitCard key={card.id} title={card.title} />)}
+        {isVisible && cards.map(
+          (card) => <HabitCard key={card.id} title={card.title} />)}
         {isAdding && (
           <div className="m-2">
             <input

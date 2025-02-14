@@ -1,4 +1,4 @@
-// components/layout/header/top-bar.tsx
+// components/header/top-bar/TopBar.tsx
 import { HamburgerBtn } from './hamburger-btn'
 import { LogoWhite } from './logo'
 import { NotificationBtn } from './notification-btn'

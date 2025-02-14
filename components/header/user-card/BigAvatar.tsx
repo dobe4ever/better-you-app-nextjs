@@ -1,4 +1,4 @@
-// components2/header/big-avatar.tsx
+// components/header/user-card/BigAvatar.tsx
 
 import React from 'react'
 

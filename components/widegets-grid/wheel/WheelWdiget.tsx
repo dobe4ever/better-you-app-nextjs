@@ -1,6 +1,6 @@
 // components2/home/widegets-grid/wheel/WheelWdiget.tsx
 
-import { Widget } from '@/components/ui/widget'
+import { Widget } from '@/components/widegets-grid/widget'
 import { LoaderPinwheel } from 'lucide-react'
 
 // WheelWidget component

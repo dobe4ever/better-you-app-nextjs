@@ -4,7 +4,7 @@
 
 import { useState } from 'react'
 import { ChevronRight, ChevronLeft } from 'lucide-react'
-import { Widget } from '@/components/ui/widget'
+import { Widget } from '@/components/widegets-grid/widget'
   
 // AdsCarouselWidget component
 export function AdsWidget() {

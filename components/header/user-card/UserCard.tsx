@@ -1,4 +1,4 @@
-// components2/header/user-card.tsx
+// components/header/user-card/UserCard.tsx
 
 import { BigAvatar } from './BigAvatar'
 import { BigDate } from './BigDate'

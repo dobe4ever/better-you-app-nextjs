@@ -1,4 +1,4 @@
-// components/layout/header/profile-btn.tsx
+// components/header/top-bar/profile-btn.tsx
 import { Button } from '@/components/ui/button'
 import { DropdownMenu, DropdownMenuContent, DropdownMenuTrigger, DropdownMenuItem, DropdownMenuSeparator } from '@/components/ui/dropdown-menu'
 import { Settings, LogOut, UserPen } from 'lucide-react'

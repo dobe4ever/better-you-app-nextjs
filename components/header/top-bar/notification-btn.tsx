@@ -1,4 +1,4 @@
-// components/layout/header/notification-btn.tsx
+// components/header/top-bar/notification-btn.tsx
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { Button } from '@/components/ui/button'

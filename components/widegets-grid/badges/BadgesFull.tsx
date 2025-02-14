@@ -1,7 +1,6 @@
 // components/widegets-grid/badges/BadgesFull.tsx
 
 import React from 'react'
-import { BadgesFullContent } from "./BadgesFullContent"
 
 export const BadgesFull: React.FC = () => {
   return (
@@ -14,7 +13,7 @@ export const BadgesFull: React.FC = () => {
       <>
       {/* content */}
         <div className="fixed top-12 right-0 left-0 bottom-0 rounded-t-2xl p-2 border">
-          <BadgesFullContent/>
+          ...
         </div>
       </>
     </>

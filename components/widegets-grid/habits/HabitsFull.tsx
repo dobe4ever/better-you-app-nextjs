@@ -5,7 +5,6 @@
 import React from 'react'
 import { useState } from "react"
 import { ChallengeCard } from './ChallengeCard'
-// import { DateNavigation } from './DateNavigation'
 import { HabitsList } from './HabitsList'
 
 export const HabitsFull: React.FC = () => {
@@ -39,13 +38,12 @@ export const HabitsFull: React.FC = () => {
       <div className="fixed left-3 top-3 text-white text-title-card">
         Habits
       </div>
-
-      {/* <div className="h-full w-full"> */}
         <div className="flex flex-col ">
           <div><ChallengeCard /></div>
-          <div className="relative overflow-y-auto"><HabitsList cards={cards} onAddCard={handleAddCard} /></div>
+            <div className="relative overflow-y-auto">
+              <HabitsList cards={cards} onAddCard={handleAddCard} />
+            </div>
         </div>
-      {/* </div> */}
     </>
   )
 }
